@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.UserMapper">
+
+    <insert id="insertUser" parameterType="com.fjut.oj.pojo.User">
+          insert into users(username, password)
+          values(#{username}, #{password})
+    </insert>
+
+    <select id="queryByUsernameAndPassword" resultType="com.fjut.oj.pojo.User">
+          select *
+          from Users
+        <where>
+            <if test="username != null and username != ''">
+                and
+                username = #{username}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryAll" resultType="com.fjut.oj.pojo.User">
+        select *
+        from Users
+    </select>
+
+    <select id="queryUserByUsername" resultType="com.fjut.oj.pojo.User">
+        select *
+        from users
+        <where>
+            <if test="username != null and username != ''">
+                and
+                username = #{username}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateUserByUsername" parameterType="com.fjut.oj.pojo.User">
+        	update users
+        	set password=#{password}
+        	where username= #{username}
+    </update>
+
+    <delete id="deleteUserByUsername" parameterType="com.fjut.oj.pojo.User">
+        delete from users where username  = #{username}
+    </delete>
+
+    <select id="queryUserRadar1" resultType="com.fjut.oj.pojo.UserRadar1">
+        select username,ttype,count(*) as num
+        from (SELECT username,pid FROM t_usersolve where username = #{user} and status=1)
+        a join (SELECT pid,(SELECT ttype FROM t_problem_tag WHERE id=tagid)
+        as ttype,sum(rating-500)
+        as ss  FROM t_problem_tag_record group by ttype,pid) b on a.pid=b.pid where b.ss>0 group by ttype
+    </select>
+
+
+    <select id="queryUserRadar2" resultType="com.fjut.oj.pojo.UserRadar2">
+        select ttype,count(*)
+        as num from (SELECT username,pid FROM t_usersolve where  status=1) a join
+        (SELECT pid,(SELECT ttype FROM t_problem_tag WHERE id=tagid) as ttype,sum(rating-500)
+        as ss  FROM t_problem_tag_record group by ttype,pid) b on a.pid=b.pid where b.ss>0 group by ttype
+    </select>
+
+    <select id="queryPutTagNumByUsername" resultType="java.lang.Integer">
+        SELECT COUNT(pid)
+        FROM (SELECT username,pid FROM t_problem_tag_record GROUP BY username,pid)t
+        WHERE username=#{username} GROUP BY username
+    </select>
+
+    <select id="queryStatusProblemsByUsername" resultType="java.lang.Integer">
+        SELECT pid
+        FROM t_usersolve
+        WHERE STATUS=#{status} AND username=#{username}
+    </select>
+</mapper>

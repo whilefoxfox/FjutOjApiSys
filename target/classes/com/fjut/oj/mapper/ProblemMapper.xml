@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.ProblemMapper">
+
+    <select id="queryAllProblems" resultType="com.fjut.oj.pojo.Problem">
+          select *
+          from problem
+          order by pid
+    </select>
+
+    <select id="queryProblemById" resultType="com.fjut.oj.pojo.Problem">
+        select *
+        from problem
+        <where>
+            pid = #{pid}
+        </where>
+    </select>
+
+    <select id="queryProblemByTitle" resultType="com.fjut.oj.pojo.Problem">
+        select *
+        from problem
+        <where>
+            title like '%${title}%';
+        </where>
+    </select>
+
+</mapper>
