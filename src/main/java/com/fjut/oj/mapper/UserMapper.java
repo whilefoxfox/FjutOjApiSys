@@ -31,4 +31,11 @@ public interface UserMapper {
     int queryPutTagNumByUsername(@Param("username") String username);
 
     List<Integer> queryStatusProblemsByUsername(@Param("status")Integer status, @Param("username")String username);
+
+    List<Integer> queryCanViewCodeProblemsByUsername(@Param("username")String username);  // 查询用户已经贴过标签的题目
+
+    List<User> queryRichTop10();
+
+    List<User> queryAcnumTop10();
+
 }

@@ -68,7 +68,6 @@ public class UserController {
         user.setUsername(req.getParameter("username"));
         user.setPassword(req.getParameter("password"));
 
-
         boolean flag = userService.insertUser(user);
         if (flag){
             return JsonMsg.success().addInfo(user);
@@ -173,5 +172,17 @@ public class UserController {
             return JsonMsg.success().addInfo(list);
         }
         return JsonMsg.fail().addInfo("未查找到用户相关题目的信息！");
+    }
+
+    /**
+     * 查询一个用户待贴标签的题目
+     */
+    @RequestMapping("/queryCanViewCodeProblemsByUsername")
+    @ResponseBody
+    public JsonMsg queryCanViewCodeProblemsByUsername(HttpServletRequest request,HttpServletResponse response){
+        String username = "cjt152";
+
+        List<Integer> list = userService.queryNotPutTagProblemsByUsername(username);
+        return JsonMsg.fail().addInfo(list);
     }
 }

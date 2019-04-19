@@ -71,4 +71,16 @@
         FROM t_usersolve
         WHERE STATUS=#{status} AND username=#{username}
     </select>
+
+    <select id="queryCanViewCodeProblemsByUsername" resultType="java.lang.Integer">
+        SELECT pid FROM t_viewcode WHERE username=#{username} AND `type`=0
+    </select>
+
+    <select id="queryRichTop10" resultType="com.fjut.oj.pojo.User">
+        SELECT * FROM users ORDER BY acb desc,rating desc LIMIT 0,10
+    </select>
+
+    <select id="queryAcnumTop10" resultType="com.fjut.oj.pojo.User">
+        SELECT * FROM users ORDER BY acnum desc,rating desc LIMIT 0,10
+    </select>
 </mapper>

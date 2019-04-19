@@ -6,6 +6,7 @@ import com.fjut.oj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("UserService")
@@ -64,4 +65,33 @@ public class UserServiceImpl implements UserService {
         List<Integer> list = userMapper.queryStatusProblemsByUsername(status, username);
         return list;
     }
+
+    @Override
+    public List<Integer> queryNotPutTagProblemsByUsername(String username) {
+
+        List<Integer> list1 = userMapper.queryStatusProblemsByUsername(1,username);
+        List<Integer> list2 = userMapper.queryCanViewCodeProblemsByUsername(username);
+        List<Integer> list3 = new ArrayList<>();
+
+        for(Integer pid : list1){
+            if (!list2.contains(pid)){
+                list3.add(pid);
+            }
+        }
+        return list3;
+    }
+
+    @Override
+    public List<User> queryRichTop10() {
+        List<User> list = userMapper.queryRichTop10();
+        return list;
+    }
+
+    @Override
+    public List<User> queryAcnumTop10() {
+        List<User> list = userMapper.queryAcnumTop10();
+        return null;
+    }
+
+
 }
