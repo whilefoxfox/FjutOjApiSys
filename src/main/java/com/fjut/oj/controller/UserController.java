@@ -78,7 +78,7 @@ public class UserController {
     /**
      * 获取所有的用户信息
      */
-    @RequestMapping("/queryAllUsers")
+    @RequestMapping("/GAllUsers")
     @ResponseBody
     public JsonMsg queryAllUsers(){
         List<User> list = userService.queryAll();
@@ -91,7 +91,7 @@ public class UserController {
     /**
      * 获取用户的雷达图
      */
-    @RequestMapping("/getUserRadar")
+    @RequestMapping("/GUserRadar")
     @ResponseBody
     public JsonMsg getUserRadar(HttpServletRequest request,HttpServletResponse response){
 
@@ -106,7 +106,7 @@ public class UserController {
     /**
      *  获取一个用户提交所有题目的次数
      */
-    @RequestMapping("/querySubmitCountByUsername")
+    @RequestMapping("/GSubmitCount")
     @ResponseBody
     public JsonMsg querySubmitCountByUsername(HttpServletRequest request,HttpServletResponse response){
 
@@ -122,7 +122,7 @@ public class UserController {
     /**
      * 获取一个用户个人信息界面的信息
      */
-    @RequestMapping("/queryUserInfoByUsername")
+    @RequestMapping("/GUserInfo")
     @ResponseBody
     public JsonMsg queryUserInfoByUsername(HttpServletRequest request,HttpServletResponse response){
 
@@ -140,7 +140,7 @@ public class UserController {
     /**
      * 获取一个用户贴过题目标签的数量
      */
-    @RequestMapping("/queryPutTagNumByUsername")
+    @RequestMapping("/GPutTagNum")
     @ResponseBody
     public JsonMsg queryPutTagNumByUsername(HttpServletRequest request,HttpServletResponse response){
 
@@ -158,7 +158,7 @@ public class UserController {
     /**
      * 获取一个用户已经 AC 和未解决 题目的数量
      */
-    @RequestMapping("/queryStatusProblemsByUsername")
+    @RequestMapping("/GStatusProblems")
     @ResponseBody
     public JsonMsg queryStatusProblemsByUsername(HttpServletRequest request,HttpServletResponse response){
         //Integer status = Integer.parseInt(request.getParameter("status"));
@@ -177,12 +177,25 @@ public class UserController {
     /**
      * 查询一个用户待贴标签的题目
      */
-    @RequestMapping("/queryCanViewCodeProblemsByUsername")
+    @RequestMapping("/GNotPutTagProblems")
     @ResponseBody
     public JsonMsg queryCanViewCodeProblemsByUsername(HttpServletRequest request,HttpServletResponse response){
-        String username = "cjt152";
 
+        String username = "cjt152";
         List<Integer> list = userService.queryNotPutTagProblemsByUsername(username);
-        return JsonMsg.fail().addInfo(list);
+        return JsonMsg.success().addInfo(list);
+    }
+
+    /**
+     * 查询一个用户所有的权限
+     */
+    @RequestMapping("/GUserPermission")
+    @ResponseBody
+    public JsonMsg queryUserPermission(HttpServletRequest request,HttpServletResponse response){
+        String username = request.getParameter("username");
+        username = "cjt152";
+
+        List<Integer> list = userService.queryUserPermission(username);
+        return JsonMsg.success().addInfo(list);
     }
 }

@@ -16,4 +16,5 @@ public interface UserService {
     public List<Integer> queryNotPutTagProblemsByUsername(String username); // 查询用户未贴标签的题目
     public List<User> queryRichTop10();                  // 获取用户 ACB 排行榜前10
     public List<User> queryAcnumTop10();                 // 获取用户 AC 题目数量前10
+    public List<Integer> queryUserPermission(String username); // 获取用户权限
 }

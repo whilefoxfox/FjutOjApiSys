@@ -3,4 +3,4 @@
         margin: 0;
         height: 100%;
         background-color:#fafafa;
-      }</style><link href=./static/css/app.337ea8c75e81982e1777a176150e47fe.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.19ad467e531fde3cbe9b.js></script><script type=text/javascript src=./static/js/vendor.b1cacc456f5943d4b5a9.js></script><script type=text/javascript src=./static/js/app.7ebcce5bd7eda266b74b.js></script></body></html>
+      }</style><link href=./static/css/app.2cfc67cff3691933684ffbd5ef9bf340.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.7becc144aa2613da08f4.js></script><script type=text/javascript src=./static/js/vendor.04b4534ad79f0078cbbd.js></script><script type=text/javascript src=./static/js/app.ef57ec483ad566d8d633.js></script></body></html>

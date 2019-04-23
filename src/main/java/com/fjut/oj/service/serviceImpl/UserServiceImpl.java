@@ -90,7 +90,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryAcnumTop10() {
         List<User> list = userMapper.queryAcnumTop10();
-        return null;
+        return list;
+    }
+
+    @Override
+    public List<Integer> queryUserPermission(String username) {
+        List<Integer> list = userMapper.queryUserPermission(username);
+        return list;
     }
 
 

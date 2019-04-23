@@ -3,11 +3,8 @@ package com.fjut.oj.mapper;
 import com.fjut.oj.pojo.User;
 import com.fjut.oj.pojo.UserRadar1;
 import com.fjut.oj.pojo.UserRadar2;
-import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 public interface UserMapper {
@@ -38,4 +35,5 @@ public interface UserMapper {
 
     List<User> queryAcnumTop10();
 
+    List<Integer> queryUserPermission(@Param("username") String username);
 }

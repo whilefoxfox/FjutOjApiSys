@@ -24,4 +24,10 @@
         </where>
     </select>
 
+    <select id="queryProblemsNum" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM  problem
+        WHERE visiable = 1
+    </select>
+
 </mapper>
