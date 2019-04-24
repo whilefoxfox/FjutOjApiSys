@@ -83,4 +83,8 @@
     <select id="queryAcnumTop10" resultType="com.fjut.oj.pojo.User">
         SELECT * FROM users ORDER BY acnum desc,rating desc LIMIT 0,10
     </select>
+
+    <select id="queryUserPermission" resultType="java.lang.Integer">
+        select perid from userper where username=#{username}
+    </select>
 </mapper>
