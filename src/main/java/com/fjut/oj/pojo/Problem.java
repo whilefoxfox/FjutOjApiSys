@@ -2,6 +2,14 @@ package com.fjut.oj.pojo;
 
 // 题目表
 public class Problem {
+    static public int LOCAL = 0;
+    static public int OTHEROJ = 1;
+    static public int ONLYDES = 2;
+    private boolean spj;
+    public int totalSubmit;
+    public int totalSubmitUser;
+    public int totalAc;
+    public int totalAcUser;
     private Integer pid;
     private Integer ptype;
     private String  title;
@@ -21,6 +29,17 @@ public class Problem {
         this.visiable = visiable;
         this.author = author;
     }
+    public Problem(int ojid,String ojspid,String title,String author,boolean spj){
+        this.ojid=ojid;
+        this.ojspid=ojspid;
+        this.title=title;
+        this.ptype= OTHEROJ;
+        this.author=author;
+        this.spj=spj;
+    }
+    public boolean isLocal(){return ptype == LOCAL;}
+
+    public boolean isSpj(){return spj;}
 
     public String getOjspid() {
         return ojspid;

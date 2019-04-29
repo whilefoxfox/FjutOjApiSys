@@ -122,7 +122,42 @@
         AND ojspid=ojspid
     </select>
 
-    <insert id="saveProblemHTML">
+    <insert id="saveProblemHTMLProblemView" parameterType="com.fjut.oj.pojo.t_problemview">
+        INSERT INTO t_problemview
+        VALUES(?,?,?,?,?,?,?,?)
+        #{pid},#{ph.getTimeLimit()}, #{ph.getMenoryLimit()}, #{ph.getInt64()}, #{ph.getSpj()}, #{ph.getDis()}, #{ph.getInput()}, #{ph.getOutput()}
 
     </insert>
+
+    <insert id="saveProblemHTMLProblemSample" parameterType="com.fjut.oj.pojo.t_problemsample">
+        INSERT INTO t_problem_sample
+        VALUES(?,?,?,?)
+        #{pid}, #{i}, #{input}, #{output}
+    </insert>
+
+    <select id="getProblemHTMLProblemView" resultType="com.fjut.oj.pojo.t_problemview">
+        SELECT *
+        FROM t_problemview
+        WHERE pid= #{pid}
+    </select>
+
+    <select id="getProblemHTMLProblemSample" resultType="com.fjut.oj.pojo.t_problemsample">
+        SELECT *
+        FROM t_problem_sample
+        WHERE pid = #{pid}
+        ORDER BY id
+    </select>
+
+    <delete id="delProblemDisProblemView">
+        delete from t_problemview
+        where pid=#{pid}
+    </delete>
+
+    <delete id="delProblemDisProblemSample">
+        delete from t_problem_sample
+        where pid=#{pid}
+    </delete>
+
+
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.fjut.oj.util;
 
 import com.fjut.oj.pojo.CodeLanguage;
+import org.apache.http.message.BasicNameValuePair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -28,6 +29,7 @@ public class HDU {
     public static String Int64 = "%I64d";
     public static Map<String, Result> resultMap;
     public static List<Pair<Integer,CodeLanguage>> languageList;
+    private static MyClient hc = new MyClient();
 
     static{
         resultMap = new HashMap<String, Result>();
@@ -139,12 +141,121 @@ public class HDU {
         p.setTimeLimit(s1);
         p.setMenoryLimit(s2);
         if(s.contains("Special Judge")) p.setSpj(1);
-        System.out.println(p);
+        //System.out.println(p);
         return p;
+    }
+
+    public static RES getResultReturn(){
+        int wait[] = {3, 2, 1, 2, 3, 5, 7, 8, 9, 10};
+        int i = 0;
+        RES r;
+        do {
+            try {
+                Thread.sleep(wait[i] * 1000);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            i++;
+            r = getResult();
+
+        } while(! r.canReturn());
+        return r;
+    }
+
+    public static RES getResult(){
+        Element e;
+        Document d = null;
+        RES r = new RES();
+        try {
+            d = Jsoup.connect(getStatusURL("fanxingzhilei")).get();
+            //System.out.println(d);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            r.setR(Result.PENDING);
+            return r;
+        }
+        e = d.select(statuSelect).first();
+        System.out.println("get:"+getResultMap(e.select("td:nth-child(3)").first().text()).name());
+        r.setR(getResultMap(e.select("td:nth-child(3)").first().text()));
+        if (r.canReturn()){
+            r.setTime(e.select("td:nth-child(5)").first().text());
+            r.setMemory(e.select("td:nth-child(6)").first().text() + "B");
+        }
+        if (r.getR() == Result.CE){
+            r.setCEInfo("123");
+        }
+        return r;
+    }
+    /**
+    public static int getTrueLanguage(int i,String pid){
+        List<Pair<Integer,CodeLanguage>> languageList = getLanguageList(pid);
+        for(Pair<Integer,CodeLanguage> pair : languageList){
+            if(pair.getValue().getId() == i){
+                return pair.getKey();
+            }
+        }
+        return 0;
+    }*/
+
+    public static String submit(){
+        String ret = Login();
+        if (ret.equals("error")) return "error";
+        List<BasicNameValuePair> formparams = new ArrayList<BasicNameValuePair>();
+        formparams.add(new BasicNameValuePair("problemid", "" + 1000));
+        formparams.add(new BasicNameValuePair("language", "0"));
+        formparams.add(new BasicNameValuePair("usercode","#include<cstdio>\n" +
+                "using namespace std;\n" +
+                "int main()\n" +
+                "{ \n" +
+                "     int a, b;\n" +
+                "     while(scanf(\"%d %d\",&a ,&b) != EOF)\n" +
+                "     {\n" +
+                "       printf(\"%d\\n\", a + b);\n" +
+                "     }\n" +
+                "     return 0;" +
+                "}\n"));
+
+        if (hc.Post(getSubmitURL(), formparams) == null)
+        {
+            System.out.println("errorsubmit");
+        }
+        System.out.println("successsubmit");
+        return "success";
+    }
+
+    public static String Login(){
+        List<BasicNameValuePair> formparams = new ArrayList<>();
+        formparams.add(new BasicNameValuePair("username","fanxingzhilei"));
+        formparams.add(new BasicNameValuePair("userpass","chijintao123"));
+        if(hc.Post(getLoginURL(), formparams)==null)
+        {
+            System.out.println("error");
+            return "error";
+        }
+        System.out.println("success");
+        return "success";
+    }
+
+    public static String getCEInfo(){
+        Element e;
+        Document d = null;
+        try {
+            d = Jsoup.connect("http://acm.hdu.edu.cn/viewerror.php?rid="+"").get();
+            return d.select("pre").first().html();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            return "获取失败";
+        } catch (NullPointerException e2){
+            return "获取失败";
+        }
     }
 
     public static void main(String[] args) {
         String url ="2500";
-        getProblemHTML(url);
+        // getProblemHTML(url);
+        //getResult();
+        // Login();
+        submit();
+        getResultReturn();
     }
 }

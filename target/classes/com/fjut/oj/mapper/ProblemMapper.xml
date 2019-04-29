@@ -25,9 +25,113 @@
     </select>
 
     <select id="queryProblemsNum" resultType="java.lang.Integer">
-        SELECT COUNT(*)
-        FROM  problem
-        WHERE visiable = 1
+            SELECT COUNT(*)
+            FROM  problem
+            WHERE visiable = 1
+        <if test="search != null and search != ''">
+            AND (pid = #{search} OR title like '%${search}%')
+        </if>
     </select>
 
+    <select id="getProblems1" resultType="com.fjut.oj.pojo.Problem">
+        select pid,title,visiable,totalAcUser,totalSubmit
+        from problem
+        where
+        <if test="pid1 != ''">
+            <![CDATA[ pid >= #{pid1} and  pid <= #{pid2} ]]>
+        </if>
+
+        <if test="showhide == 0 and owner != null and owner != ''">
+            and (visiable = 1 or owner = #{owner})
+        </if>
+        <if test="showhide == 0 and owner == null or owner == ''">
+            and visiable = 1
+        </if>
+    </select>
+
+    <select id="getProblems2" resultType="com.fjut.oj.pojo.Problem">
+        select *
+        FROM  problem
+        WHERE visiable=1 LIMIT #{from},#{num}
+    </select>
+
+    <select id="getProblems3" resultType="com.fjut.oj.pojo.Problem">
+        select *
+        FROM  problem
+        WHERE visiable=1
+        AND (pid = #{search} OR title like '%${search}%' ) LIMIT from, num
+    </select>
+
+    <select id="getCidProblems1" resultType="com.fjut.oj.pojo.CidProblems1">
+        SELECT contestproblems.tpid,title,1,totalAcUser,totalSubmit
+        FROM contestproblems
+        LEFT JOIN problem ON contestproblems.tpid=problem.pid
+        WHERE cid= #{cid}
+    </select>
+
+    <select id="getCidProblems2" resultType="com.fjut.oj.pojo.CidProblems2">
+        SELECT tpid,(select title from problem where problem.pid=tpid) as title,1,
+        (select count(distinct ruser) from statu where statu.cid=? and statu.pid=tpid and result=1)as acnum,
+        (select count(*) from statu where statu.cid=? and statu.pid=tpid)as submitnum
+        FROM `contestproblems` WHERE cid = #{cid}
+    </select>
+
+    <select id="getMaxProblemId" resultType="java.lang.Integer">
+        select MAX(pid) from problem where <![CDATA[pid<10000]]>
+        <if test="showHide = 0">
+            and visiable=1
+        </if>
+    </select>
+
+    <update id="editProblem" parameterType="com.fjut.oj.pojo.Problem">
+        UPDATE problem
+        SET ptype = #{ptype},title = #{title},ojid = #{ojid},ojspid = #{ojspid},author = #{author},spj = #{spj}
+        WHERE pid = #{pid}
+    </update>
+
+    <select id="getMaxProblemIdAddOne" resultType="java.lang.Integer">
+        select MAX(pid)+1 from problem
+    </select>
+
+    <insert id="addProblem" parameterType="com.fjut.oj.pojo.Problem">
+        Insert into problem values(newpid,ptype,title,ojid,ojspid,0,author,spj,0,0,0,0,owner)
+    </insert>
+
+    <update id="setProblemVisiablePid" parameterType="com.fjut.oj.pojo.Problem">
+        update problem set visiable=1-visiable
+        where pid=#{pid}
+    </update>
+
+    <update id="setProblemVisiablePidZ" parameterType="com.fjut.oj.pojo.Problem">
+        update problem
+        set visiable=#{z}
+        where pid=#{pid}
+    </update>
+
+    <update id="setContestProblemVisiableCidZ" parameterType="com.fjut.oj.pojo.Problem">
+        update problem
+        set visiable=#{z}
+        where pid in
+        (select tpid from contestproblems where cid = #{cid})
+    </update>
+
+    <select id="getProblemsByOjPid" resultType="java.lang.Integer">
+        SELECT pid
+        FROM problem
+        WHERE ojid=oj
+        AND ojspid=ojspid
+    </select>
+
+    <insert id="saveProblemHTMLProblemView" parameterType="com.fjut.oj.pojo.t_problemview">
+        INSERT INTO t_problemview
+        VALUES(?,?,?,?,?,?,?,?)
+        #{pid},#{ph.getTimeLimit()}, #{ph.getMenoryLimit()}, #{ph.getInt64()}, #{ph.getSpj()}, #{ph.getDis()}, #{ph.getInput()}, #{ph.getOutput()}
+
+    </insert>
+
+    <insert id="saveProblemHTMLProblemSample" parameterType="com.fjut.oj.pojo.t_problemsample">
+        INSERT INTO t_problem_sample
+        VALUES(?,?,?,?)
+        #{pid}, #{i}, #{input}, #{output}
+    </insert>
 </mapper>
