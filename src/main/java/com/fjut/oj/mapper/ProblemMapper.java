@@ -64,6 +64,4 @@ public interface ProblemMapper {
     List<t_problemview> getProblemHTMLProblemView(@Param("pid") Integer pid);
 
     List<t_problemsample> getProblemHTMLProblemSample(@Param("pid") Integer pid);
-
-    
 }
