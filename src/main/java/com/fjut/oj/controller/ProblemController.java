@@ -1,6 +1,7 @@
 package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.Problem;
+import com.fjut.oj.pojo.Problems1;
 import com.fjut.oj.service.ProblemService;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,18 +22,55 @@ public class ProblemController {
     @Autowired
     private ProblemService problemService;
 
+    public static List<Problem> hduProblems = null;
     /**
      * 查询所有的题目信息
      */
     @RequestMapping("/queryAllProblems")
     @ResponseBody
-    public JsonMsg queryAllProblems(){
-
+    public JsonMsg queryAllProblems(HttpServletRequest req, HttpServletResponse resp){
         List<Problem> list = problemService.queryAllProblems();
+        resp.setHeader("Access-Control-Allow-Origin","*");
         if (list != null){
             return JsonMsg.success().addInfo(list);
         } else {
             return JsonMsg.fail().addInfo("未查询到题目信息");
+        }
+    }
+
+    /**
+     * 一页一页的查询题目信息
+     *
+     */
+    @RequestMapping("/GProblemsByPage")
+    @ResponseBody
+    public JsonMsg queryProblemsByPage(HttpServletRequest req, HttpServletResponse resp){
+
+        Integer pid1 = 50, pid2 = 100;
+        List<Problems1> list = problemService.queryProblemsByPage(pid1, pid2);
+        List<Problems1> list1 = new ArrayList<Problems1>();
+        resp.setHeader("Access-Control-Allow-Origin","*");
+        /*
+        for (Problems1 p: list) {
+            p.setRadio();
+            list1.add(p);
+        }*/
+        return JsonMsg.success().addInfo(list);
+    }
+
+    /**
+     * 查询一个范围内的杭电的题目
+     */
+    @RequestMapping("/GProblemsFromHDU")
+    @ResponseBody
+    public JsonMsg queryProblemsFromHDU(HttpServletRequest req, HttpServletResponse resp){
+        Integer from = 50;
+        Integer to   = 100;
+        List<Problem> list = problemService.queryProblemsFromHDU(from, to);
+        if (list.size() == 0){
+            return JsonMsg.fail().addInfo("未查找到该范围的题目");
+        } else {
+            return JsonMsg.success().addInfo(list);
         }
     }
 
@@ -99,7 +138,7 @@ public class ProblemController {
         boolean showhide = false;
         String owner = "admin";
 
-        List<Problem> list = problemService.getProblems1(pid1, pid2, showhide, owner);
+        List<Problems1> list = problemService.getProblems1(pid1, pid2, showhide, owner);
         return JsonMsg.success().addInfo(list);
     }
 

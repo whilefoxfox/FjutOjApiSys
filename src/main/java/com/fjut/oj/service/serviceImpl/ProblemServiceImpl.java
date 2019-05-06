@@ -2,6 +2,7 @@ package com.fjut.oj.service.serviceImpl;
 
 import com.fjut.oj.mapper.ProblemMapper;
 import com.fjut.oj.pojo.Problem;
+import com.fjut.oj.pojo.Problems1;
 import com.fjut.oj.pojo.t_problemsample;
 import com.fjut.oj.pojo.t_problemview;
 import com.fjut.oj.service.ProblemService;
@@ -9,6 +10,7 @@ import com.fjut.oj.util.problemHTML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 @Service("problemService")
@@ -20,6 +22,24 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public List<Problem> queryAllProblems() {
         List<Problem> list = problemMapper.queryAllProblems();
+        return list;
+    }
+
+    @Override
+    public List<Problems1> queryProblemsByPage(Integer pid1, Integer pid2){
+        List<Problems1> list = problemMapper.queryProblemsByPage(pid1, pid2);
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(2);
+        for (Problems1 p: list) {
+            p.radio = (p.getTotalAcUser() * 1.0)/p.getTotalSubmit() * 100;
+            p.strRadio =  numberFormat.format(p.radio) + "%";
+        }
+        return list;
+    }
+
+    @Override
+    public List<Problem> queryProblemsFromHDU(Integer from, Integer to){
+        List<Problem> list = problemMapper.queryProblemsFromHDU(from, to);
         return list;
     }
 
@@ -42,8 +62,8 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problem> getProblems1(int pid1, int pid2, boolean showhide, String owner) {
-        List<Problem> list = problemMapper.getProblems1(pid1,pid2,showhide,owner);
+    public List<Problems1> getProblems1(int pid1, int pid2, boolean showhide, String owner) {
+        List<Problems1> list = problemMapper.getProblems1(pid1,pid2,showhide,owner);
         return list;
     }
 

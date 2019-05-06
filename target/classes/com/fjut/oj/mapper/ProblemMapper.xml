@@ -8,6 +8,21 @@
           order by pid
     </select>
 
+    <select id="queryProblemsByPage" resultType="com.fjut.oj.pojo.Problems1">
+        select pid,title,visiable,totalAcUser,totalSubmit
+        from problem
+        order by pid
+        LIMIT #{pid1}, #{pid2}
+    </select>
+
+    <select id="queryProblemsFromHDU" resultType="com.fjut.oj.pojo.Problem">
+          select *
+          from problem
+          WHERE ojid = 0
+          order by pid
+          LIMIT #{from}, #{to}
+    </select>
+
     <select id="queryProblemById" resultType="com.fjut.oj.pojo.Problem">
         select *
         from problem
@@ -33,7 +48,7 @@
         </if>
     </select>
 
-    <select id="getProblems1" resultType="com.fjut.oj.pojo.Problem">
+    <select id="getProblems1" resultType="com.fjut.oj.pojo.Problems1">
         select pid,title,visiable,totalAcUser,totalSubmit
         from problem
         where
@@ -134,4 +149,28 @@
         VALUES(?,?,?,?)
         #{pid}, #{i}, #{input}, #{output}
     </insert>
+
+    <select id="getProblemHTMLProblemView" resultType="com.fjut.oj.pojo.t_problemview">
+        SELECT *
+        FROM t_problemview
+        WHERE pid= #{pid}
+    </select>
+
+    <select id="getProblemHTMLProblemSample" resultType="com.fjut.oj.pojo.t_problemsample">
+        SELECT *
+        FROM t_problem_sample
+        WHERE pid = #{pid}
+        ORDER BY id
+    </select>
+
+    <delete id="delProblemDisProblemView">
+        delete from t_problemview
+        where pid=#{pid}
+    </delete>
+
+    <delete id="delProblemDisProblemSample">
+        delete from t_problem_sample
+        where pid=#{pid}
+    </delete>
+
 </mapper>

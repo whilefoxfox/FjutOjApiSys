@@ -10,13 +10,17 @@ public interface ProblemMapper {
 
     List<Problem> queryAllProblems();  // 查询所有的题目
 
+    List<Problems1> queryProblemsByPage(@Param("pid1") Integer pid1, @Param("pid2") Integer pid2); // 一页一页的查询题目信息
+
+    List<Problem> queryProblemsFromHDU(@Param("from") Integer from, @Param("to") Integer to); // 查询一个范围内杭电的题目
+
     Problem  queryProblemById(@Param("pid") Integer pid);   // 通过题目 ID 查找题目
 
     List<Problem> queryProblemByTitle(@Param("name") String title); // 通过题目标题查找题目
 
     Integer  queryProblemsNum(@Param("search") String search); // 查找题目的数量
 
-    List<Problem> getProblems1(@Param("pid1") Integer pid1, @Param("pid2") Integer pid2, @Param("showhide") boolean showhide, @Param("owner") String owner);
+    List<Problems1> getProblems1(@Param("pid1") Integer pid1, @Param("pid2") Integer pid2, @Param("showhide") boolean showhide, @Param("owner") String owner);
 
     List<Problem> getProblems2(@Param("from") Integer from, @Param("num") Integer num, @Param("search") String search);
 

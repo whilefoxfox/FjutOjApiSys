@@ -29,6 +29,10 @@ public class HDU {
     public static String Int64 = "%I64d";
     public static Map<String, Result> resultMap;
     public static List<Pair<Integer,CodeLanguage>> languageList;
+    public static String rid;
+    public static String[] submitusername = {"cjt001","cjt002","cjt003","cjt004","cjt005","cjt006","cjt007","cjt008","cjt009","cjt010"};
+    public static String[] submitpassword = {"fjutacm","fjutacm","fjutacm","fjutacm","fjutacm","fjutacm","fjutacm","fjutacm","fjutacm","fjutacm"};
+    public static boolean[] check = {false,false,false,false,false,false,false,false,false,false};
     private static MyClient hc = new MyClient();
 
     static{
@@ -94,10 +98,17 @@ public class HDU {
         return resultMap.get(v);
     }
 
-    /**
-     * 获得题目标题
-     * @param
-     */
+    public static String getRid(String user){
+        try{
+            Document d = Jsoup.connect(getStatusURL(user)).get();
+            Element e = d.select(statuSelect).first();
+            return (e.select("td:nth-child(1)").first().text());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "error";
+    }
+
     public static String getTitle(String pid){
         Document doc;
         try {
@@ -162,30 +173,6 @@ public class HDU {
         return r;
     }
 
-    public static RES getResult(){
-        Element e;
-        Document d = null;
-        RES r = new RES();
-        try {
-            d = Jsoup.connect(getStatusURL("fanxingzhilei")).get();
-            //System.out.println(d);
-        } catch (IOException e1) {
-            e1.printStackTrace();
-            r.setR(Result.PENDING);
-            return r;
-        }
-        e = d.select(statuSelect).first();
-        System.out.println("get:"+getResultMap(e.select("td:nth-child(3)").first().text()).name());
-        r.setR(getResultMap(e.select("td:nth-child(3)").first().text()));
-        if (r.canReturn()){
-            r.setTime(e.select("td:nth-child(5)").first().text());
-            r.setMemory(e.select("td:nth-child(6)").first().text() + "B");
-        }
-        if (r.getR() == Result.CE){
-            r.setCEInfo("123");
-        }
-        return r;
-    }
     /**
     public static int getTrueLanguage(int i,String pid){
         List<Pair<Integer,CodeLanguage>> languageList = getLanguageList(pid);
@@ -200,10 +187,11 @@ public class HDU {
     public static String submit(){
         String ret = Login();
         if (ret.equals("error")) return "error";
-        List<BasicNameValuePair> formparams = new ArrayList<BasicNameValuePair>();
-        formparams.add(new BasicNameValuePair("problemid", "" + 1000));
-        formparams.add(new BasicNameValuePair("language", "0"));
-        formparams.add(new BasicNameValuePair("usercode","#include<cstdio>\n" +
+        int num = Integer.parseInt(ret);
+        String submitId = "15005";
+        String problemid = "1000";
+        String language = "0";
+        String usercode = "#include<cstdio>\n" +
                 "using namespace std;\n" +
                 "int main()\n" +
                 "{ \n" +
@@ -213,34 +201,76 @@ public class HDU {
                 "       printf(\"%d\\n\", a + b);\n" +
                 "     }\n" +
                 "     return 0;" +
-                "}\n"));
+                "}\n";
+        List<BasicNameValuePair> formparams = new ArrayList<BasicNameValuePair>();
+        formparams.add(new BasicNameValuePair("problemid", problemid));
+        formparams.add(new BasicNameValuePair("language", language));
+        formparams.add(new BasicNameValuePair("usercode",usercode));
 
         if (hc.Post(getSubmitURL(), formparams) == null)
         {
             System.out.println("errorsubmit");
+            return "error";
         }
+        rid = getRid(submitusername[1]);
         System.out.println("successsubmit");
         return "success";
     }
 
+    public static RES getResult(){
+        Element e;
+        Document d = null;
+        RES r = new RES();
+        try {
+            d = Jsoup.connect(getStatusURL(submitusername[1])).get();
+            //System.out.println(d);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            r.setR(Result.PENDING);
+            return r;
+        }
+        e = d.select(statuSelect).first();
+        System.out.println("get:"+getResultMap(e.select("td:nth-child(3)").first().text()).name());
+        r.setR(getResultMap(e.select("td:nth-child(3)").first().text()));
+        if (r.canReturn()){
+            r.setTime(e.select("td:nth-child(5)").first().text());
+            r.setMemory(e.select("td:nth-child(6)").first().text() + "B");
+        }
+        if (r.getR() == Result.CE){
+            r.setCEInfo(getCEInfo());
+            System.out.println(getCEInfo());
+        }
+        return r;
+    }
+
     public static String Login(){
         List<BasicNameValuePair> formparams = new ArrayList<>();
-        formparams.add(new BasicNameValuePair("username","fanxingzhilei"));
-        formparams.add(new BasicNameValuePair("userpass","chijintao123"));
+        int i;
+        for (i = 1; i < 10; ++i){
+            if (check[i] == true)
+                continue;
+            else
+                break;
+        }
+        if (i == 10) return "error";
+        System.out.println(submitusername[i] + " " + submitpassword[i]);
+        formparams.add(new BasicNameValuePair("username",submitusername[i]));
+        formparams.add(new BasicNameValuePair("userpass",submitpassword[i]));
         if(hc.Post(getLoginURL(), formparams)==null)
         {
             System.out.println("error");
             return "error";
         }
         System.out.println("success");
-        return "success";
+        // check[i] = true;
+        return "" + i;
     }
 
     public static String getCEInfo(){
         Element e;
         Document d = null;
         try {
-            d = Jsoup.connect("http://acm.hdu.edu.cn/viewerror.php?rid="+"").get();
+            d = Jsoup.connect("http://acm.hdu.edu.cn/viewerror.php?rid="+ rid).get();
             return d.select("pre").first().html();
         } catch (IOException e1) {
             e1.printStackTrace();

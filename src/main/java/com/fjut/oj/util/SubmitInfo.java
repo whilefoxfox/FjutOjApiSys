@@ -19,4 +19,22 @@ public class SubmitInfo {
         this.language=language;
         this.rejduge=rejduge;
     }
+
+    public SubmitInfo(){
+        this.rid = 15005;
+        this.pid = "1000";
+        this.code = "#include<cstdio>\n" +
+                "using namespace std;\n" +
+                "int main()\n" +
+                "{ \n" +
+                "     int a, b;\n" +
+                "     while(scanf(\"%d %d\",&a ,&b) != EOF)\n" +
+                "     {\n" +
+                "       printf(\"%d\\n\", a + b);\n" +
+                "     }\n" +
+                "     return 0;" +
+                "\n";
+        this.language = 0;
+        boolean rejduge = false;
+    }
 }
