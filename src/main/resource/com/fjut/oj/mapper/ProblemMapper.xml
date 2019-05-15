@@ -8,11 +8,11 @@
           order by pid
     </select>
 
-    <select id="queryProblemsByPage" resultType="com.fjut.oj.pojo.Problems1">
-        select pid,title,visiable,totalAcUser,totalSubmit
+    <select id="queryProblemsByPage" resultType="com.fjut.oj.pojo.Problem">
+        select *
         from problem
         order by pid
-        LIMIT #{pid1}, #{pid2}
+        LIMIT #{pid1}, 50
     </select>
 
     <select id="queryProblemsFromHDU" resultType="com.fjut.oj.pojo.Problem">
@@ -35,18 +35,49 @@
         select *
         from problem
         <where>
-            title like '%${title}%';
+            title like '%${title}%'
         </where>
+        order by pid
+        LIMIT #{pid1}, 50
     </select>
 
     <select id="queryProblemsNum" resultType="java.lang.Integer">
             SELECT COUNT(*)
             FROM  problem
-            WHERE visiable = 1
-        <if test="search != null and search != ''">
-            AND (pid = #{search} OR title like '%${search}%')
-        </if>
     </select>
+
+
+    <select id="queryProblemsNumByTitle" resultType="java.lang.Integer">
+          select count(*)
+          from problem
+          <where>
+              title like '%${title}%';
+          </where>
+    </select>
+
+    <update id="updateProblemtotalSubmit" parameterType="java.lang.Integer">
+          update problem
+          set totalSubmit = ( totalSubmit + 1 )
+          where pid = #{pid}
+    </update>
+
+    <update id="updateProblemtotalSubmitUser" parameterType="java.lang.Integer">
+        UPDATE problem
+        SET totalSubmitUser=(totalSubmitUser+1)
+        WHERE pid=#{pid};
+    </update>
+
+    <update id="updateProblemtotalAc" parameterType="java.lang.Integer">
+        UPDATE problem
+        SET totalAc=(totalAc+1)
+        WHERE pid=#{pid};
+    </update>
+
+    <update id="updateProblemtotalAcUser" parameterType="java.lang.Integer">
+        UPDATE problem
+        SET totalAcUser=(totalAcUser+1)
+        WHERE pid=#{pid};
+    </update>
 
     <select id="getProblems1" resultType="com.fjut.oj.pojo.Problems1">
         select pid,title,visiable,totalAcUser,totalSubmit
@@ -144,7 +175,7 @@
 
     </insert>
 
-    <insert id="saveProblemHTMLProblemSample" parameterType="com.fjut.oj.pojo.t_problemsample">
+    <insert id="saveProblemHTMLProblemSample" parameterType="com.fjut.oj.pojo.Problemsample">
         INSERT INTO t_problem_sample
         VALUES(?,?,?,?)
         #{pid}, #{i}, #{input}, #{output}
@@ -156,7 +187,7 @@
         WHERE pid= #{pid}
     </select>
 
-    <select id="getProblemHTMLProblemSample" resultType="com.fjut.oj.pojo.t_problemsample">
+    <select id="getProblemHTMLProblemSample" resultType="com.fjut.oj.pojo.Problemsample">
         SELECT *
         FROM t_problem_sample
         WHERE pid = #{pid}

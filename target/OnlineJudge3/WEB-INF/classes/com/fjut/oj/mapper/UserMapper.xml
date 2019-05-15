@@ -3,8 +3,33 @@
 <mapper namespace="com.fjut.oj.mapper.UserMapper">
 
     <insert id="insertUser" parameterType="com.fjut.oj.pojo.User">
-          insert into users(username, password)
-          values(#{username}, #{password})
+          insert into users
+          values(
+          #{user.username},
+          MD5(#{user.password}),
+          #{user.nick},
+          #{user.gender},
+          #{user.school},
+          #{user.Email},
+          #{user.motto},
+          #{user.registertime},
+          #{user.type},
+          #{user.Mark},
+          #{user.rating},
+          #{user.ratingnum},
+          #{user.acb},
+          #{user.name},
+          #{user.faculty},
+          #{user.major},
+          #{user.cla},
+          #{user.no},
+          #{user.phone},
+          #{user.acnum},
+          #{user.inTeamStatus},
+          #{user.inTeamLv},
+          #{user.rank},
+          #{user.graduationTime}
+          )
     </insert>
 
     <select id="queryByUsernameAndPassword" resultType="com.fjut.oj.pojo.User">
@@ -23,7 +48,7 @@
         from Users
     </select>
 
-    <select id="queryUserByUsername" resultType="com.fjut.oj.pojo.User">
+    <select id="queryUserByName" resultType="com.fjut.oj.pojo.User">
         select *
         from users
         <where>
@@ -34,10 +59,45 @@
         </where>
     </select>
 
+    <select id="getUserByUsernameAndPassword" resultType="java.lang.Integer">
+        select count(*)
+        from users
+        <where>
+            <if test="username != null and username != ''">
+                and
+                username = #{username}
+                and
+                password = MD5(#{password})
+            </if>
+        </where>
+    </select>
+
     <update id="updateUserByUsername" parameterType="com.fjut.oj.pojo.User">
         	update users
-        	set password=#{password}
-        	where username= #{username}
+        	set
+              password= MD5(#{user.password}),
+              nick = #{user.nick},
+              gender = #{user.gender},
+              school = #{user.school},
+              Email = #{user.Email},
+              motto = #{user.motto},
+              type = #{user.type},
+              Mark = #{user.Mark},
+              rating = #{user.rating},
+              ratingnum = #{user.ratingnum},
+              acb = #{user.acb},
+              name = #{user.name},
+              faculty = #{user.faculty},
+              major = #{user.major},
+              cla = #{user.cla},
+              no = #{user.no},
+              phone = #{user.phone},
+              acnum = #{user.acnum},
+              inTeamStatus = #{user.inTeamStatus},
+              inTeamLv = #{user.inTeamLv},
+              `rank` = #{user.rank},
+              graduationTime = #{user.graduationTime}
+        	where username= #{user.username}
     </update>
 
     <delete id="deleteUserByUsername" parameterType="com.fjut.oj.pojo.User">
@@ -86,5 +146,17 @@
 
     <select id="queryUserPermission" resultType="java.lang.Integer">
         select perid from userper where username=#{username}
+    </select>
+
+    <select id="getRatingTop" resultType="com.fjut.oj.pojo.User">
+        SELECT * FROM users ORDER BY rating DESC LIMIT 0,10
+    </select>
+
+    <select id="getRichTop" resultType="com.fjut.oj.pojo.User">
+        SELECT * FROM users ORDER BY acb DESC,rating DESC LIMIT 0,10
+    </select>
+
+    <select id="getAcTop" resultType="com.fjut.oj.pojo.User">
+        SELECT * FROM users ORDER BY acnum DESC,rating DESC LIMIT 0,10
     </select>
 </mapper>

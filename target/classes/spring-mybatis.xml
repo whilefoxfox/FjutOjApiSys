@@ -29,4 +29,6 @@
         <property name="basePackage" value="com.fjut.oj.mapper"/>
     </bean>
 
+    <bean id="SpringApplicationContext" class="com.fjut.oj.judge.util.ApplicationContextHelper"></bean>
+
 </beans>

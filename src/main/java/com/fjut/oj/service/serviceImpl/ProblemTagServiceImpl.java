@@ -39,7 +39,7 @@ public class ProblemTagServiceImpl implements ProblemTagService {
     // 贴标签奖励 ACB
     @Override
     public int addTag(Integer pid, String username, Integer tagid, Integer rating) {
-        User user = userMapper.queryUserByUsername(username);
+        User user = userMapper.queryUserByName(username);
         if (user == null)
             return 0;
 

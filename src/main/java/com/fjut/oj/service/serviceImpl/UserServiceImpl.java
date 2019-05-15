@@ -40,7 +40,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUsername(String username) {
-        return userMapper.queryUserByUsername(username);
+        return userMapper.queryUserByName(username);
+    }
+
+    @Override
+    public Integer getUserByUsernameAndPassword(String username, String password) {
+        return userMapper.getUserByUsernameAndPassword(username, password);
     }
 
     @Override

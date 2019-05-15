@@ -11,13 +11,15 @@ public interface UserMapper {
 
     User queryByUsernameAndPassword(@Param("username") String username);
 
-    int insertUser(User user);
+    int insertUser(@Param("user") User user);
 
     List<User> queryAll();
 
-    User queryUserByUsername(@Param("username")String username);
+    User queryUserByName(@Param("username")String username);
 
-    int updateUserByUsername(User user);
+    Integer getUserByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
+    int updateUserByUsername(@Param("user") User user);
 
     void deleteUserByUsername(@Param("username")String username);
 
@@ -36,4 +38,11 @@ public interface UserMapper {
     List<User> queryAcnumTop10();
 
     List<Integer> queryUserPermission(@Param("username") String username);
+
+    List<User> getRatingTop(@Param("from") int from,@Param("num") int num);
+
+    List<User> getRichTop();
+
+    List<User> getAcTop();
+
 }

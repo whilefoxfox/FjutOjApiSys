@@ -1,24 +1,23 @@
 package com.fjut.oj.pojo;
 
-// 权限表
 public class Permission {
 
-    private Integer id;                  // 权限 ID
-    private String  name;                // 权限名称
+    private int perid;
+    private String username;
 
-    public Integer getId() {
-        return id;
+    public int getPerid() {
+        return perid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPerid(int perid) {
+        this.perid = perid;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -1,21 +1,36 @@
 package com.fjut.oj.pojo;
 
-import java.util.Date;
-
-// 评测表
 public class Status {
-
     private Integer id;
-    private String  ruser;
+    private String ruser;
     private Integer pid;
     private Integer cid;
     private Integer lang;
-    private Date    submitTime;
+    private String submitTime;
     private Integer result;
-    private String  timeUsed;
-    private String  memoryUsed;
-    private String  code;
+    private Integer score;
+    private String timeUsed;
+    private String memoryUsed;
+    private String code;
     private Integer codelen;
+    private Object otherinfo;
+    private String submitlanguage;
+
+    public Object getOtherinfo() {
+        return otherinfo;
+    }
+
+    public void setOtherinfo(Object otherinfo) {
+        this.otherinfo = otherinfo;
+    }
+
+    public String getSubmitlanguage() {
+        return submitlanguage;
+    }
+
+    public void setSubmitlanguage(String submitlanguage) {
+        this.submitlanguage = submitlanguage;
+    }
 
     public Integer getId() {
         return id;
@@ -57,11 +72,11 @@ public class Status {
         this.lang = lang;
     }
 
-    public Date getSubmitTime() {
+    public String getSubmitTime() {
         return submitTime;
     }
 
-    public void setSubmitTime(Date submitTime) {
+    public void setSubmitTime(String submitTime) {
         this.submitTime = submitTime;
     }
 
@@ -71,6 +86,14 @@ public class Status {
 
     public void setResult(Integer result) {
         this.result = result;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     public String getTimeUsed() {
@@ -93,8 +116,8 @@ public class Status {
         return code;
     }
 
-    public void setCode(String text) {
-        this.code = text;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Integer getCodelen() {
@@ -103,5 +126,25 @@ public class Status {
 
     public void setCodelen(Integer codelen) {
         this.codelen = codelen;
+    }
+
+    @Override
+    public String toString() {
+        return "Status{" +
+                "id=" + id +
+                ", ruser='" + ruser + '\'' +
+                ", pid=" + pid +
+                ", cid=" + cid +
+                ", lang=" + lang +
+                ", submitTime='" + submitTime + '\'' +
+                ", result=" + result +
+                ", score=" + score +
+                ", timeUsed='" + timeUsed + '\'' +
+                ", memoryUsed='" + memoryUsed + '\'' +
+                ", code='" + code + '\'' +
+                ", codelen=" + codelen +
+                ", otherinfo=" + otherinfo +
+                ", submitlanguage='" + submitlanguage + '\'' +
+                '}';
     }
 }

@@ -17,6 +17,8 @@ public class Problem {
     private String  ojspid;
     private Integer visiable;
     private String  author;
+    public  Double  radio;
+    public String  strRadio;
 
     public Problem() {
     }
@@ -97,4 +99,79 @@ public class Problem {
         this.author = author;
     }
 
+    public static int getLOCAL() {
+        return LOCAL;
+    }
+
+    public static void setLOCAL(int LOCAL) {
+        Problem.LOCAL = LOCAL;
+    }
+
+    public static int getOTHEROJ() {
+        return OTHEROJ;
+    }
+
+    public static void setOTHEROJ(int OTHEROJ) {
+        Problem.OTHEROJ = OTHEROJ;
+    }
+
+    public static int getONLYDES() {
+        return ONLYDES;
+    }
+
+    public static void setONLYDES(int ONLYDES) {
+        Problem.ONLYDES = ONLYDES;
+    }
+
+    public void setSpj(boolean spj) {
+        this.spj = spj;
+    }
+
+    public int getTotalSubmit() {
+        return totalSubmit;
+    }
+
+    public void setTotalSubmit(int totalSubmit) {
+        this.totalSubmit = totalSubmit;
+    }
+
+    public int getTotalSubmitUser() {
+        return totalSubmitUser;
+    }
+
+    public void setTotalSubmitUser(int totalSubmitUser) {
+        this.totalSubmitUser = totalSubmitUser;
+    }
+
+    public int getTotalAc() {
+        return totalAc;
+    }
+
+    public void setTotalAc(int totalAc) {
+        this.totalAc = totalAc;
+    }
+
+    public int getTotalAcUser() {
+        return totalAcUser;
+    }
+
+    public void setTotalAcUser(int totalAcUser) {
+        this.totalAcUser = totalAcUser;
+    }
+
+    public Double getRadio() {
+        return radio;
+    }
+
+    public void setRadio(Double radio) {
+        this.radio = radio;
+    }
+
+    public String getStrRadio() {
+        return strRadio;
+    }
+
+    public void setStrRadio(String strRadio) {
+        this.strRadio = strRadio;
+    }
 }

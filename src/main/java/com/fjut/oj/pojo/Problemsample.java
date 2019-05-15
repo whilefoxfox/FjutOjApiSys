@@ -1,6 +1,6 @@
 package com.fjut.oj.pojo;
 
-public class t_problemsample {
+public class Problemsample {
     private Integer pid;
     private Integer id;
     private String  input;

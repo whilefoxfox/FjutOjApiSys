@@ -1,7 +1,5 @@
 package com.fjut.oj.pojo;
 
-import java.util.Date;
-
 // 用户表
 public class User {
     private String  username;
@@ -11,7 +9,7 @@ public class User {
     private String  school;
     private String  Email;
     private String  motto;          // 签名
-    private Date    registertime;
+    private String  registertime;
     private Integer type;
     private String  Mark;
     private Integer rating;
@@ -26,6 +24,8 @@ public class User {
     private Integer acnum;
     private Integer inTeamStatus;
     private Integer inTeamLv;
+    private Integer rank;
+    private String  graduationTime;
 
     public Integer getRating() {
         return rating;
@@ -91,11 +91,11 @@ public class User {
         this.motto = motto;
     }
 
-    public Date getRegistertime() {
+    public String getRegistertime() {
         return registertime;
     }
 
-    public void setRegistertime(Date registertime) {
+    public void setRegistertime(String registertime) {
         this.registertime = registertime;
     }
 
@@ -203,6 +203,22 @@ public class User {
         this.inTeamLv = inTeamLv;
     }
 
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
+
+    public String getGraduationTime() {
+        return graduationTime;
+    }
+
+    public void setGraduationTime(String graduationTime) {
+        this.graduationTime = graduationTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -213,7 +229,7 @@ public class User {
                 ", school='" + school + '\'' +
                 ", Email='" + Email + '\'' +
                 ", motto='" + motto + '\'' +
-                ", registertime=" + registertime +
+                ", registertime='" + registertime + '\'' +
                 ", type=" + type +
                 ", Mark='" + Mark + '\'' +
                 ", rating=" + rating +
@@ -228,6 +244,8 @@ public class User {
                 ", acnum=" + acnum +
                 ", inTeamStatus=" + inTeamStatus +
                 ", inTeamLv=" + inTeamLv +
+                ", rank=" + rank +
+                ", graduationTime='" + graduationTime + '\'' +
                 '}';
     }
 }

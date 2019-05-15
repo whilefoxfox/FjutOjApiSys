@@ -3,7 +3,7 @@ package com.fjut.oj.service.serviceImpl;
 import com.fjut.oj.mapper.ProblemMapper;
 import com.fjut.oj.pojo.Problem;
 import com.fjut.oj.pojo.Problems1;
-import com.fjut.oj.pojo.t_problemsample;
+import com.fjut.oj.pojo.Problemsample;
 import com.fjut.oj.pojo.t_problemview;
 import com.fjut.oj.service.ProblemService;
 import com.fjut.oj.util.problemHTML;
@@ -26,15 +26,53 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problems1> queryProblemsByPage(Integer pid1, Integer pid2){
-        List<Problems1> list = problemMapper.queryProblemsByPage(pid1, pid2);
+    public List<Problem> queryProblemsByPage(Integer pid1, Integer pid2){
+        List<Problem> list = problemMapper.queryProblemsByPage(pid1, pid2);
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(2);
-        for (Problems1 p: list) {
-            p.radio = (p.getTotalAcUser() * 1.0)/p.getTotalSubmit() * 100;
-            p.strRadio =  numberFormat.format(p.radio) + "%";
+        for (Problem p: list) {
+            if (p.getTotalAcUser() == 0){
+                p.radio = 0.0;
+                p.strRadio = "0%";
+            }
+            else
+            {
+                p.radio = (p.getTotalAcUser() * 1.0)/p.getTotalSubmit() * 100;
+                p.strRadio =  numberFormat.format(p.radio) + "%";
+            }
         }
         return list;
+    }
+
+    @Override
+    public Integer queryProblemsNumByTitle(String title){
+        return problemMapper.queryProblemsNumByTitle(title);
+    }
+
+    @Override
+    public Integer updateProblemtotalSubmit(Integer pid){
+        return problemMapper.updateProblemtotalSubmit(pid);
+    }
+
+    @Override
+    public Integer updateProblemtotalSubmitUser(Integer pid){
+        return problemMapper.updateProblemtotalSubmitUser(pid);
+    }
+
+    @Override
+    public Integer updateProblemtotalAc(Integer pid){
+        return problemMapper.updateProblemtotalAc(pid);
+    }
+
+    @Override
+    public Integer updateProblemtotalAcUser(Integer pid){
+        return problemMapper.updateProblemtotalAcUser(pid);
+    }
+
+    @Override
+    public List<Problemsample> getProblemHTMLProblemSample(Integer pid)
+    {
+        return problemMapper.getProblemHTMLProblemSample(pid);
     }
 
     @Override
@@ -46,18 +84,27 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public Problem queryProblemById(Integer pid) {
         Problem problem = problemMapper.queryProblemById(pid);
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(2);
+        if (problem.getTotalAcUser() == 0){
+            problem.radio = 0.0;
+            problem.strRadio = "0%";
+            return problem;
+        }
+        problem.radio = (problem.getTotalAcUser() * 1.0)/problem.getTotalSubmit() * 100;
+        problem.strRadio =  numberFormat.format(problem.radio) + "%";
         return problem;
     }
 
     @Override
-    public List<Problem> queryProblemByTitle(String title) {
-        List<Problem> list = problemMapper.queryProblemByTitle(title);
+    public List<Problem> queryProblemByTitle(String title, Integer pid1) {
+        List<Problem> list = problemMapper.queryProblemByTitle(title, pid1);
         return list;
     }
 
     @Override
-    public Integer queryProblemsNum(String search) {
-        Integer num = problemMapper.queryProblemsNum(search);
+    public Integer queryProblemsNum() {
+        Integer num = problemMapper.queryProblemsNum();
         return num;
     }
 
@@ -193,8 +240,8 @@ public class ProblemServiceImpl implements ProblemService {
                 ph.setDis(pv.getDis());
                 ph.setInput(pv.getInput());
                 ph.setOutput(pv.getOutput());
-                List<t_problemsample> problemsample = problemMapper.getProblemHTMLProblemSample(pid);
-                for (t_problemsample ps : problemsample){
+                List<Problemsample> problemsample = problemMapper.getProblemHTMLProblemSample(pid);
+                for (Problemsample ps : problemsample){
                     ph.addSample(ps.getInput(),ps.getOutput());
                 }
                 return ph;

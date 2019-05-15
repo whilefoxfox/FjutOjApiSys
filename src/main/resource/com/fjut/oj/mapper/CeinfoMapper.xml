@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.CeinfoMapper">
+
+    <select id="queryAllCeinfo" resultType="com.fjut.oj.pojo.Ceinfo">
+        select *
+        from ceinfo
+    </select>
+
+    <select id="queryCeinfo" resultType="com.fjut.oj.pojo.Ceinfo">
+        select *
+        from ceinfo
+        where rid = #{rid}
+    </select>
+
+    <insert id="insertCeinfo" parameterType="com.fjut.oj.pojo.Ceinfo">
+        insert into ceinfo
+        values(
+          #{ce.rid},
+          #{ce.info}
+        )
+    </insert>
+
+</mapper>
