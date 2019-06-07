@@ -21,4 +21,9 @@ public class UserSolveServiceImpl implements UserSolveService {
     public UserSolve queryACProblem(String username, Integer pid) {
         return userSolveMapper.queryACProblem(username,pid);
     }
+
+    @Override
+    public Integer replaceUserSolve(String username, Integer pid, Integer status){
+        return userSolveMapper.replaceUserSolve(username,pid,status);
+    }
 }

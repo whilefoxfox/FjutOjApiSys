@@ -4,11 +4,22 @@
     <select id="getallUsersRank" resultType="com.fjut.oj.pojo.User">
         select *
         from users
-        <if test="order != null and order != ''">
-            order by #{order}
-        </if>
-        <if test="desc != null and desc != ''">
-            #{desc}
-        </if>
+        order by acnum
+        desc
+        LIMIT #{start}, 50
+    </select>
+
+    <select id="queryUserCountByName" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM users
+        WHERE username LIKE '%${username}%'
+    </select>
+
+    <select id="queryUserByName" resultType="com.fjut.oj.pojo.User">
+        SELECT *
+        FROM users
+        WHERE username LIKE '%${username}%'
+        ORDER BY acnum DESC
+        LIMIT #{start},50
     </select>
 </mapper>

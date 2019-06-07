@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.ContestMapper">
+    <select id="getAllContest" resultType="com.fjut.oj.pojo.Contest">
+        SELECT * FROM contest
+        where rankType = 2 and ctype = 0 and kind = 0
+        ORDER BY endTime&lt;now(),beginTime DESC limit #{pagenum},50
+    </select>
+
+    <select id="getContestById" resultType="com.fjut.oj.pojo.Contest">
+        select *
+        from contest
+        where id = #{cid}
+    </select>
+
+    <select id="getAllContestNum" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM contest
+        where rankType = 2 and ctype = 0 and kind = 0
+    </select>
+
+    <select id="getContestUsers" resultType="com.fjut.oj.pojo.Contestuser">
+        SELECT users.username,users.name,users.gender,users.school,users.faculty,users.major,users.cla,users.no,users.nick,users.rating,users.ratingnum,contestuser.statu,contestuser.time,contestuser.info
+        FROM users LEFT JOIN contestuser ON(users.username=contestuser.username)
+        WHERE contestuser.cid=#{cid}
+        ORDER BY TIME
+        DESC
+        LIMIT #{pagenum},50
+    </select>
+
+    <select id="getContestUsersNum" resultType="java.lang.Integer">
+        SELECT count(users.username)
+        FROM users
+        LEFT JOIN contestuser ON(users.username=contestuser.username)
+        WHERE cid=#{cid}
+    </select>
+
+    <select id="getContestProblem" resultType="com.fjut.oj.pojo.ContestProblemInfo">
+        SELECT contestproblems.tpid,title,totalAcUser,totalSubmit FROM contestproblems LEFT JOIN problem ON contestproblems.tpid=problem.pid WHERE cid=#{cid}
+    </select>
+
+    <select id="getContestStatus" resultType="com.fjut.oj.pojo.Status">
+        SELECT id,(SELECT nick FROM users WHERE username=ruser)
+        AS ruser,statu.pid,statu.cid,lang,submittime,result,score,timeused,memoryUsed,codelen
+        FROM statu
+        where cid=#{cid}
+        order by id
+        desc
+        limit #{pagenum},50
+    </select>
+
+    <select id="getContestStatusNum" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM statu
+        WHERE cid = #{cid}
+    </select>
+
+    <select id="getContestRank" resultType="com.fjut.oj.pojo.ContestRank">
+        SELECT (SELECT nick FROM users WHERE username = contestuser.username) AS username,(SELECT COUNT(*) FROM statu WHERE cid = #{cid} AND result=1 AND ruser=contestuser.username) AS acnum FROM contestuser WHERE cid=#{cid} ORDER BY acnum DESC
+    </select>
+
+    <select id="getContestPassword" resultType="java.lang.String">
+        select password
+        from contest
+        where id = #{cid}
+    </select>
+
+    <select id="getContestUser" resultType="java.lang.Integer">
+        select count(*)
+        from contestuser
+        where cid = #{cid} and username = #{username}
+    </select>
+
+    <insert id="insertContest" parameterType="com.fjut.oj.pojo.Contest">
+        insert into
+        contest
+        values(
+        #{contest.id},
+        #{contest.name},
+        #{contest.beginTime},
+        #{contest.endTime},
+        #{contest.rankType},
+        #{contest.ctype},
+        #{contest.password},
+        "2015-08-11 18:00:00",
+        "2015-07-17 18:55:00",
+        "",
+        0,
+        "admin",
+        #{contest.kind},
+        0,
+        0,
+        0,
+        0,
+        0,
+        0)
+    </insert>
+
+    <select id="getMaxContestId" resultType="java.lang.Integer">
+        select MAX(id)
+        from contest
+    </select>
+
+    <insert id="insertContestProblem" parameterType="com.fjut.oj.pojo.ContestProblem">
+        insert into
+        contestproblems
+        values(
+          #{contestProblem.cid},
+          #{contestProblem.pid},
+          #{contestProblem.tpid}
+        )
+    </insert>
+
+    <insert id="insertContestuser" parameterType="com.fjut.oj.pojo.Contestuser">
+        insert into
+        contestuser
+        values(
+          #{contestuser.cid},
+          #{contestuser.username},
+          #{contestuser.statu},
+          #{contestuser.info},
+          #{contestuser.time}
+        )
+    </insert>
+</mapper>

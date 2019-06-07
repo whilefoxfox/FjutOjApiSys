@@ -10,6 +10,8 @@ public interface ProblemMapper {
 
     List<Problem> queryAllProblems();  // getPageNum查询所有的题目
 
+    Integer insertProblem(@Param("problem") Problem problem);
+
     List<Problem> queryProblemsByPage(@Param("pid1") Integer pid1, @Param("pid2") Integer pid2); // 一页一页的查询题目信息
 
     List<Problem> queryProblemsFromHDU(@Param("from") Integer from, @Param("to") Integer to); // 查询一个范围内杭电的题目
@@ -77,5 +79,10 @@ public interface ProblemMapper {
 
     List<t_problemview> getProblemHTMLProblemView(@Param("pid") Integer pid);
 
-    List<Problemsample> getProblemHTMLProblemSample(@Param("pid") Integer pid);
+    Problemsample getProblemHTMLProblemSample(@Param("pid") Integer pid);
+
+    Problem queryProblemByOjidAndOjspid(@Param("ojid") Integer ojid, @Param("ojspid") String ojspid);
+
+    Integer queryMaxProblemId();
+
 }

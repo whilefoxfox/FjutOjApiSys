@@ -1,23 +1,15 @@
 package com.fjut.oj.pojo;
 
-import java.util.Date;
-
-// 比赛表
 public class Contest {
-
     private Integer id;
-    private String  name;
-    private Date    beginTime;
-    private Date    endTime;
-    private Integer rankType;
+    private String name;
+    private String beginTime;
+    private String endTime;
     private Integer ctype;
-    private String  password;
-    private Date    registerstarttime;
-    private Date    registerendtime;
-    private String  info;
-    private int     computerating;
-    private String  createuser;
+    private Integer rankType;
+    private Integer status;
     private Integer kind;
+    private String password;
 
     public Integer getId() {
         return id;
@@ -35,28 +27,20 @@ public class Contest {
         this.name = name;
     }
 
-    public Date getBeginTime() {
+    public String getBeginTime() {
         return beginTime;
     }
 
-    public void setBeginTime(Date beginTime) {
+    public void setBeginTime(String beginTime) {
         this.beginTime = beginTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
-    }
-
-    public Integer getRankType() {
-        return rankType;
-    }
-
-    public void setRankType(Integer rankType) {
-        this.rankType = rankType;
     }
 
     public Integer getCtype() {
@@ -67,52 +51,20 @@ public class Contest {
         this.ctype = ctype;
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getRankType() {
+        return rankType;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRankType(Integer rankType) {
+        this.rankType = rankType;
     }
 
-    public Date getRegisterstarttime() {
-        return registerstarttime;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setRegisterstarttime(Date registerstarttime) {
-        this.registerstarttime = registerstarttime;
-    }
-
-    public Date getRegisterendtime() {
-        return registerendtime;
-    }
-
-    public void setRegisterendtime(Date registerendtime) {
-        this.registerendtime = registerendtime;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
-    public int getComputerating() {
-        return computerating;
-    }
-
-    public void setComputerating(int computerating) {
-        this.computerating = computerating;
-    }
-
-    public String getCreateuser() {
-        return createuser;
-    }
-
-    public void setCreateuser(String createuser) {
-        this.createuser = createuser;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getKind() {
@@ -121,5 +73,13 @@ public class Contest {
 
     public void setKind(Integer kind) {
         this.kind = kind;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

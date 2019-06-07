@@ -3,8 +3,10 @@ package com.fjut.oj.controller;
 import com.fjut.oj.pojo.Problem;
 import com.fjut.oj.pojo.ProblemView;
 import com.fjut.oj.pojo.Problemsample;
+import com.fjut.oj.pojo.UserSolve;
 import com.fjut.oj.service.ProblemService;
 import com.fjut.oj.service.ProblemViewService;
+import com.fjut.oj.service.UserSolveService;
 import com.fjut.oj.service.serviceImpl.ProblemServiceImpl;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 @Controller
 @RequestMapping("/problemview")
@@ -28,6 +29,9 @@ public class ProblemViewController {
 
     private ProblemServiceImpl problemServiceImpl;
 
+    @Autowired
+    private UserSolveService userSolveService;
+
     @RequestMapping("/Gproblemview")
     @ResponseBody
     public JsonMsg queryProblemView(HttpServletRequest req, HttpServletResponse resp) {
@@ -35,9 +39,15 @@ public class ProblemViewController {
         Integer pid = Integer.parseInt(req.getParameter("pid"));
         ProblemView problemView = problemViewService.queryProblemView(pid);
         Problem problem = problemService.queryProblemById(pid);
-        List<Problemsample> problemsamples =problemService.getProblemHTMLProblemSample(pid);
+        Problemsample problemsamples = problemService.getProblemHTMLProblemSample(pid);
 
-
-        return JsonMsg.success().addInfo(problemView).addInfo(problem).addInfo(problemsamples);
+        String user = req.getParameter("user");
+        Boolean solve = false;
+        if (user!=null){
+            UserSolve userSolve = userSolveService.queryACProblem(user,pid);
+            if(userSolve!=null)
+                solve = true;
+        }
+        return JsonMsg.success().addInfo(problemView).addInfo(problem).addInfo(problemsamples).addInfo(solve);
     }
 }

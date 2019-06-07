@@ -7,4 +7,5 @@ public interface ProblemViewMapper {
 
     ProblemView queryProblemView(@Param("pid") Integer pid);
 
+    Integer insertProblemView(@Param("problemView") ProblemView problemView);
 }

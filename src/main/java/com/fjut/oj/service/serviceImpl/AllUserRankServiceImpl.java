@@ -15,8 +15,18 @@ public class AllUserRankServiceImpl implements AllUserRankService {
     private AllUsersRankMapper allUsersRankMapper;
 
     @Override
-    public List<User> allUsersRank(String order, String desc) {
-        List<User> list = allUsersRankMapper.getallUsersRank(order,desc);
+    public List<User> allUsersRank(String order, String desc,Integer start) {
+        List<User> list = allUsersRankMapper.getallUsersRank(order,desc,start);
         return list;
+    }
+
+    @Override
+    public Integer queryUserCountByName(String username){
+        return allUsersRankMapper.queryUserCountByName(username);
+    }
+
+    @Override
+    public List<User> queryUserByName(String username, Integer start){
+        return allUsersRankMapper.queryUserByName(username,start);
     }
 }

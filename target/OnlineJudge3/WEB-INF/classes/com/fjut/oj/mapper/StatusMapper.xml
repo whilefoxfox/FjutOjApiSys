@@ -7,6 +7,12 @@
         from statu order by id desc
     </select>
 
+    <select id="getAllStatusByUsername" resultType="com.fjut.oj.pojo.Status">
+        select ruser, pid, submitTime, result
+        from statu
+        where ruser = #{username}
+    </select>
+
     <select id="allStatusNum" resultType="java.lang.Integer">
         select count(*)
         from statu
@@ -135,5 +141,9 @@
           codelen = #{status.codelen}
         where id = #{status.id}
     </update>
+
+    <select id="getAcNum" resultType="com.fjut.oj.pojo.Status">
+        SELECT * FROM statu WHERE ruser = #{username} AND result = 1
+    </select>
 
 </mapper>

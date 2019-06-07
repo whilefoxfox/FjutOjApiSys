@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.ContestProblemMapper">
+
+    <select id="getContestProblemsByCid" resultType="com.fjut.oj.pojo.ContestProblem">
+        select *
+        from contestproblems
+        where cid=#{cid}
+    </select>
+
+    <insert id="insertContestProblem" parameterType="com.fjut.oj.pojo.ContestProblem">
+         insert into
+         consterproblems
+         values(
+         #{contestProblem.cid},
+         #{contestProblem.pid},
+         #{contestProblem.tpid}
+         )
+    </insert>
+
+</mapper>

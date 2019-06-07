@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.NewDiscussMapper">
+
+    <select id="queryDiscussByPage" resultType="com.fjut.oj.pojo.NewDiscuss">
+        select *
+        from newdiscuss
+        order by priority,discussid
+        desc
+        limit #{start}, 50
+    </select>
+
+    <select id="queryDiscussCount" resultType="java.lang.Integer">
+        select count(*)
+        from newdiscuss
+    </select>
+
+    <insert id="insertDiscuss" parameterType="com.fjut.oj.pojo.NewDiscuss">
+        insert into
+        newdiscuss(title,`time`,author,priority)
+        values(
+         #{newDiscuss.title},
+         #{newDiscuss.time},
+         #{newDiscuss.author},
+         #{newDiscuss.priority}
+        )
+    </insert>
+
+    <select id="queryMaxCountDiscussId" resultType="java.lang.Integer">
+        select count(*)
+        from newdiscuss
+    </select>
+
+
+    <select id="queryDiscussCountById" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM newdiscuss
+        WHERE discussid = #{id}
+    </select>
+
+    <update id="updateDisscussPirority">
+        update newdiscuss
+        set `priority` = #{priority}
+        where discussid = #{id}
+    </update>
+
+</mapper>

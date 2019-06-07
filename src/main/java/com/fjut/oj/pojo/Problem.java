@@ -19,6 +19,7 @@ public class Problem {
     private String  author;
     public  Double  radio;
     public String  strRadio;
+    public String owner;
 
     public Problem() {
     }
@@ -39,6 +40,15 @@ public class Problem {
         this.author=author;
         this.spj=spj;
     }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     public boolean isLocal(){return ptype == LOCAL;}
 
     public boolean isSpj(){return spj;}

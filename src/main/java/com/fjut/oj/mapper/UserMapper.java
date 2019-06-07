@@ -1,15 +1,17 @@
 package com.fjut.oj.mapper;
 
-import com.fjut.oj.pojo.User;
-import com.fjut.oj.pojo.UserRadar1;
-import com.fjut.oj.pojo.UserRadar2;
+import com.fjut.oj.pojo.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface UserMapper {
 
+    Integer queryUserCount();
+
     User queryByUsernameAndPassword(@Param("username") String username);
+
+    List<AwardInfo> queryAwardInfo(@Param("username") String username);
 
     int insertUser(@Param("user") User user);
 
@@ -27,7 +29,7 @@ public interface UserMapper {
 
     List<UserRadar2> queryUserRadar2(@Param("user") String user);
 
-    int queryPutTagNumByUsername(@Param("username") String username);
+    Integer queryPutTagNumByUsername(@Param("username") String username);
 
     List<Integer> queryStatusProblemsByUsername(@Param("status")Integer status, @Param("username")String username);
 
@@ -44,5 +46,9 @@ public interface UserMapper {
     List<User> getRichTop();
 
     List<User> getAcTop();
+
+    List<RatingGraph> getRatingGraph(@Param("username") String username);
+
+    Integer addAcnum(@Param("username") String username);
 
 }

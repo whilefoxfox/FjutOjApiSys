@@ -16,4 +16,10 @@ public class ProblemViewServiceImpl implements ProblemViewService {
     public ProblemView queryProblemView(Integer pid) {
         return problemViewMapper.queryProblemView(pid);
     }
+
+    @Override
+    public Integer insertProblemView(ProblemView problemView){
+        return problemViewMapper.insertProblemView(problemView);
+    }
+
 }

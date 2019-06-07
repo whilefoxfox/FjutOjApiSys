@@ -11,6 +11,8 @@ public interface ProblemService {
 
     public List<Problem> queryAllProblems();        //查询所有的题目
 
+    public Integer insertProblem(Problem problem); // 插入题目
+
     public List<Problem> queryProblemsByPage(Integer pid1, Integer pid2);   // 一页一页的查询题目信息
 
     public Integer queryProblemsNumByTitle(String title); // 查询某一题目的题的数量
@@ -51,5 +53,12 @@ public interface ProblemService {
 
     public Integer saveProblemHTML(Integer pid, problemHTML ph);
 
-    public List<Problemsample> getProblemHTMLProblemSample(Integer pid);
+    public Problemsample getProblemHTMLProblemSample(Integer pid);
+
+    public Problem queryProblemByOjidAndOjspid(Integer ojid, String ojspid);
+
+    public Integer queryMaxProblemId();
+
+
+
 }

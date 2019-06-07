@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.TeamMemberInfoMapper">
+
+    <select id="queryAllTeamMemberInfo" resultType="com.fjut.oj.pojo.TeamMemberInfo">
+        select *
+        from t_team_member_info
+        order by time
+        desc
+        limit #{start},50
+    </select>
+
+    <select id="queryAllCountTeamMemberInfo" resultType="java.lang.Integer">
+        select count(*)
+        from t_team_member_info
+    </select>
+
+    <select id="queryTeamMemberInfoById" resultType="com.fjut.oj.pojo.TeamMemberInfo">
+        select *
+        from t_team_member_info
+        where
+        id = #{id}
+    </select>
+
+    <insert id="insertTeamMemberInfo" parameterType="com.fjut.oj.pojo.TeamMemberInfo">
+        insert into
+        t_team_member_info(time,username1,username2,username3,name1,name2,name3,contest_level,awards_level,text)
+        values(
+          #{teamMemberInfo.time},
+          #{teamMemberInfo.username1},
+          #{teamMemberInfo.username2},
+          #{teamMemberInfo.username3},
+          #{teamMemberInfo.name1},
+          #{teamMemberInfo.name2},
+          #{teamMemberInfo.name3},
+          #{teamMemberInfo.contest_level},
+          #{teamMemberInfo.awards_level},
+          #{teamMemberInfo.text}
+        )
+    </insert>
+
+    <update id="replaceTeamMemberInfo">
+          replace into
+          t_team_member_info values(
+          #{teamMemberInfo.id},
+          #{teamMemberInfo.time},
+          #{teamMemberInfo.username1},
+          #{teamMemberInfo.username2},
+          #{teamMemberInfo.username3},
+          #{teamMemberInfo.name1},
+          #{teamMemberInfo.name2},
+          #{teamMemberInfo.name3},
+          #{teamMemberInfo.contest_level},
+          #{teamMemberInfo.awards_level},
+          #{teamMemberInfo.text}
+          )
+    </update>
+</mapper>

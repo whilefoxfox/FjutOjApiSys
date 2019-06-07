@@ -24,6 +24,12 @@ public class StatusServiceImpl implements StatusService {
         }
         return list;
     }
+
+    @Override
+    public List<Status> getAllStatusByUsername(String username){
+        return statusMapper.getAllStatusByUsername(username);
+    }
+
     @Override
     public Integer allStatusNum(){
         return statusMapper.allStatusNum();
@@ -42,6 +48,8 @@ public class StatusServiceImpl implements StatusService {
     @Override
     public Status queryStatusById(Integer id){
         Status status = statusMapper.queryStatusById(id);
+        status.setOtherinfo(ResultString.getResultString(status.getResult()));
+        status.setSubmitlanguage(ResultString.getSubmitLanguage(status.getLang()));
         return status;
     }
 

@@ -5,12 +5,34 @@
     <select id="queryAllProblems" resultType="com.fjut.oj.pojo.Problem">
           select *
           from problem
+          WHERE `ojid` = 0 OR `ojid` = 3
           order by pid
     </select>
+
+    <insert id="insertProblem" parameterType="com.fjut.oj.pojo.Problem">
+        insert into
+        problem
+        values(
+        #{problem.pid},
+        #{problem.ptype},
+        #{problem.title},
+        #{problem.ojid},
+        #{problem.ojspid},
+        #{problem.visiable},
+        #{problem.author},
+        #{problem.spj},
+        0,
+        0,
+        0,
+        0,
+        #{problem.owner}
+        )
+    </insert>
 
     <select id="queryProblemsByPage" resultType="com.fjut.oj.pojo.Problem">
         select *
         from problem
+        WHERE `ojid` = 0 OR `ojid` = 3
         order by pid
         LIMIT #{pid1}, 50
     </select>
@@ -27,7 +49,7 @@
         select *
         from problem
         <where>
-            pid = #{pid}
+            pid = #{pid} AND `ojid` = 0 OR pid = #{pid} AND `ojid` = 3
         </where>
     </select>
 
@@ -35,23 +57,30 @@
         select *
         from problem
         <where>
-            title like '%${title}%'
+            title like '%${title}%' AND `ojid` = 0 OR title like '%${title}%' AND `ojid` = 3
         </where>
         order by pid
         LIMIT #{pid1}, 50
     </select>
 
+
+
+
     <select id="queryProblemsNum" resultType="java.lang.Integer">
-            SELECT COUNT(*)
-            FROM  problem
+          SELECT COUNT(*)
+          FROM  problem
+          WHERE `ojid` = 0 OR `ojid` = 3
     </select>
+
+
+
 
 
     <select id="queryProblemsNumByTitle" resultType="java.lang.Integer">
           select count(*)
           from problem
           <where>
-              title like '%${title}%';
+              title like '%${title}%' AND `ojid` = 0 OR title like '%${title}%' AND `ojid` = 3
           </where>
     </select>
 
@@ -63,20 +92,20 @@
 
     <update id="updateProblemtotalSubmitUser" parameterType="java.lang.Integer">
         UPDATE problem
-        SET totalSubmitUser=(totalSubmitUser+1)
-        WHERE pid=#{pid};
+        SET totalSubmitUser = (totalSubmitUser+1)
+        WHERE pid=#{pid}
     </update>
 
     <update id="updateProblemtotalAc" parameterType="java.lang.Integer">
         UPDATE problem
-        SET totalAc=(totalAc+1)
-        WHERE pid=#{pid};
+        SET totalAc = (totalAc + 1)
+        WHERE pid = #{pid}
     </update>
 
     <update id="updateProblemtotalAcUser" parameterType="java.lang.Integer">
         UPDATE problem
-        SET totalAcUser=(totalAcUser+1)
-        WHERE pid=#{pid};
+        SET totalAcUser = (totalAcUser + 1)
+        WHERE pid = #{pid}
     </update>
 
     <select id="getProblems1" resultType="com.fjut.oj.pojo.Problems1">
@@ -171,14 +200,14 @@
     <insert id="saveProblemHTMLProblemView" parameterType="com.fjut.oj.pojo.t_problemview">
         INSERT INTO t_problemview
         VALUES(?,?,?,?,?,?,?,?)
-        #{pid},#{ph.getTimeLimit()}, #{ph.getMenoryLimit()}, #{ph.getInt64()}, #{ph.getSpj()}, #{ph.getDis()}, #{ph.getInput()}, #{ph.getOutput()}
+        #{pid},#{ph.TimeLimit}, #{ph.MenoryLimit}, #{ph.Int64}, #{ph.spj}, #{ph.Dis}, #{ph.Input}, #{ph.Output}
 
     </insert>
 
     <insert id="saveProblemHTMLProblemSample" parameterType="com.fjut.oj.pojo.Problemsample">
         INSERT INTO t_problem_sample
         VALUES(?,?,?,?)
-        #{pid}, #{i}, #{input}, #{output}
+        #{pid}, #{ph.id}, #{ph.Input}, #{ph.Output}
     </insert>
 
     <select id="getProblemHTMLProblemView" resultType="com.fjut.oj.pojo.t_problemview">
@@ -192,6 +221,7 @@
         FROM t_problem_sample
         WHERE pid = #{pid}
         ORDER BY id
+        limit 0 , 1
     </select>
 
     <delete id="delProblemDisProblemView">
@@ -203,5 +233,17 @@
         delete from t_problem_sample
         where pid=#{pid}
     </delete>
+
+    <select id="queryProblemByOjidAndOjspid" resultType="com.fjut.oj.pojo.Problem">
+        select *
+        from problem
+        where
+        ojid = #{ojid} and ojspid =#{ojspid}
+    </select>
+
+    <select id="queryMaxProblemId" resultType="java.lang.Integer">
+        select max(pid)
+        from problem
+    </select>
 
 </mapper>

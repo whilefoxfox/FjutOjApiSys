@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 
 public class SubmitterImp implements Submitter {
 
+
     public StatusService statusService = ApplicationContextHelper.getBean(StatusService.class);
     public ProblemService problemService = ApplicationContextHelper.getBean(ProblemService.class);
 

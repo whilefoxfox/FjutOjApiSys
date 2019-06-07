@@ -8,6 +8,8 @@ public interface StatusService {
 
     public List<Status> ShowAllStatus(); // 获取所有的提交情况
 
+    public List<Status> getAllStatusByUsername(String username);
+
     public Integer allStatusNum();
 
     public List<Status> queryStatus(Integer start);

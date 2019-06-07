@@ -14,4 +14,14 @@
         WHERE username=#{username} AND pid=#{pid} AND status=1
     </select>
 
+    <insert id="replaceUserSolve" parameterType="com.fjut.oj.pojo.UserSolve">
+        replace into
+        t_usersolve
+        values(
+        #{username},
+        #{pid},
+        #{status}
+        )
+    </insert>
+
 </mapper>

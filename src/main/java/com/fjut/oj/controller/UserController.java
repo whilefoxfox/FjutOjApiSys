@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -156,9 +157,9 @@ public class UserController {
         return JsonMsg.fail().addInfo("修改用户信息失败！");
     }
 
-        /**
-         * 获取所有的用户信息
-         */
+    /**
+     * 获取所有的用户信息
+     */
     @RequestMapping("/GAllUsers")
     @ResponseBody
     public JsonMsg queryAllUsers(HttpServletRequest req, HttpServletResponse resp){
@@ -222,7 +223,7 @@ public class UserController {
         String username = req.getParameter("username");
         Integer num = userService.queryPutTagNumByUsername(username);
 
-        if (num != null){
+        if (num != 0){
             return JsonMsg.success().addInfo(num);
         }
         return JsonMsg.fail().addInfo("未查找到用户贴标签的信息！");
@@ -234,6 +235,7 @@ public class UserController {
     @RequestMapping("/GStatusProblems")
     @ResponseBody
     public JsonMsg queryStatusProblemsByUsername(HttpServletRequest req, HttpServletResponse resp){
+        resp.setHeader("Access-Control-Allow-Origin","*");
         Integer status = Integer.parseInt(req.getParameter("status") == null ? "0" : req.getParameter("status"));
         String  username = req.getParameter("username");
         List<Integer> list = userService.queryStatusProblemsByUsername(status, username);
@@ -266,5 +268,40 @@ public class UserController {
 
         List<Integer> list = userService.queryUserPermission(username);
         return JsonMsg.success().addInfo(list);
+    }
+
+    @RequestMapping(value = "/awardinfo",method = RequestMethod.POST)
+    @ResponseBody
+    public JsonMsg getAwardinfo(HttpServletResponse response,HttpServletRequest request){
+        String username = request.getParameter("username");
+        response.setHeader("Access-Control-Allow-Origin","*");
+        List<String> list = userService.queryAwardInfo(username);
+        return JsonMsg.success().addInfo(list);
+    }
+
+    @RequestMapping(value = "/GRatingGraph")
+    @ResponseBody
+    public JsonMsg getRatingGraph(HttpServletRequest request,HttpServletResponse response){
+
+        String username = request.getParameter("username");
+        response.setHeader("Access-Control-Allow-Origin","*");
+        Map<String,Integer> list = (Map<String, Integer>) userService.getRatingGraph(username);
+        if (list != null) {
+            return JsonMsg.success().addInfo(list);
+        }
+        return JsonMsg.fail().addInfo("未查询到该用户的信息！");
+    }
+
+    @RequestMapping(value = "/GAcGraph")
+    @ResponseBody
+    public JsonMsg getAcGraph(HttpServletRequest request,HttpServletResponse response){
+
+        String username = request.getParameter("username");
+        response.setHeader("Access-Control-Allow-Origin","*");
+        List<Object> list = (List<Object>) userService.getAcGraph(username);
+        if (list != null){
+            return JsonMsg.success().addInfo(list);
+        }
+        return JsonMsg.fail().addInfo("未查询到该用户的信息！");
     }
 }

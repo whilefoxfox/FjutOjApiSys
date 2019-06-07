@@ -8,4 +8,19 @@
         where pid = #{pid}
     </select>
 
+    <insert id="insertProblemView" parameterType="com.fjut.oj.pojo.ProblemView">
+        insert into
+        t_problemview
+        values(
+        #{problemView.pid},
+        #{problemView.timelimit},
+        #{problemView.Menorylimit},
+        #{problemView.int64},
+        #{problemView.spj},
+        #{problemView.dis},
+        #{problemView.input},
+        #{problemView.output}
+        )
+    </insert>
+
 </mapper>

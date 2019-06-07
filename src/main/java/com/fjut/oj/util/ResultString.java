@@ -61,4 +61,50 @@ public class ResultString {
         if ("Score".equals(resultStr)) return 13;
         return 5;
     }
+
+    public static Integer contestLevelToint(String contestStr){
+        if ("ACM省赛".equals(contestStr))return 0;
+        if ("ACM/ICPC区域赛".equals(contestStr))return 1;
+        if ("EC-Final".equals(contestStr))return 2;
+        if ("世界总决赛".equals(contestStr))return 3;
+        if ("全国蓝桥杯大赛".equals(contestStr))return 4;
+        if ("ACM全国邀请赛".equals(contestStr))return 5;
+        if ("全国大学生程序设计竞赛".equals(contestStr))return 6;
+        return -1;
+    }
+
+    public static String contestLevelToStr(Integer num){
+        if (num == 0) return "ACM省赛";
+        if (num == 1) return "ACM/ICPC区域赛";
+        if (num == 2) return "EC-Final";
+        if (num == 3) return "世界总决赛";
+        if (num == 4) return "全国蓝桥杯大赛";
+        if (num == 5) return "ACM全国邀请赛";
+        if (num == 6) return "全国大学生程序设计竞赛";
+        return "其他";
+    }
+
+    public static Integer awardLevelToint(String awardStr){
+        if ("顽强拼搏奖".equals(awardStr))return -1;
+        if ("优秀奖/鼓励奖".equals(awardStr))return 0;
+        if ("铜奖".equals(awardStr))return 1;
+        if ("银奖".equals(awardStr))return 2;
+        if ("金奖".equals(awardStr))return 3;
+        if ("一等奖".equals(awardStr))return 4;
+        if ("二等奖".equals(awardStr))return 5;
+        if ("三等奖".equals(awardStr))return 6;
+        return -2;
+    }
+
+    public static String awardLevelToStr(Integer num){
+        if (num == -1) return "顽强拼搏奖";
+        if (num == 0) return "优秀奖/鼓励奖";
+        if (num == 1) return "铜奖";
+        if (num == 2) return "银奖";
+        if (num == 3) return "金奖";
+        if (num == 4) return "一等奖";
+        if (num == 5) return "二等奖";
+        if (num == 6) return "三等奖";
+        return "其他";
+    }
 }

@@ -3,8 +3,21 @@
 <mapper namespace="com.fjut.oj.mapper.ProblemSampleMapper">
 
    <select id="queryProblemsampleById" resultType="com.fjut.oj.pojo.Problemsample">
-       select *
-
+       SELECT *
+       FROM t_problem_sample
+       WHERE pid = #{pid}
+       ORDER BY id
    </select>
+
+    <insert id="insertProblemSample" parameterType="com.fjut.oj.pojo.Problemsample">
+        insert into
+        t_problem_sample
+        values(
+        #{problemsample.pid},
+        #{problemsample.id},
+        #{problemsample.input},
+        #{problemsample.output}
+        )
+    </insert>
 
 </mapper>

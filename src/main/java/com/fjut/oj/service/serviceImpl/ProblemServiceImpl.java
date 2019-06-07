@@ -26,6 +26,12 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
+    public Integer insertProblem(Problem problem){
+        Integer num = problemMapper.insertProblem(problem);
+        return num;
+    }
+
+    @Override
     public List<Problem> queryProblemsByPage(Integer pid1, Integer pid2){
         List<Problem> list = problemMapper.queryProblemsByPage(pid1, pid2);
         NumberFormat numberFormat = NumberFormat.getInstance();
@@ -70,7 +76,7 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problemsample> getProblemHTMLProblemSample(Integer pid)
+    public Problemsample getProblemHTMLProblemSample(Integer pid)
     {
         return problemMapper.getProblemHTMLProblemSample(pid);
     }
@@ -84,6 +90,7 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public Problem queryProblemById(Integer pid) {
         Problem problem = problemMapper.queryProblemById(pid);
+        if(problem==null)return null;
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(2);
         if (problem.getTotalAcUser() == 0){
@@ -99,6 +106,19 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public List<Problem> queryProblemByTitle(String title, Integer pid1) {
         List<Problem> list = problemMapper.queryProblemByTitle(title, pid1);
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(2);
+        for (Problem p: list) {
+            if (p.getTotalAcUser() == 0){
+                p.radio = 0.0;
+                p.strRadio = "0%";
+            }
+            else
+            {
+                p.radio = (p.getTotalAcUser() * 1.0)/p.getTotalSubmit() * 100;
+                p.strRadio =  numberFormat.format(p.radio) + "%";
+            }
+        }
         return list;
     }
 
@@ -240,10 +260,9 @@ public class ProblemServiceImpl implements ProblemService {
                 ph.setDis(pv.getDis());
                 ph.setInput(pv.getInput());
                 ph.setOutput(pv.getOutput());
-                List<Problemsample> problemsample = problemMapper.getProblemHTMLProblemSample(pid);
-                for (Problemsample ps : problemsample){
-                    ph.addSample(ps.getInput(),ps.getOutput());
-                }
+                Problemsample problemsample = problemMapper.getProblemHTMLProblemSample(pid);
+                ph.addSample(problemsample.getInput(),problemsample.getOutput());
+
                 return ph;
             }
         } catch (Exception e){
@@ -253,6 +272,13 @@ public class ProblemServiceImpl implements ProblemService {
         return ph;
     }
 
+    @Override
+    public Problem queryProblemByOjidAndOjspid(Integer ojid, String ojspid){
+        return problemMapper.queryProblemByOjidAndOjspid(ojid,ojspid);
+    }
 
-
+    @Override
+    public Integer queryMaxProblemId(){
+        return problemMapper.queryMaxProblemId();
+    }
 }

@@ -25,10 +25,10 @@ public class AllRankController {
         List<User> list = allTopTenService.getAcbTOP();
         List<User> list_1 = allTopTenService.getRatingTOP();
         List<User> list_2 = allTopTenService.getAcTOP();
-        List<User> list_3 = allTopTenService.getActiveTop();
-        if(list_3.size()>=10){
-            list_3 = list_3.subList(0,9);
-        }
-        return JsonMsg.success().addInfo(list).addInfo(list_1).addInfo(list_2).addInfo(list_3);
+//        List<User> list_3 = allTopTenService.getActiveTop();
+//        if(list_3.size()>=10){
+//            list_3 = list_3.subList(0,9);
+//        }
+        return JsonMsg.success().addInfo(list).addInfo(list_1).addInfo(list_2);
     }
 }

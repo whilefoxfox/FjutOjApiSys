@@ -21,6 +21,7 @@ public class ProblemController {
     private ProblemService problemService;
 
     public static List<Problem> listProblems = null;
+
     /**
      * 查询所有的题目信息
      */
@@ -45,26 +46,15 @@ public class ProblemController {
         resp.setHeader("Access-Control-Allow-Origin","*");
 
         Integer pid1, pid2, pagenum, totalpagenum;
-        pagenum = Integer.parseInt(req.getParameter("pagenum"));
-        totalpagenum = problemService.getPageNum(50, false);
-        if (pagenum < totalpagenum - 1)
-        {
-            pid1 = (pagenum - 1) * 50;
-            pid2 = pid1 + 50;
-        }
-        else
-        {
-            pid1 = (pagenum - 1) * 50;
-            pid2 = problemService.queryProblemsNum();
-        }
+        pagenum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
+        Integer total = problemService.queryProblemsNum();
+        totalpagenum = (total % 50 == 0) ? total /50 : total / 50 +1;
+        pid1 = (pagenum - 1) * 50;
+        pid2 = pid1 + 50;
 
         List<Problem> list = problemService.queryProblemsByPage(pid1, pid2);
-        return JsonMsg.success().addInfo(totalpagenum - 1).addInfo(list);
+        return JsonMsg.success().addInfo(totalpagenum).addInfo(list);
     }
-
-    /**
-     *
-     */
 
     /**
      * 查询一个范围内的杭电的题目
@@ -89,11 +79,12 @@ public class ProblemController {
     @ResponseBody
     public JsonMsg queryProblemById(HttpServletRequest req, HttpServletResponse resp){
         resp.setHeader("Access-Control-Allow-Origin","*");
-
         Integer pid = Integer.parseInt(req.getParameter("pid"));
 
         Problem problem = problemService.queryProblemById(pid);
-        return JsonMsg.success().addInfo(problem);
+        if (problem!=null)
+            return JsonMsg.success().addInfo(problem);
+        return JsonMsg.fail().addInfo("未查找到该题目！");
     }
 
     /**
@@ -139,6 +130,13 @@ public class ProblemController {
         Integer num = problemService.queryProblemsNum();
         return JsonMsg.success().addInfo(num);
     }
+
+
+
+
+
+
+
 
     /**
      * 查询一个范围题目号范围内的题目 并可以选择是否查询隐藏题目和拥有者
@@ -253,6 +251,4 @@ public class ProblemController {
         List<Integer> list = problemService.getProblemsByOjPid(oj, ojspid);
         return JsonMsg.success().addInfo(list);
     }
-
-
 }

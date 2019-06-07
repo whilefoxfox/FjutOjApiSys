@@ -1,12 +1,10 @@
 package com.fjut.oj.pojo;
 
-import java.util.Date;
-
 // 队伍成员信息
-public class t_team_member_info {
+public class TeamMemberInfo {
 
     private Integer id;
-    private Date    time;
+    private String  time;
     private String  username1;
     private String  username2;
     private String  username3;
@@ -17,6 +15,9 @@ public class t_team_member_info {
     private Integer awards_level;
     private String  text;
 
+    private String contestLevelStr;
+    private String awardsLevelStr;
+
     public Integer getId() {
         return id;
     }
@@ -25,11 +26,11 @@ public class t_team_member_info {
         this.id = id;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -103,5 +104,21 @@ public class t_team_member_info {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getContestLevelStr() {
+        return contestLevelStr;
+    }
+
+    public void setContestLevelStr(String contestLevelStr) {
+        this.contestLevelStr = contestLevelStr;
+    }
+
+    public String getAwardsLevelStr() {
+        return awardsLevelStr;
+    }
+
+    public void setAwardsLevelStr(String awardsLevelStr) {
+        this.awardsLevelStr = awardsLevelStr;
     }
 }

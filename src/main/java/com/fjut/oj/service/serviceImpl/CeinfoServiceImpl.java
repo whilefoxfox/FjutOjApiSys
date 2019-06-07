@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("/ceinfoService")
+@Service("ceinfoService")
 public class CeinfoServiceImpl implements CeinfoService {
 
     @Autowired

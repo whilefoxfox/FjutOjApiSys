@@ -9,6 +9,8 @@ public interface StatusMapper {
 
     public List<Status> ShowAllStatus();
 
+    public List<Status> getAllStatusByUsername(@Param("username") String username);
+
     public Integer allStatusNum();
 
     public List<Status> queryStatus(@Param("start") Integer start);
@@ -30,5 +32,7 @@ public interface StatusMapper {
     Integer insertStatus(@Param("status") Status status);
 
     Integer updateStatus(@Param("status") Status status);
+
+    public List<Status> getAcNum(@Param("username") String username);
 
 }
