@@ -19,6 +19,7 @@ import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
+@CrossOrigin
 @RequestMapping("/addProblem")
 public class AddProblemController {
 
@@ -52,7 +54,6 @@ public class AddProblemController {
     @RequestMapping("/GAddProblemTitle")
     @ResponseBody
     public JsonMsg GAddProblemTitle(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
         String pidStr = req.getParameter("pid");
         String ojStr = req.getParameter("ojStr");
         if (pidStr == null || ojStr == null){
@@ -96,7 +97,6 @@ public class AddProblemController {
     @RequestMapping("/IAddProblem")
     @ResponseBody
     public JsonMsg IAddProblem(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
         String pidStr = req.getParameter("pid");
         String ojStr = req.getParameter("ojStr");
         if (pidStr == null || ojStr == null){
@@ -134,7 +134,6 @@ public class AddProblemController {
         }
 
         Integer newpid = problemService.queryMaxProblemId() == null ? 0 : problemService.queryMaxProblemId() + 1;
-
         Problem problem = new Problem();
         problem.setPid(newpid);
         problem.setPtype(1);

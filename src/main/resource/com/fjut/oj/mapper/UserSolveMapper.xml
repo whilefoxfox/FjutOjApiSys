@@ -18,7 +18,7 @@
         replace into
         t_usersolve
         values(
-        #{username},
+        #{username}t_clock_in,
         #{pid},
         #{status}
         )

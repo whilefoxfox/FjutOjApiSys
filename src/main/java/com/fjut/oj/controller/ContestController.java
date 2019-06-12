@@ -5,6 +5,7 @@ import com.fjut.oj.service.ContestService;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 //@RequestMapping("/contest")
 public class ContestController {
 
@@ -24,7 +26,6 @@ public class ContestController {
     @RequestMapping("/GAllContest")
     @ResponseBody
     public JsonMsg getAllContest(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         Integer pagenum = Integer.parseInt(request.getParameter("pagenum")) - 1;
         List<Contest> list = contestService.getAllContest(pagenum);
         Integer contestNum = contestService.getAllContestNum();
@@ -40,7 +41,6 @@ public class ContestController {
     @RequestMapping("/IContest")
     @ResponseBody
     public JsonMsg IContest(HttpServletRequest request, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin","*");
         Contest contest = new Contest();
         Integer oldid = contestService.getMaxContestId();
         Integer id = oldid + 1;
@@ -75,8 +75,6 @@ public class ContestController {
     @RequestMapping("/IContestProblems")
     @ResponseBody
     public JsonMsg IContestProblems(HttpServletRequest request, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin","*");
-
         String pidStr = request.getParameter("pid");
         String tpidStr = request.getParameter("tpid");
         if (pidStr == null || tpidStr == null){
@@ -101,7 +99,6 @@ public class ContestController {
     @RequestMapping("/IContestuser")
     @ResponseBody
     public JsonMsg IContestuser(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         String cidStr = request.getParameter("cid");
         String username = request.getParameter("username");
         if (cidStr == null || username == null){
@@ -128,7 +125,6 @@ public class ContestController {
     @RequestMapping("/CheckContestPassword")
     @ResponseBody
     public JsonMsg checkContestPassword(HttpServletRequest request, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin","*");
         String password = request.getParameter("password");
         String cidStr = request.getParameter("cid");
         if (password == null || cidStr == null){
@@ -149,7 +145,6 @@ public class ContestController {
     @RequestMapping("/CheckIsApply")
     @ResponseBody
     public JsonMsg checkIsApply(HttpServletRequest request, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin","*");
         String cidStr = request.getParameter("cid");
         String username = request.getParameter("username");
         if (cidStr == null || username == null){
@@ -166,7 +161,6 @@ public class ContestController {
     @RequestMapping("/GContestUsers")
     @ResponseBody
     public JsonMsg getContestUsers(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         Integer cid = Integer.parseInt(request.getParameter("cid"));
         Integer pagenum = Integer.parseInt(request.getParameter("pagenum"));
         List<Contestuser> list = contestService.getContestUsers(cid,(pagenum-1)*50);
@@ -180,7 +174,6 @@ public class ContestController {
     @RequestMapping("/GContestUsersNum")
     @ResponseBody
     public JsonMsg getContestUsersNum(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         Integer cid = Integer.parseInt(request.getParameter("cid"));
         Integer ContestUsersNum = contestService.getContestUsersNum(cid);
         if (ContestUsersNum==null) return JsonMsg.success().addInfo(0);
@@ -190,7 +183,6 @@ public class ContestController {
     @RequestMapping("/GContestProblem")
     @ResponseBody
     public JsonMsg getContestProblem(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         Integer cid = Integer.parseInt(request.getParameter("cid"));
         List<ContestProblemInfo> contestProblemList = contestService.getContestProblem(cid);
         if (contestProblemList==null)  return JsonMsg.success().addInfo("数据为空");
@@ -200,7 +192,6 @@ public class ContestController {
     @RequestMapping("/GContestStatus")
     @ResponseBody
     public JsonMsg getContestStatus(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         Integer cid = Integer.parseInt(request.getParameter("cid"));
         Integer pagenum = Integer.parseInt(request.getParameter("pagenum"));
         List<Status> contestStatusList = contestService.getContestStatus(cid,(pagenum-1)*50);
@@ -220,7 +211,6 @@ public class ContestController {
     @RequestMapping("/GContestRank")
     @ResponseBody
     public JsonMsg getContestRank(HttpServletRequest request, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin","*");
         Integer cid = Integer.parseInt(request.getParameter("cid"));
         List<ContestRank> contestRankList = contestService.getContestRank(cid);
         if (contestRankList == null) return JsonMsg.success().addInfo("数据为空");

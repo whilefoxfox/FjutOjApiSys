@@ -5,6 +5,7 @@ import com.fjut.oj.service.NewDiscussService;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 @RequestMapping("/discuss")
 public class NewDiscussController {
 
@@ -24,7 +26,6 @@ public class NewDiscussController {
     @RequestMapping("/GDiscuss")
     @ResponseBody
     public JsonMsg queryDiscussByPage(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         String pagenumStr = req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum");
         Integer pagenum = Integer.parseInt(pagenumStr);
         Integer start = (pagenum - 1) * 50;
@@ -39,7 +40,6 @@ public class NewDiscussController {
     @RequestMapping("/insertDiscuss")
     @ResponseBody
     public JsonMsg insertDiscuss(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         NewDiscuss newDiscuss = new NewDiscuss();
         String title = req.getParameter("title");
 
@@ -66,7 +66,6 @@ public class NewDiscussController {
     @RequestMapping("/UPriority")
     @ResponseBody
     public JsonMsg updatePriority(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         String idStr = req.getParameter("id");
         String priorityStr = req.getParameter("priority");
         if (idStr == null || priorityStr == null){

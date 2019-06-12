@@ -5,6 +5,7 @@ import com.fjut.oj.service.AllTopTenService;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 public class AllRankController {
 
     @Autowired
@@ -21,7 +23,6 @@ public class AllRankController {
     @PostMapping(value = "/Galltop",produces="application/json")
     @ResponseBody
     public JsonMsg getAllTop(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin","*");
         List<User> list = allTopTenService.getAcbTOP();
         List<User> list_1 = allTopTenService.getRatingTOP();
         List<User> list_2 = allTopTenService.getAcTOP();

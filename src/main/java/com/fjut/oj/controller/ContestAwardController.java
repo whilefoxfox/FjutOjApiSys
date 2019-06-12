@@ -6,6 +6,7 @@ import com.fjut.oj.util.JsonMsg;
 import com.fjut.oj.util.ResultString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 @RequestMapping("/addContestAward")
 public class ContestAwardController {
 
@@ -23,7 +25,6 @@ public class ContestAwardController {
     @ResponseBody
     @RequestMapping("/IContestAward")
     public JsonMsg IContestAward(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         String time = req.getParameter("time") == null ? "2000-01-01" : req.getParameter("time");
         String username1 = req.getParameter("username1") == null ? "" : req.getParameter("username1");
         String username2 = req.getParameter("username2") == null ? "" : req.getParameter("username2");
@@ -59,7 +60,6 @@ public class ContestAwardController {
     @ResponseBody
     @RequestMapping("/UContestAward")
     public JsonMsg UContestAward(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         String strId = req.getParameter("id");
         if (strId==null){
             return JsonMsg.fail().addInfo("未传入id");
@@ -102,7 +102,6 @@ public class ContestAwardController {
     @RequestMapping("/GAllTeamMemberInfo")
     @ResponseBody
     public JsonMsg GAllTeamMemberInfo(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         Integer pagenum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
         Integer totalnum = teamMemberInfoService.queryAllCountTeamMemberInfo();
         Integer totalpage = (totalnum % 50) == 0 ? totalnum / 50 : totalnum / 50 + 1;
