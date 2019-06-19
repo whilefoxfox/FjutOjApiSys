@@ -110,14 +110,11 @@ public class MessageController {
         JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
         String pageNumStr = request.getParameter("pagenum");
-//        logger.debug(pageNumStr);
-//        System.out.println("username: " + username + " pageNumStr: " +pageNumStr);
         Integer pageNum = Integer.parseInt(pageNumStr);
         Integer startIndex = null;
         if (null != pageNum) {
             startIndex = (pageNum - 1) * 10;
         }
-//        System.out.println("startIndex: " + startIndex);
         List<t_message> messages = messageService.queryAllMessageByUser(username, startIndex);
         int countMessage = messageService.queryAllMessageCountByUser(username);
         if (0 != messages.size()) {

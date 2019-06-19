@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="OnlineJudge3:war2">
-    <output-path>$PROJECT_DIR$/out/artifacts/OnlineJudge3_war2</output-path>
-    <root id="archive" name="OnlineJudge3_war.war">
-      <element id="artifact" artifact-name="OnlineJudge3:war exploded" />
-      <element id="dir-copy" path="$PROJECT_DIR$" />
-    </root>
-  </artifact>
-</component>
