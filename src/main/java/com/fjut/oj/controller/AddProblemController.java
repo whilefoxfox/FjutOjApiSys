@@ -50,6 +50,7 @@ public class AddProblemController {
             new CodeVS(),
 
     };
+    private String ojStr;
 
     @RequestMapping("/GAddProblemTitle")
     @ResponseBody

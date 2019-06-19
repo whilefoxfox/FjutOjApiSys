@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface NewDiscussMapper {
 
-    public List<NewDiscuss> queryDiscussByPage(@Param("start") Integer start);
+    List<NewDiscuss> queryDiscussByPage(@Param("start") Integer start);
 
-    public Integer queryDiscussCount();
+    Integer queryDiscussCount();
 
-    public Integer insertDiscuss(@Param("newDiscuss") NewDiscuss newDiscuss);
+    Integer insertDiscuss(@Param("newDiscuss") NewDiscuss newDiscuss);
 
-    public Integer queryMaxCountDiscussId();
+    Integer queryMaxCountDiscussId();
 
-    public Integer queryDiscussCountById(@Param("id")Integer id);
+    Integer queryDiscussCountById(@Param("id") Integer id);
 
-    public Integer updateDisscussPirority(@Param("id")Integer id, @Param("priority") Double priority);
+    Integer updateDisscussPirority(@Param("id") Integer id, @Param("priority") Double priority);
 }

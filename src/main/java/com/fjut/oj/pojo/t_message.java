@@ -1,5 +1,7 @@
 package com.fjut.oj.pojo;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import java.util.Date;
 
 // 用户 message 消息
@@ -7,7 +9,7 @@ public class t_message {
 
     private Integer mid;
     private String  user;
-    private Integer status;  // 0 未读 1 已读
+    private Integer statu;  // 0 未读 1 已读
     private String  title;
     private String  text;
     private Date    time;
@@ -30,11 +32,11 @@ public class t_message {
     }
 
     public Integer getStatus() {
-        return status;
+        return statu;
     }
 
     public void setStatus(Integer status) {
-        this.status = status;
+        this.statu = status;
     }
 
     public String getTitle() {
@@ -67,5 +69,17 @@ public class t_message {
 
     public void setDeadline(Date deadline) {
         this.deadline = deadline;
+    }
+
+
+    @Override
+    public String toString() {
+        return "mid: "+mid.toString()+
+                " username: "+user+
+                " status: "+statu+
+                " title: "+title+
+                " text: "+text+
+                " time: "+time+
+                " deadline: "+deadline;
     }
 }

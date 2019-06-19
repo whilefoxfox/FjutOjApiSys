@@ -5,9 +5,9 @@ import org.apache.ibatis.annotations.Param;
 
 public interface UserSolveMapper {
 
-    public UserSolve queryByUsernameAndPid(@Param("username") String username, @Param("pid") Integer pid);
+    UserSolve queryByUsernameAndPid(@Param("username") String username, @Param("pid") Integer pid);
 
-    public UserSolve queryACProblem(@Param("username") String username, @Param("pid") Integer pid);
+    UserSolve queryACProblem(@Param("username") String username, @Param("pid") Integer pid);
 
-    public Integer replaceUserSolve(@Param("username") String username, @Param("pid") Integer pid, @Param("status") Integer status);
+    Integer replaceUserSolve(@Param("username") String username, @Param("pid") Integer pid, @Param("status") Integer status);
 }

@@ -23,8 +23,9 @@ public class PermissionController {
         resp.setHeader("Access-Control-Allow-Origin","*");
 
         //List<String> list = permissionService.getUserPermission("admin");
-        if ("cjt152".equals(username) || "admin".equals(username))
+        if ("cjt152".equals(username) || "admin".equals(username)) {
             return JsonMsg.success().addInfo(true);
+        }
         return JsonMsg.fail().addInfo(false);
     }
 }
