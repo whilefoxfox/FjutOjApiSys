@@ -15,6 +15,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author cjt
+ */
 @Controller
 @CrossOrigin
 //@RequestMapping("/contest")

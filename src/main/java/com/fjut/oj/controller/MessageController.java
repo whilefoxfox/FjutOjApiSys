@@ -3,8 +3,6 @@ package com.fjut.oj.controller;
 import com.fjut.oj.pojo.t_message;
 import com.fjut.oj.service.MessageService;
 import com.fjut.oj.util.JsonInfo;
-
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -22,7 +21,6 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    private static Logger logger = Logger.getLogger(MessageController.class);
 
     @RequestMapping("/delMessageByMid")
     @ResponseBody
@@ -40,7 +38,7 @@ public class MessageController {
     }
 
 //    /**
-//     * 根据用户名删除系统消息，功能有误暂时不上线
+//     * FIXME:根据用户名删除系统消息，功能有误暂时不上线
 //     * @param request
 //     * @param response
 //     * @return
@@ -150,14 +148,11 @@ public class MessageController {
         JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
         String pageNumStr = request.getParameter("pagenum");
-//        logger.debug(pageNumStr);
-//        System.out.println("username: " + username + " pageNumStr: " +pageNumStr);
         Integer pageNum = Integer.parseInt(pageNumStr);
         Integer startIndex = null;
         if (null != pageNum) {
             startIndex = (pageNum - 1) * 10;
         }
-//        System.out.println("startIndex: " + startIndex);
         List<t_message> messages = messageService.queryUnReadMessageByUser(username, startIndex);
         Integer unReadCount = messageService.queryUnReadMessageCountByUser(username);
         if (0 != messages.size()) {
@@ -168,7 +163,25 @@ public class MessageController {
             jsonInfo.setFail();
         }
         return jsonInfo;
-
     }
+
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public JsonInfo TestException () throws Exception {
+        JsonInfo jsonInfo = new JsonInfo();
+        int mark = 1;
+        if(1 == mark){
+            throw new SQLException("SQL出错啦！");
+        }
+        else
+        {
+            jsonInfo.addInfo(mark);
+        }
+        return jsonInfo;
+    }
+
+
+
 
 }

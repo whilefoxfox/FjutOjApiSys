@@ -9,4 +9,8 @@
     </context:component-scan>
 
     <import resource="spring-mybatis.xml"/>
+
+    <bean id="GlobalExceptionHandler" class="com.fjut.oj.exception.GlobalExceptionHandler"></bean>
+
+
 </beans>
