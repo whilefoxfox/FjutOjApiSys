@@ -27,8 +27,6 @@ public class CeinfoServiceImpl implements CeinfoService {
     @Override
     public boolean insertCeinfo(Ceinfo ce) {
         Integer num = ceinfoMapper.insertCeinfo(ce);
-        if (num!=0)
-            return true;
-        return false;
+        return num != 0;
     }
 }

@@ -19,9 +19,9 @@ public class JsonInfo {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
+//    public void setCode(int code) {
+//        this.code = code;
+//    }
 
     public String getMsg() {
         return msg;
@@ -39,14 +39,33 @@ public class JsonInfo {
         this.datas = datas;
     }
 
+
     public void setSuccess() {
-        code = 100;
-        msg = "操作成功！";
+        this.code = 100;
+    }
+
+    public void setSuccess(String msg) {
+        this.code = 100;
+        this.msg = msg;
     }
 
     public void setFail() {
-        code = 200;
-        msg = "操作失败！";
+        this.code = 200;
+    }
+
+    public void setFail(String msg) {
+        this.code = 200;
+        this.msg = msg;
+    }
+
+    public void setError() {
+        this.code = 400;
+
+    }
+
+    public void setError(String msg) {
+        this.code = 400;
+        this.msg = msg;
     }
 
     public void cleanDatas(){

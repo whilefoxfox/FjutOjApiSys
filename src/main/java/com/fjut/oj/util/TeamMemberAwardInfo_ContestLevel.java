@@ -27,14 +27,29 @@ public enum TeamMemberAwardInfo_ContestLevel {
         return TeamMemberAwardInfo_ContestLevel.NONE;
     }
 
+    @Override
     public String toString(){
-        if(this == TeamMemberAwardInfo_ContestLevel.PROVINCE) return "ACM福建省省赛";
-        if(this == TeamMemberAwardInfo_ContestLevel.REGIONAL) return "ACM/ICPC亚洲区域赛";
-        if(this == TeamMemberAwardInfo_ContestLevel.EC_FINAL) return "ACM/ICPC东亚赛区总决赛(EC-Final)";
-        if(this == TeamMemberAwardInfo_ContestLevel.LANQIAOBEI) return "全国蓝桥杯软件设计大赛";
-        if(this == TeamMemberAwardInfo_ContestLevel.WORLD_FINAL) return "ACM/ICPC世界总决赛";
-        if(this == TeamMemberAwardInfo_ContestLevel.YAOQINGSAI) return "ACM/ICPC全国邀请赛";
-        if(this == TeamMemberAwardInfo_ContestLevel.CCPC) return "中国大学生程序设计竞赛";
+        if(this == TeamMemberAwardInfo_ContestLevel.PROVINCE) {
+            return "ACM福建省省赛";
+        }
+        if(this == TeamMemberAwardInfo_ContestLevel.REGIONAL) {
+            return "ACM/ICPC亚洲区域赛";
+        }
+        if(this == TeamMemberAwardInfo_ContestLevel.EC_FINAL) {
+            return "ACM/ICPC东亚赛区总决赛(EC-Final)";
+        }
+        if(this == TeamMemberAwardInfo_ContestLevel.LANQIAOBEI) {
+            return "全国蓝桥杯软件设计大赛";
+        }
+        if(this == TeamMemberAwardInfo_ContestLevel.WORLD_FINAL) {
+            return "ACM/ICPC世界总决赛";
+        }
+        if(this == TeamMemberAwardInfo_ContestLevel.YAOQINGSAI) {
+            return "ACM/ICPC全国邀请赛";
+        }
+        if(this == TeamMemberAwardInfo_ContestLevel.CCPC) {
+            return "中国大学生程序设计竞赛";
+        }
         return "其他";
     }
 

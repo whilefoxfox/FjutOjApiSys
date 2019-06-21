@@ -47,9 +47,10 @@ public class WeekRankRecordServiceImpl implements WeekRankRecordService {
             resultsMap.put(submisssionRecord.getRuser(),record);
             weekRankRecord.setResultsMap(resultsMap);
         }
-        this.add(record,day,record.getConfig(day));
+        this.add(record,day, WeekRankRecord.getConfig(day));
     }
 
+    @Override
     public void sort(WeekRankRecord weekRankRecord){
         List<WeekRankRecord> resultsList = weekRankRecord.getResultsList();
         for (WeekRankRecord record: weekRankRecord.getResultsMap().values()) {
@@ -77,7 +78,7 @@ public class WeekRankRecordServiceImpl implements WeekRankRecordService {
         calendar.set(Calendar.SECOND,0);
         calendar.set(Calendar.MILLISECOND,0);
         Timestamp getListTo = new Timestamp(calendar.getTimeInMillis());
-        calendar.add(calendar.DATE,-7);
+        calendar.add(Calendar.DATE,-7);
         Timestamp getListFrom = new Timestamp(calendar.getTimeInMillis());
         List<SubmisssionRecord> list = submissionRecordMapper.getAreaSubmissionRecord(getListFrom,getListTo);
         System.out.println(list);

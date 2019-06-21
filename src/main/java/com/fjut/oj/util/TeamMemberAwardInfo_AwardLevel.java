@@ -28,15 +28,32 @@ public enum TeamMemberAwardInfo_AwardLevel {
         return TeamMemberAwardInfo_AwardLevel.NONE;
     }
 
+    @Override
     public String toString(){
-        if(this == TeamMemberAwardInfo_AwardLevel.TENACIOUSLY) return "顽强拼搏奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.ENCOURAGING) return "鼓励奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.BRAZE) return "铜奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.SILVER) return "银奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.GOLD) return "金奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.LV1) return "一等奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.LV2) return "二等奖";
-        if(this == TeamMemberAwardInfo_AwardLevel.LV3) return "三等奖";
+        if(this == TeamMemberAwardInfo_AwardLevel.TENACIOUSLY) {
+            return "顽强拼搏奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.ENCOURAGING) {
+            return "鼓励奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.BRAZE) {
+            return "铜奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.SILVER) {
+            return "银奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.GOLD) {
+            return "金奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.LV1) {
+            return "一等奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.LV2) {
+            return "二等奖";
+        }
+        if(this == TeamMemberAwardInfo_AwardLevel.LV3) {
+            return "三等奖";
+        }
         return "无奖项";
     }
 

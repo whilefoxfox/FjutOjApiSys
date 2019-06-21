@@ -14,10 +14,12 @@ public class ContestProblemServiceImpl implements ContestProblemService {
     @Autowired
     private ContestProblemMapper contestProblemMapper;
 
+    @Override
     public List<ContestProblem> getContestProblemsByCid(Integer cid){
         return contestProblemMapper.getContestProblemsByCid(cid);
     }
 
+    @Override
     public Integer insertContestProblem(ContestProblem contestProblem){
         return contestProblemMapper.insertContestProblem(contestProblem);
     }

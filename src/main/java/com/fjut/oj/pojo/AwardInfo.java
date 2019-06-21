@@ -38,6 +38,7 @@ public class AwardInfo {
         this.text = text;
     }
 
+    @Override
     public String toString(){
         String text = this.text.isEmpty()?this.text:"("+this.text+")";
         return this.time+"：参加"+this.contest_level+"获得了"+this.awards_level+text;

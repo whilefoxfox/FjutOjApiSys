@@ -14,10 +14,12 @@ public class ContestUserServiceImpl implements ContestUserService {
     @Autowired
     private ContestUserMapper contestUserMapper;
 
+    @Override
     public List<Contestuser> getContestUserById(Integer cid){
         return contestUserMapper.getContestUserById(cid);
     }
 
+    @Override
     public Integer insertContestUser(Contestuser contestuser){
         return contestUserMapper.insertContestUser(contestuser);
     }
