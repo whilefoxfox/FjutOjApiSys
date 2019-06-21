@@ -17,22 +17,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * TODO: 把 JsonMsg 替换为 JsonInfo
+ */
 @Controller
+@ResponseBody
 @CrossOrigin
 @RequestMapping("/clockin")
 public class ClockInController {
+
     @Autowired
     private ClockInService clockInService;
 
     @RequestMapping(value = "/GAllClockIn")
-    @ResponseBody
     public JsonMsg queryAllClockIn(HttpServletRequest req, HttpServletResponse resp) {
         List<t_clock_in> clockIns = clockInService.queryAllClockIn();
         return JsonMsg.success().addInfo(clockIns);
     }
 
     @RequestMapping("/GUserClockIn")
-    @ResponseBody
     public JsonMsg queryAllClockInByUsername(HttpServletRequest req, HttpServletResponse resp) {
 
         String username = req.getParameter("username");
@@ -52,7 +56,6 @@ public class ClockInController {
     }
 
     @RequestMapping("/GSomedayClockIn")
-    @ResponseBody
     public JsonMsg queryAllClockInByDate(HttpServletRequest req, HttpServletResponse resp) throws ParseException {
 
         String dateStr = req.getParameter("date");
@@ -65,7 +68,6 @@ public class ClockInController {
     }
 
     @RequestMapping("/GUserTodayClockIn")
-    @ResponseBody
     public JsonMsg queryClockInByUserAndDate(HttpServletRequest req, HttpServletResponse resp) throws ParseException {
 
         String username = req.getParameter("username");
@@ -77,7 +79,6 @@ public class ClockInController {
     }
 
     @RequestMapping("/UserClockIn")
-    @ResponseBody
     public JsonMsg ClockInForNormalUser(HttpServletRequest req, HttpServletResponse resp) {
 
         Tool tool = new Tool();

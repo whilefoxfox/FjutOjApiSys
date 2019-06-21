@@ -18,7 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * TODO: 1.把 JsonMsg 替换为 JsonInfo 2.设置登录成功后返回token，保存token信息来做登录认证
+ */
 @Controller
 public class UserController {
 
@@ -159,6 +161,7 @@ public class UserController {
 
     /**
      * 获取所有的用户信息
+     * FIXME: 部署时需要去除
      */
     @RequestMapping("/GAllUsers")
     @ResponseBody

@@ -10,34 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99a3b258-936a-4aa8-9032-2670c62117f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/BusinessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/RES.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/ApplicationContextHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/HTML/problemHTML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/MyClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/LogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/LogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/LogServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/AwardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/AwardInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/CeinfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/CeinfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestProblemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestProblemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/WeekRankRecordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/WeekRankRecordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/JsonInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/JsonInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_ContestLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_ContestLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo_ContestLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo_ContestLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AddProblemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AddProblemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussReplyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/SubmitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/SubmitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserRankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserRankController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,53 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/BusinessException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Log.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/ErrorCode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="88">
+              <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -138,28 +86,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/com/fjut/oj/mapper/ClockInMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_message.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/JsonMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ClockInMapper.xml" />
-        <option value="$PROJECT_DIR$/src/test/com/fjut/oj/mapper/MessageMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/test/com/fjut/oj/service/serviceImpl/MessageServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/Config/GlobalVariables.json" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/AccountConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/TestSubmit.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/MessageMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MessageServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ClockInMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MessageMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/NewDiscussMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/UserSolveMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java" />
         <option value="$PROJECT_DIR$/src/test/com/fjut/oj/mapper/UserMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resource/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java" />
         <option value="$USER_HOME$/.m2/settings.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_log.java" />
@@ -167,7 +99,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/LogServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/LogService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" />
         <option value="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/LogMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/LogMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Log.java" />
@@ -189,6 +120,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/BusinessException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AddProblemController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussReplyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/SubmitController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserRankController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -209,8 +157,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="262" />
-    <option name="y" value="90" />
+    <option name="x" value="190" />
+    <option name="y" value="52" />
     <option name="width" value="1592" />
     <option name="height" value="965" />
   </component>
@@ -264,16 +212,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="oj" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="oj" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
@@ -649,7 +588,7 @@
       <workItem from="1560948406344" duration="822000" />
       <workItem from="1560990883231" duration="12612000" />
       <workItem from="1561014716403" duration="3480000" />
-      <workItem from="1561075624071" duration="11604000" />
+      <workItem from="1561075624071" duration="13614000" />
     </task>
     <task id="LOCAL-00001" summary="update to fixed my computer">
       <created>1559890243671</created>
@@ -728,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561018014361</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="添加全局异常处理，出现异常将在后端存入数据库和日志文件，只返回前端JSON消息">
+      <created>1561087711868</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1561087711868</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -764,7 +710,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152911000" />
+    <option name="totallyTimeSpent" value="154921000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -776,7 +722,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="210" y="72" width="1273" height="772" extended-state="0" />
+    <frame x="152" y="42" width="1273" height="772" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25496426" />
@@ -787,11 +733,11 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3291536" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49609375" visible="true" weight="0.3181818" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49609375" visible="true" weight="0.29780564" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32954547" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -863,124 +809,11 @@
     <MESSAGE value="update" />
     <MESSAGE value="update message,check in function" />
     <MESSAGE value="update global exception handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="update global exception handler" />
+    <MESSAGE value="添加全局异常处理，出现异常将在后端存入数据库和日志文件，只返回前端JSON消息" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加全局异常处理，出现异常将在后端存入数据库和日志文件，只返回前端JSON消息" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/RES.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/TestLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/TestSubmit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/servise/StatusService/StatusChgEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/ApplicationContextHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/HTML/problemHTML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2750">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/MessageMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ClockInMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ClockInServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/LogService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/LogServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
@@ -988,13 +821,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/LogMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1174,16 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/JsonInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1211,31 +1027,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Log.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        <state relative-caret-position="134">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/LogMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/ErrorCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="88">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/BusinessException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="56">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="257">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AddProblemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="28" selection-start-line="28" selection-end-line="30" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1244,11 +1126,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="419">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussReplyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/SubmitController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserRankController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
         </state>
       </provider>
     </entry>

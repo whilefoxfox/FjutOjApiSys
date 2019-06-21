@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * TODO: 把 JsonMsg 替换为 JsonInfo
+ */
 @RequestMapping("/submit")
 @Controller
 public class SubmitController {
