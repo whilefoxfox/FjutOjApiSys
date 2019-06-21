@@ -4,11 +4,13 @@ import com.fjut.oj.pojo.Status;
 import com.fjut.oj.pojo.UserSolve;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserSolveService;
+import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.JsonMsg;
 import com.fjut.oj.util.MapSort;
 import com.fjut.oj.util.ResultString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,8 +22,10 @@ import java.util.TreeMap;
 /**
  * TODO: 把 JsonMsg 替换为 JsonInfo
  */
-@RequestMapping("/status")
+
 @Controller
+@CrossOrigin
+@RequestMapping("/status")
 public class StatusController {
 
     @Autowired
@@ -34,27 +38,29 @@ public class StatusController {
 
     @RequestMapping("/GAllStatus")
     @ResponseBody
-    public JsonMsg getAllStatus(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo getAllStatus(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String pagenum_1 = req.getParameter("pagenum");
         int pagenum = Integer.parseInt(pagenum_1);
         System.out.println(pagenum);
-        resp.setHeader("Access-Control-Allow-Origin", "*");
 
         Integer num = statusService.allStatusNum();
-
-        if (num == 0) return JsonMsg.success().addInfo("数据为空");
-        System.out.println(num + " " + (num % 50 == 0 ? num / 50 : num / 50 + 1));
+        if (num == 0) {
+            jsonInfo.setSuccess("数据为空");
+        }
         int from = (pagenum - 1) * 50;
         int to = 233;
-
         List<Status> list_1 = statusService.queryStatus(from);
-        return JsonMsg.success().addInfo(num % 50 == 0 ? num / 50 : num / 50 + 1).addInfo(list_1);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(num % 50 == 0 ? num / 50 : num / 50 + 1);
+        jsonInfo.addInfo(list_1);
+        return jsonInfo;
     }
 
     @RequestMapping("/GAllStatusByUsername")
     @ResponseBody
-    public JsonMsg getAllStatusByUsername(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
+    public JsonInfo getAllStatusByUsername(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         Integer pid;
         String ruser, submitTime;
         String username = req.getParameter("username");
@@ -62,8 +68,9 @@ public class StatusController {
         Map<String, Integer> submitAc = new TreeMap<String, Integer>();
         Map<String, Integer> vis = new TreeMap<String, Integer>();
         UserSolve userSolve = null;
-        if (username == null) {
-            return JsonMsg.fail().addInfo("无用户");
+        if (null == username) {
+            jsonInfo.setFail("无用户");
+            return jsonInfo;
         }
         List<Status> list = statusService.getAllStatusByUsername(username);
         for (Status st : list) {
@@ -83,8 +90,10 @@ public class StatusController {
         }
         Map<String, Integer> totalMap = MapSort.sortMapByKey(submitToal);
         Map<String, Integer> acMap = MapSort.sortMapByKey(submitAc);
-
-        return JsonMsg.success().addInfo(totalMap).addInfo(acMap);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(totalMap);
+        jsonInfo.addInfo(acMap);
+        return jsonInfo;
     }
 
     @RequestMapping("/GStatusByConditions")

@@ -4,13 +4,10 @@ import com.fjut.oj.pojo.User;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserRadarService;
 import com.fjut.oj.service.UserService;
-import com.fjut.oj.util.JsonMsg;
+import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,10 +15,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 /**
- * TODO: 1.把 JsonMsg 替换为 JsonInfo 2.设置登录成功后返回token，保存token信息来做登录认证
+ * TODO: 设置登录成功后返回token，保存token信息来做登录认证
  */
 @Controller
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -33,34 +32,34 @@ public class UserController {
     @Autowired
     private UserRadarService userRadarService;
 
-    // 登录，跳转到登录页面
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(){
-        return "login";
-    }
-
-    // 获取用户名和密码判断是否匹配
-    @PostMapping(value = "/dologin",produces="application/json")
+    /**
+     * 判断用户名和密码是否正确
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
+    @PostMapping(value = "/dologin")
     @ResponseBody
-    public JsonMsg dologin(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo dologin(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        System.out.println(username + " " + password);
         User user = userService.getUserByUsername(username);
         Integer count = userService.getUserByUsernameAndPassword(username, password);
-        resp.setHeader("Access-Control-Allow-Origin","*");
-        if (user == null){
+        if (null == user) {
             // 用户名不存在
-            System.out.println("用户名不存在");
-            return JsonMsg.fail().addInfo("用户不存在");
+            jsonInfo.setFail("用户名不存在");
+
         } else if (count == 0) {
             // 用户名和密码不匹配
-            System.out.println("用户名和密码不匹配");
-            return JsonMsg.fail().addInfo("用户名或密码不正确");
-        } else{
+            jsonInfo.setFail("用户名或密码不匹配");
+        } else {
             // 用户名和密码匹配
-            return JsonMsg.success().addInfo(user);
+            jsonInfo.setSuccess("用户名和密码正确");
+            jsonInfo.addInfo(user);
         }
+        return jsonInfo;
     }
 
     /**
@@ -68,12 +67,13 @@ public class UserController {
      */
     @RequestMapping("/insertUser")
     @ResponseBody
-    public JsonMsg insertUser(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin","*");
-        String temp;
+
+    public JsonInfo insertUser(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         User tmp = userService.getUserByUsername(req.getParameter("username"));
-        if (tmp != null){
-            return JsonMsg.fail().addInfo("用户名已经存在！");
+        if (tmp != null) {
+            jsonInfo.setFail("用户名已经存在");
+            return jsonInfo;
         }
         User user = new User();
         user.setUsername(req.getParameter("username"));
@@ -101,30 +101,32 @@ public class UserController {
         user.setNo(req.getParameter("no") == null ? " " : req.getParameter("no"));
         user.setPhone(req.getParameter("phone") == null ? " " : req.getParameter("phone"));
         user.setAcnum(0);
-        user.setInTeamStatus(Integer.parseInt(req.getParameter("inTeamStatus") == null ? "0" : req.getParameter("inTeamStatus")) );
-        user.setInTeamLv(Integer.parseInt(req.getParameter("inTeamLv") == null ? "0" : req.getParameter("inTeamLv") ));
+        user.setInTeamStatus(Integer.parseInt(req.getParameter("inTeamStatus") == null ? "0" : req.getParameter("inTeamStatus")));
+        user.setInTeamLv(Integer.parseInt(req.getParameter("inTeamLv") == null ? "0" : req.getParameter("inTeamLv")));
         user.setRank(Integer.parseInt(req.getParameter("rank") == null ? "2223" : req.getParameter("rank")));
         // Date graduationTime = new Date();
         user.setGraduationTime(req.getParameter("graduationTime") == null ? "2022-07-01 00:00:00" : req.getParameter("graduationTime"));
 
         boolean flag = userService.insertUser(user);
-        if (flag){
-            return JsonMsg.success().addInfo(user);
+        if (flag) {
+            jsonInfo.setSuccess("添加用户成功！");
+        } else {
+            jsonInfo.setFail("添加用户失败！");
         }
-        return JsonMsg.fail().addInfo("添加用户信息失败！");
+        return jsonInfo;
     }
 
     /**
      * 修改用户信息
-     *
      */
     @RequestMapping("/updateUser")
     @ResponseBody
-    public JsonMsg updateUser(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo updateUser(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         User tmp = userService.getUserByUsername(req.getParameter("username"));
-        if (tmp == null){
-            return JsonMsg.fail().addInfo("用户名不存在！");
+        if (tmp == null) {
+            jsonInfo.setFail("用户名不存在！");
+            return jsonInfo;
         }
         tmp.setPassword(req.getParameter("password") == null ? tmp.getPassword() : req.getParameter("password"));
         tmp.setNick(req.getParameter("nick") == null ? tmp.getNick() : req.getParameter("nick"));
@@ -145,18 +147,19 @@ public class UserController {
         tmp.setCla(req.getParameter("cla") == null ? tmp.getCla() : req.getParameter("cla"));
         tmp.setNo(req.getParameter("no") == null ? tmp.getNo() : req.getParameter("no"));
         tmp.setPhone(req.getParameter("phone") == null ? tmp.getPhone() : req.getParameter("phone"));
-        tmp.setInTeamStatus(Integer.parseInt(req.getParameter("inTeamStatus") == null ? tmp.getInTeamStatus().toString() : req.getParameter("inTeamStatus")) );
-        tmp.setInTeamLv(Integer.parseInt(req.getParameter("inTeamLv") == null ? tmp.getInTeamLv().toString() : req.getParameter("inTeamLv") ));
-        tmp.setRank(Integer.parseInt(req.getParameter("rank") == null ? tmp.getRank().toString(): req.getParameter("rank")));
-        tmp.setGraduationTime(req.getParameter("graduationTime") == null ? tmp.getGraduationTime(): req.getParameter("graduationTime"));
+        tmp.setInTeamStatus(Integer.parseInt(req.getParameter("inTeamStatus") == null ? tmp.getInTeamStatus().toString() : req.getParameter("inTeamStatus")));
+        tmp.setInTeamLv(Integer.parseInt(req.getParameter("inTeamLv") == null ? tmp.getInTeamLv().toString() : req.getParameter("inTeamLv")));
+        tmp.setRank(Integer.parseInt(req.getParameter("rank") == null ? tmp.getRank().toString() : req.getParameter("rank")));
+        tmp.setGraduationTime(req.getParameter("graduationTime") == null ? tmp.getGraduationTime() : req.getParameter("graduationTime"));
 
-        System.out.println(tmp.toString());
         Integer num = userService.updateUserByUsername(tmp);
-        if (num == 1)
-        {
-            return JsonMsg.success().addInfo("修改用户信息成功！");
+        if (1 == num) {
+            jsonInfo.setSuccess("修改用户信息成功！");
+
+        } else {
+            jsonInfo.setFail("修改用户信息失败！");
         }
-        return JsonMsg.fail().addInfo("修改用户信息失败！");
+        return jsonInfo;
     }
 
     /**
@@ -165,10 +168,11 @@ public class UserController {
      */
     @RequestMapping("/GAllUsers")
     @ResponseBody
-    public JsonMsg queryAllUsers(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo queryAllUsers(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         List<User> list = userService.queryAll();
-        return JsonMsg.success().addInfo(list);
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 
     /**
@@ -176,28 +180,31 @@ public class UserController {
      */
     @RequestMapping("/GUserRadar")
     @ResponseBody
-    public JsonMsg getUserRadar(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo getUserRadar(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
         String userRadar = "";
         userRadar = userRadarService.getUserRadar(username);
-        System.out.println("userRadar" + userRadar);
-        return JsonMsg.success().addInfo(userRadar);
+        jsonInfo.addInfo(userRadar);
+        return jsonInfo;
     }
 
     /**
-     *  获取一个用户提交所有题目的次数
+     * 获取一个用户提交所有题目的次数
      */
     @RequestMapping("/GSubmitCount")
     @ResponseBody
-    public JsonMsg querySubmitCountByUsername(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo querySubmitCountByUsername(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
         Integer num = statusService.querySubmitCountByUsername(username);
-        if (num != null){
-            return JsonMsg.success().addInfo(num);
+        if (null != num) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(num);
+        } else {
+            jsonInfo.setFail("未查询到该用户的提交信息！");
         }
-        return JsonMsg.fail().addInfo("未查询到该用户的提交信息！");
+        return jsonInfo;
     }
 
     /**
@@ -205,15 +212,18 @@ public class UserController {
      */
     @RequestMapping("/GUserInfo")
     @ResponseBody
-    public JsonMsg queryUserInfoByUsername(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo queryUserInfoByUsername(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
         User user = userService.getUserByUsername(username);
 
-        if (user != null){
-            return JsonMsg.success().addInfo(user);
+        if (null != user) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(user);
+        } else {
+            jsonInfo.setFail("未查询到该用户的信息！");
         }
-        return JsonMsg.fail().addInfo("未查询到该用户的信息！");
+        return jsonInfo;
     }
 
     /**
@@ -221,15 +231,18 @@ public class UserController {
      */
     @RequestMapping("/GPutTagNum")
     @ResponseBody
-    public JsonMsg queryPutTagNumByUsername(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo queryPutTagNumByUsername(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
         Integer num = userService.queryPutTagNumByUsername(username);
-
-        if (num != 0){
-            return JsonMsg.success().addInfo(num);
+        if (num != 0) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(num);
         }
-        return JsonMsg.fail().addInfo("未查找到用户贴标签的信息！");
+        else{
+            jsonInfo.setFail("未找到用户贴标签的信息");
+        }
+        return jsonInfo;
     }
 
     /**
@@ -237,15 +250,18 @@ public class UserController {
      */
     @RequestMapping("/GStatusProblems")
     @ResponseBody
-    public JsonMsg queryStatusProblemsByUsername(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo queryStatusProblemsByUsername(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         Integer status = Integer.parseInt(req.getParameter("status") == null ? "0" : req.getParameter("status"));
-        String  username = req.getParameter("username");
+        String username = req.getParameter("username");
         List<Integer> list = userService.queryStatusProblemsByUsername(status, username);
-        if (list != null){
-            return JsonMsg.success().addInfo(list);
+        if (list != null) {
+            jsonInfo.addInfo(list);
+            jsonInfo.setSuccess();
+        }else{
+            jsonInfo.setFail("未查询到用户相关的题目信息");
         }
-        return JsonMsg.fail().addInfo("未查找到用户相关题目的信息！");
+        return jsonInfo;
     }
 
     /**
@@ -253,11 +269,13 @@ public class UserController {
      */
     @RequestMapping("/GNotPutTagProblems")
     @ResponseBody
-    public JsonMsg queryCanViewCodeProblemsByUsername(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo queryCanViewCodeProblemsByUsername(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
         List<Integer> list = userService.queryNotPutTagProblemsByUsername(username);
-        return JsonMsg.success().addInfo(list);
+        jsonInfo.addInfo(list);
+        jsonInfo.setSuccess();
+        return jsonInfo;
     }
 
     /**
@@ -265,46 +283,55 @@ public class UserController {
      */
     @RequestMapping("/GUserPermission")
     @ResponseBody
-    public JsonMsg queryUserPermission(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
+    public JsonInfo queryUserPermission(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
-
         List<Integer> list = userService.queryUserPermission(username);
-        return JsonMsg.success().addInfo(list);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 
-    @RequestMapping(value = "/awardinfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/awardinfo", method = RequestMethod.POST)
     @ResponseBody
-    public JsonMsg getAwardinfo(HttpServletResponse response,HttpServletRequest request){
+    public JsonInfo getAwardinfo(HttpServletResponse response, HttpServletRequest request) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
-        response.setHeader("Access-Control-Allow-Origin","*");
         List<String> list = userService.queryAwardInfo(username);
-        return JsonMsg.success().addInfo(list);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 
     @RequestMapping(value = "/GRatingGraph")
     @ResponseBody
-    public JsonMsg getRatingGraph(HttpServletRequest request,HttpServletResponse response){
-
+    public JsonInfo getRatingGraph(HttpServletRequest request, HttpServletResponse response) {
+        JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
-        response.setHeader("Access-Control-Allow-Origin","*");
-        Map<String,Integer> list = (Map<String, Integer>) userService.getRatingGraph(username);
-        if (list != null) {
-            return JsonMsg.success().addInfo(list);
+        Map<String, Integer> list = (Map<String, Integer>) userService.getRatingGraph(username);
+        if (null != list) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(list);
         }
-        return JsonMsg.fail().addInfo("未查询到该用户的信息！");
+        else{
+            jsonInfo.setFail("未查询到该用户的信息");
+        }
+        return jsonInfo;
     }
 
     @RequestMapping(value = "/GAcGraph")
     @ResponseBody
-    public JsonMsg getAcGraph(HttpServletRequest request,HttpServletResponse response){
-
+    public JsonInfo getAcGraph(HttpServletRequest request, HttpServletResponse response) {
+        JsonInfo jsonInfo =new JsonInfo();
         String username = request.getParameter("username");
-        response.setHeader("Access-Control-Allow-Origin","*");
         List<Object> list = (List<Object>) userService.getAcGraph(username);
-        if (list != null){
-            return JsonMsg.success().addInfo(list);
+        if (null != list) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(list);
         }
-        return JsonMsg.fail().addInfo("未查询到该用户的信息！");
+        else{
+            jsonInfo.setFail("未查询到该用户的信息");
+        }
+        return jsonInfo;
     }
 }

@@ -2,6 +2,7 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.User;
 import com.fjut.oj.service.AllTopTenService;
+import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,18 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * TODO: 把 JsonMsg 替换为 JsonInfo
+ *
+ * @author axiang
  */
 @Controller
 @CrossOrigin
+@ResponseBody
 public class AllRankController {
 
     @Autowired
     private AllTopTenService allTopTenService;
 
     @PostMapping(value = "/Galltop",produces="application/json")
-    @ResponseBody
-    public JsonMsg getAllTop(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo getAllTop(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         List<User> list = allTopTenService.getAcbTOP();
         List<User> list_1 = allTopTenService.getRatingTOP();
         List<User> list_2 = allTopTenService.getAcTOP();
@@ -33,6 +36,10 @@ public class AllRankController {
 //        if(list_3.size()>=10){
 //            list_3 = list_3.subList(0,9);
 //        }
-        return JsonMsg.success().addInfo(list).addInfo(list_1).addInfo(list_2);
-    }
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(list);
+        jsonInfo.addInfo(list_1);
+        jsonInfo.addInfo(list_2);
+        return jsonInfo;
+        }
 }
