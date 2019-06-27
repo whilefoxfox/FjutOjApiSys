@@ -171,7 +171,7 @@ public class UserServiceImpl implements UserService {
     public Object getAcGraph(String username) {
         List<String> timeList = new ArrayList<>();
         List<Integer> numList = new ArrayList<>();
-        List<Status> list_1 = statusMapper.getAcNum(username);
+        List<Status> list_1 = statusMapper.queryACStatusByUsername(username);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Calendar end = Calendar.getInstance();

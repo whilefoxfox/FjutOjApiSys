@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.LogMapper">
+
+    <insert id="insertLog">
+	INSERT INTO t_log
+		(
+		time,
+		text,
+		sessionUser
+		)
+		VALUES
+		(
+		#{log.time},
+		#{log.text},
+		#{log.sessionUser}
+		)
+    </insert>
+
+    <select id="queryLogsByTime" resultType="com.fjut.oj.pojo.Log">
+	SELECT 	id, time, text, sessionUser
+		FROM t_log
+		WHERE time BETWEEN #{timeStart} AND #{timeEnd}
+		LIMIT #{startIndex}, 50;
+
+    </select>
+</mapper>

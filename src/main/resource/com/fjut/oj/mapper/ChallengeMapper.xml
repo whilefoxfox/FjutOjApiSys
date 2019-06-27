@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.ChallengeMapper">
+
+    <select id="queryAllChallengeBlocks" resultType="com.fjut.oj.pojo.ChallengeBlockForUser">
+        SELECT
+            cb.id AS id,
+            cb.name AS name,
+            SUM(score) AS totalScore
+                FROM t_challenge_problem cp
+            RIGHT JOIN t_challenge_block cb
+            ON cb.id = cp.id
+            GROUP BY cb.id
+            ORDER BY id
+
+    </select>
+    <!--FIXME:需要做完整流程的单元测试来保证不会出现空模块！-->
+    <select id="queryShowedChallengeBlocksByUsername" resultType="java.lang.Integer">
+
+    SELECT c.belongBlockId id FROM t_challenge_condition c
+        WHERE par IN
+        (SELECT block FROM t_challenge_openblock WHERE username=#{username})
+    UNION
+    (SELECT block id FROM t_challenge_openblock WHERE username=#{username}) ORDER BY id
+
+    </select>
+
+
+    <select id="queryAllChallengeConditions" resultType="com.fjut.oj.pojo.t_challenge_condition">
+        SELECT * FROM t_challenge_condition ORDER BY belongblockId
+
+    </select>
+
+    <select id="queryChallengeOpenBlocksByUsername" resultType="java.lang.Integer">
+        SELECT
+            block
+            FROM t_challenge_openblock
+            <if test="username != null">
+                WHERE username = #{username}
+            </if>
+    </select>
+
+
+
+    <select id="getChallengeBlocksScoredByUsername" resultType="com.fjut.oj.pojo.ChallengeBlockForUser">
+        SELECT id, SUM(score) getScore FROM
+            t_challenge_problem WHERE tpid IN
+            (SELECT DISTINCT pid FROM statu WHERE ruser = #{username} AND result = 1)
+            GROUP BY id
+    </select>
+
+    <select id="queryChallengeConditionByBlockId" resultType="com.fjut.oj.pojo.ChallengeConditionForBlock">
+      SELECT c.par blockId, name, num FROM t_challenge_condition c,t_challenge_block b
+        WHERE c.belongBlockId = #{blockId} and b.id = c.par
+    </select>
+
+
+
+
+</mapper>

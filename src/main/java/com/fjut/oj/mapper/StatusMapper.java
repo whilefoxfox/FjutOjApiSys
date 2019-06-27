@@ -7,19 +7,19 @@ import java.util.List;
 
 public interface StatusMapper {
 
-    public List<Status> ShowAllStatus();
+    List<Status> ShowAllStatus();
 
-    public List<Status> getAllStatusByUsername(@Param("username") String username);
+    List<Status> getAllStatusByUsername(@Param("username") String username);
 
-    public Integer allStatusNum();
+    Integer allStatusNum();
 
-    public List<Status> queryStatus(@Param("start") Integer start);
+    List<Status> queryStatus(@Param("start") Integer start);
 
-    public Status queryStatusById(@Param("id")  Integer id);
+    Status queryStatusById(@Param("id") Integer id);
 
-    public List<Status> queryAllStatusByUser(@Param("ruser") String ruser);
+    List<Status> queryAllStatusByUser(@Param("ruser") String ruser);
 
-    public List<Status> queryAllStatusByPid(@Param("pid") String pid);
+    List<Status> queryAllStatusByPid(@Param("pid") String pid);
 
     List<Status> queryAllStatusByConditions(@Param("ruser") String ruser, @Param("pid") Integer pid, @Param("result")Integer result, @Param("language")Integer language, @Param("start")Integer start);
 
@@ -33,6 +33,11 @@ public interface StatusMapper {
 
     Integer updateStatus(@Param("status") Status status);
 
-    public List<Status> getAcNum(@Param("username") String username);
+    /**
+     * 获取用户的AC题列表
+     * @param username
+     * @return
+     */
+    List<Status> queryACStatusByUsername(@Param("username") String username);
 
 }

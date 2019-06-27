@@ -96,4 +96,9 @@ public class StatusServiceImpl implements StatusService {
             return true;
         return false;
     }
+
+    @Override
+    public List<Status> queryACStatusByUsername(String username) {
+        return statusMapper.queryACStatusByUsername(username);
+    }
 }
