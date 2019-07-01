@@ -24,4 +24,7 @@ public interface ChallengeService {
 
     List<ChallengeProblemForBlock> queryChallengeBlockProblemByBlockId(Integer blockId, Integer startIndex);
 
+    Integer queryChallengeBlockProblemCountByBlockId(Integer blockId);
+
+    List<Status> queryAllBlockSolvedProblemByUsername(String username);
 }

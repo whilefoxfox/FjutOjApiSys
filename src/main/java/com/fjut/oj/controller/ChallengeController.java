@@ -35,7 +35,7 @@ public class ChallengeController {
         String username = request.getParameter("username");
         List<ChallengeBlockForUser> allBlocks = challengeService.queryAllChallengeBlocks();
         if (null != username && !("").equals(username)) {
-            Map<Integer, ChallengeBlockForUser> map = new HashMap<>();
+            Map<Integer, ChallengeBlockForUser> map = new TreeMap<>();
             List<Integer> showedIds = challengeService.queryShowedChallengeBlocksByUsername(username);
             for (ChallengeBlockForUser challengeBlock : allBlocks) {
                 challengeBlock.setLocked(true);
@@ -66,7 +66,6 @@ public class ChallengeController {
         } else {
             jsonInfo.setError("参数不正确！");
         }
-
         return jsonInfo;
     }
 
@@ -89,16 +88,14 @@ public class ChallengeController {
     public JsonInfo getBlockDetail(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
         String blockIdStr = request.getParameter("blockId");
-        String username=request.getParameter("username");
+        String username = request.getParameter("username");
         Integer blockId = Integer.parseInt(blockIdStr);
         t_challenge_block block = challengeService.queryChallengeBlockByBlockId(blockId);
-        // TODO:可以做优化
+        // add by axiang [20190628] 获取该模块的全部得到分值
         List<ChallengeBlockForUser> getScores = challengeService.queryChallengeBlocksScoredByUsername(username);
         Integer getScore = 0;
-        for(ChallengeBlockForUser get :getScores)
-        {
-            if(get.getId().equals(blockId))
-            {
+        for (ChallengeBlockForUser get : getScores) {
+            if (get.getId().equals(blockId)) {
                 getScore = get.getGetScore();
             }
         }
@@ -121,26 +118,55 @@ public class ChallengeController {
 
     @RequestMapping("/getBlockProblems")
     public JsonInfo getBlockProblems(HttpServletRequest request) {
+        long ms = System.currentTimeMillis();
         JsonInfo jsonInfo = new JsonInfo();
+        String username = request.getParameter("username");
         String blockIdStr = request.getParameter("blockId");
         String pagenumStr = request.getParameter("pageNum");
         Integer blockId = Integer.parseInt(blockIdStr);
         Integer pageNum = Integer.parseInt(pagenumStr);
         Integer startIndex = (pageNum - 1) * 15;
-        List<ChallengeProblemForBlock> challengeProblems = challengeService.queryChallengeBlockProblemByBlockId(blockId,startIndex);
-        if( 0 < challengeProblems.size()){
-            // TODO:再获取一下用户的答题状态再填入这里
-            for(ChallengeProblemForBlock problem: challengeProblems)
-            {
-                problem.setSolved(true);
+        long ms1= System.currentTimeMillis();
+        List<ChallengeProblemForBlock> challengeProblems = challengeService.queryChallengeBlockProblemByBlockId(blockId, startIndex);
+        long me1 = System.currentTimeMillis();
+        System.out.println("get problem: "+(me1-ms1)+" ms");
+        Integer count = challengeService.queryChallengeBlockProblemCountByBlockId(blockId);
+        if (null == username) {
+            jsonInfo.setFail("参数错误！");
+            return jsonInfo;
+        }
+        if (0 < count) {
+            long ms2= System.currentTimeMillis();
+            List<Status> statuses = challengeService.queryAllBlockSolvedProblemByUsername(username);
+            long me2 = System.currentTimeMillis();
+            System.out.println("get solved status: "+(me2-ms2)+" ms");
+            Map<Integer, Integer> statusMap = new TreeMap<>();
+            for (Status status : statuses) {
+                // add by axiang [20190701] 提交状态有多个并且包含AC时，只保留AC的一个或者其他的最新状态
+                if (null == statusMap.get(status.getPid())) {
+                    statusMap.put(status.getPid(), status.getResult());
+                } else if (1 != statusMap.get(status.getPid())) {
+                    statusMap.put(status.getPid(), status.getResult());
+                }
+            }
+            for (ChallengeProblemForBlock problem : challengeProblems) {
+                if (null == statusMap.get(problem.getTrueProblemId())) {
+                    problem.setSolved(0);
+                    // 未设置 即表示未做过该题
+                } else if (1 == statusMap.get(problem.getTrueProblemId())) {
+                    problem.setSolved(1);
+                } else {
+                    problem.setSolved(2);
+                }
             }
             jsonInfo.setSuccess();
             jsonInfo.addInfo(challengeProblems);
-            jsonInfo.addInfo(challengeProblems.size());
-        }else
-        {
+            jsonInfo.addInfo(count);
+        } else {
             jsonInfo.setFail("模块内没有题目");
         }
+        long me = System.currentTimeMillis();
+        System.out.println("method get problem use time: "+(me-ms)+" ms");
         return jsonInfo;
     }
 

@@ -60,14 +60,14 @@ public interface ChallengeMapper {
 
 
     /**
-     * 根据用户获取挑战模块已完成分数
+     * 根据用户名 获取挑战模块已完成分数
      * @param username
      * @return
      */
     List<ChallengeBlockForUser> getChallengeBlocksScoredByUsername(@Param("username") String username);
 
     /**
-     * 根据模块ID和起始INDEX获取十个题目信息
+     * 根据模块ID和起始INDEX 获取15个题目
      * @param blockId
      * @param startIndex
      * @return
@@ -75,4 +75,18 @@ public interface ChallengeMapper {
     List<ChallengeProblemForBlock> queryChallengeBlockProblemByBlockId(@Param("blockId") Integer blockId, @Param("startIndex") Integer startIndex);
 
 
+    /**
+     * 根据模块ID 获取挑战模块的题目数量
+     * @param blockId
+     * @return
+     */
+    Integer queryChallengeBlockProblemCountByBlockId(@Param("blockId") Integer blockId);
+
+
+    /**
+     * 根据用户名 获取用户解决的题目和状态
+     * @param username
+     * @return
+     */
+    List<Status> queryAllBlockSolvedProblemByUsername(@Param("username") String username);
 }

@@ -73,7 +73,7 @@
 
     <select id="queryChallengeBlockProblemByBlockId" resultType="com.fjut.oj.pojo.ChallengeProblemForBlock">
         SELECT
-	        false Solved,
+	        0 Solved,
 	        id blockId,
 	        cp.pid problemId,
 	        tpid trueProblemId,
@@ -83,6 +83,19 @@
         WHERE cp.id = #{blockId} ORDER BY cp.pid LIMIT #{startIndex},15
     </select>
 
+
+    <select id="queryChallengeBlockProblemCountByBlockId" resultType="java.lang.Integer">
+        SELECT
+	        COUNT(pid)
+        FROM t_challenge_problem
+        WHERE t_challenge_problem.id = #{blockId}
+    </select>
+
+
+    <select id="queryAllBlockSolvedProblemByUsername" resultType="com.fjut.oj.pojo.Status">
+        SELECT statu.pid,statu.result FROM statu
+            WHERE ruser = #{username}
+    </select>
 
 
 </mapper>
