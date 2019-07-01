@@ -14,7 +14,19 @@
             ORDER BY id
 
     </select>
-    <!--FIXME:需要做完整流程的单元测试来保证不会出现空模块！-->
+
+
+    <select id="queryChallengeBlockTotalScoreByBlockId" resultType="java.lang.Integer">
+        SELECT
+            SUM(score) AS totalScore
+                FROM t_challenge_problem cp
+            RIGHT JOIN t_challenge_block cb
+            ON cb.id = cp.id
+            WHERE cb.id = #{blockId}
+            GROUP BY cb.id
+    </select>
+
+
     <select id="queryShowedChallengeBlocksByUsername" resultType="java.lang.Integer">
 
     SELECT c.belongBlockId id FROM t_challenge_condition c
@@ -54,6 +66,22 @@
         WHERE c.belongBlockId = #{blockId} and b.id = c.par
     </select>
 
+    <select id="queryChallengeBlockByBlockId" resultType="com.fjut.oj.pojo.t_challenge_block">
+        SELECT * FROM t_challenge_block
+            WHERE id = #{blockId}
+    </select>
+
+    <select id="queryChallengeBlockProblemByBlockId" resultType="com.fjut.oj.pojo.ChallengeProblemForBlock">
+        SELECT
+	        false Solved,
+	        id blockId,
+	        cp.pid problemId,
+	        tpid trueProblemId,
+	        p.title title,
+	        cp.score score
+        FROM t_challenge_problem cp LEFT JOIN problem p ON cp.tpid = p.pid
+        WHERE cp.id = #{blockId} ORDER BY cp.pid LIMIT #{startIndex},15
+    </select>
 
 
 

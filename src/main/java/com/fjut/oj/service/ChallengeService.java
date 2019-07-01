@@ -1,13 +1,16 @@
 package com.fjut.oj.service;
 
-import com.fjut.oj.pojo.ChallengeBlockForUser;
-import com.fjut.oj.pojo.ChallengeConditionForBlock;
-import com.fjut.oj.pojo.t_challenge_condition;
+import com.fjut.oj.pojo.*;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface ChallengeService {
     List<ChallengeBlockForUser> queryAllChallengeBlocks();
+
+    Integer queryChallengeBlockTotalScoreByBlockId(Integer blockId);
+
+    t_challenge_block queryChallengeBlockByBlockId(Integer blockId);
 
     List<Integer> queryShowedChallengeBlocksByUsername(String username);
 
@@ -18,4 +21,7 @@ public interface ChallengeService {
     List<ChallengeBlockForUser> queryChallengeBlocksScoredByUsername(String username);
 
     List<ChallengeConditionForBlock> queryChallengeConditionByBlockId(Integer blockId);
+
+    List<ChallengeProblemForBlock> queryChallengeBlockProblemByBlockId(Integer blockId, Integer startIndex);
+
 }
