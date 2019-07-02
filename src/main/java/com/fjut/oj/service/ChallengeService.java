@@ -1,9 +1,9 @@
 package com.fjut.oj.service;
 
 import com.fjut.oj.pojo.*;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+
 
 public interface ChallengeService {
     List<ChallengeBlockForUser> queryAllChallengeBlocks();

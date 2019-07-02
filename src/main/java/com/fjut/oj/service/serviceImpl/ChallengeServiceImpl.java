@@ -8,14 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @Author: axiang
- * @Despriction:
- * @Date:Created: 2019/6/25
- * @Modify By:
- */
 @Service("ChallengeService")
 public class ChallengeServiceImpl implements ChallengeService {
+
     @Autowired
     ChallengeMapper challengeMapper;
 
