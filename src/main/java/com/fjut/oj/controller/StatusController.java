@@ -25,6 +25,7 @@ import java.util.TreeMap;
 
 @Controller
 @CrossOrigin
+@ResponseBody
 @RequestMapping("/status")
 public class StatusController {
 
@@ -37,28 +38,23 @@ public class StatusController {
     static private List<Status> list;
 
     @RequestMapping("/GAllStatus")
-    @ResponseBody
     public JsonInfo getAllStatus(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
-        String pagenum_1 = req.getParameter("pagenum");
-        int pagenum = Integer.parseInt(pagenum_1);
-        System.out.println(pagenum);
-
+        String pageNumStr = req.getParameter("pagenum");
+        int pageNum = Integer.parseInt(pageNumStr);
         Integer num = statusService.allStatusNum();
         if (num == 0) {
             jsonInfo.setSuccess("数据为空");
         }
-        int from = (pagenum - 1) * 50;
-        int to = 233;
-        List<Status> list_1 = statusService.queryStatus(from);
+        int from = (pageNum - 1) * 50;
+        List<Status> statuses = statusService.queryStatus(from);
         jsonInfo.setSuccess();
         jsonInfo.addInfo(num % 50 == 0 ? num / 50 : num / 50 + 1);
-        jsonInfo.addInfo(list_1);
+        jsonInfo.addInfo(statuses);
         return jsonInfo;
     }
 
     @RequestMapping("/GAllStatusByUsername")
-    @ResponseBody
     public JsonInfo getAllStatusByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer pid;
@@ -97,53 +93,65 @@ public class StatusController {
     }
 
     @RequestMapping("/GStatusByConditions")
-    @ResponseBody
-    public JsonMsg queryAllStatusByConditions(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
+    public JsonInfo queryAllStatusByConditions(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
         Integer pid, result, lang, start;
-        Integer pagenum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
+        Integer pageNum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
         String ruser = req.getParameter("ruser") == null ? "" : req.getParameter("ruser");
         String pidStr = req.getParameter("pid") == null ? "" : req.getParameter("pid");
         String resultStr = req.getParameter("result") == null ? "" : req.getParameter("result");
         String langStr = req.getParameter("lang") == null ? "" : req.getParameter("lang");
-        start = (pagenum - 1) * 50;
+        start = (pageNum - 1) * 50;
         if (pidStr == "") {
             pid = null;
         } else {
             pid = Integer.parseInt(pidStr);
         }
-
         if (resultStr == "" || "All".equals(resultStr)) {
             result = null;
         } else {
             result = ResultString.getResultString(resultStr);
         }
-
         if (langStr == "" || "All".equals(langStr)) {
             lang = null;
         } else {
             lang = ResultString.getSubmitLanguage(langStr);
         }
-
         Integer totalStatus = statusService.queryCountAllStatusByConditions(ruser, pid, result, lang, start);
-        Integer totalpage = totalStatus % 50 == 0 ? totalStatus / 50 : totalStatus / 50 + 1;
+        Integer totalPage = totalStatus % 50 == 0 ? totalStatus / 50 : totalStatus / 50 + 1;
         List<Status> list = statusService.queryAllStatusByConditions(ruser, pid, result, lang, start);
-        return JsonMsg.success().addInfo(totalpage).addInfo(list);
+        if(0 == list.size())
+        {
+            jsonInfo.setFail("未找到内容");
+        }
+        else {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(totalPage);
+            jsonInfo.addInfo(list);
+        }
+        return jsonInfo;
     }
 
-    @RequestMapping("/GStatusCode")
-    @ResponseBody
-    public JsonMsg queryStatusCode(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
-        Integer id = Integer.parseInt(req.getParameter("id"));
-        String user = req.getParameter("user");
+    @RequestMapping("/getStatusById")
+    public JsonInfo getStatusById(HttpServletRequest request){
+        JsonInfo jsonInfo = new JsonInfo();
+        String idStr = request.getParameter("id");
+        Integer id = Integer.parseInt(idStr);
+        String user = request.getParameter("user");
+//        boolean isAdmin =
         Status status = statusService.queryStatusById(id);
-        if (status == null) {
-            return JsonMsg.fail().addInfo("评测信息不存在");
+        if( null == status)
+        {
+            jsonInfo.setFail("评测信息不存在！");
         }
-        if (status.getRuser().equals(user)) {
-            return JsonMsg.success().addInfo(status.getCode());
+        else if(status.getRuser().equals(user)){
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(status);
         }
-        return JsonMsg.fail().addInfo("无法查看其他用户代码");
+        else{
+            jsonInfo.setFail("不允许查看其他用户代码");
+        }
+        return jsonInfo;
     }
+
 }

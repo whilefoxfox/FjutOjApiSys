@@ -1,4 +1,4 @@
-package com.fjut.oj.util;
+package com.fjut.oj.enums;
 
 public enum SubmitResultType {
     PENDING(0),

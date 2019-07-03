@@ -166,22 +166,6 @@ public class MessageController {
     }
 
 
-//    @RequestMapping("/test")
-//    @ResponseBody
-//    public JsonInfo TestException () throws Exception {
-//        JsonInfo jsonInfo = new JsonInfo();
-//        int mark = 1;
-//        if(1 == mark){
-//            throw new SQLException("SQL出错啦！");
-//        }
-//        else
-//        {
-//            jsonInfo.addInfo(mark);
-//        }
-//        return jsonInfo;
-//    }
-
-
 
 
 }

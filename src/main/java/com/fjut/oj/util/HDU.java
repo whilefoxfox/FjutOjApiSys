@@ -1,5 +1,6 @@
 package com.fjut.oj.util;
 
+import com.fjut.oj.enums.Result;
 import com.fjut.oj.pojo.CodeLanguage;
 import org.apache.http.message.BasicNameValuePair;
 import org.jsoup.Jsoup;

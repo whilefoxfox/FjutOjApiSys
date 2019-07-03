@@ -10,11 +10,10 @@ import java.util.List;
 
 /**
  * @Author: axiang
- * @Despriction:
- * @Date:Created in 8:15 2019/6/21
+ * @Despriction: TODO: 设置定时任务定期清理过时log
+ * @Date:Created 2019/6/21
  * @Modify By:
  */
-
 @Controller
 public class LogController {
     @Autowired

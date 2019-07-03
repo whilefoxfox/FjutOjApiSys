@@ -3,7 +3,7 @@ package com.fjut.oj.service.serviceImpl;
 import com.fjut.oj.mapper.PermissionMapper;
 import com.fjut.oj.pojo.Permission;
 import com.fjut.oj.service.PermissionService;
-import com.fjut.oj.util.PermissionType;
+import com.fjut.oj.enums.PermissionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

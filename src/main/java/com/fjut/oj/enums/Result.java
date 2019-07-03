@@ -1,4 +1,4 @@
-package com.fjut.oj.util;
+package com.fjut.oj.enums;
 
 /**
  * Created by Administrator on 2015/5/22.

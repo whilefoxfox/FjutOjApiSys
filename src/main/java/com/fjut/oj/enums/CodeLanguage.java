@@ -1,4 +1,4 @@
-package com.fjut.oj.util;
+package com.fjut.oj.enums;
 
 /**
  * Created by QAQ on 2017/11/5.
