@@ -25,4 +25,5 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean class="com.fjut.oj.config.SwaggerConfig"/>
 </beans>

@@ -33,7 +33,8 @@
         WHERE par IN
         (SELECT block FROM t_challenge_openblock WHERE username=#{username})
     UNION
-    (SELECT block id FROM t_challenge_openblock WHERE username=#{username}) ORDER BY id
+    (SELECT block id FROM t_challenge_openblock WHERE username=#{username})
+    ORDER BY id
 
     </select>
 
