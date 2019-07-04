@@ -5,28 +5,27 @@ import com.fjut.oj.service.MessageService;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author axiang
+ */
 @Controller
 @CrossOrigin
+@ResponseBody
 @RequestMapping("/message")
 public class MessageController {
     @Autowired
     private MessageService messageService;
 
 
-    @RequestMapping("/delMessageByMid")
-    @ResponseBody
-    public JsonInfo delMessageByMid(HttpServletRequest request, HttpServletResponse response) {
+    @PostMapping("/delMessage")
+    public JsonInfo delMessageByMid(@RequestParam("mid") String midStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        String midStr = request.getParameter("mid");
         Integer mid = Integer.parseInt(midStr);
         int res = messageService.deleteMessageByMid(mid);
         if (1 == res) {
@@ -37,39 +36,9 @@ public class MessageController {
         return jsonInfo;
     }
 
-//    /**
-//     * FIXME:根据用户名删除系统消息，功能有误暂时不上线
-//     * @param request
-//     * @param response
-//     * @return
-//     */
-//    @RequestMapping("/delAllMessageByUser")
-//    @ResponseBody
-//    public JsonInfo delAllMessageByUser(HttpServletRequest request, HttpServletResponse response) {
-//        JsonInfo jsonInfo = new JsonInfo();
-//        String username = request.getParameter("username");
-//        System.out.println("****"+username+"****");
-//        if (null != username) {
-//            Integer res = messageService.deleteAllMessageByUser("username");
-//            System.out.println("res: " + res);
-//            if (0 < res) {
-//                jsonInfo.setSuccess();
-//                jsonInfo.addInfo(res);
-//            } else {
-//                jsonInfo.setFail();
-//            }
-//        } else {
-//
-//            jsonInfo.setFail();
-//        }
-//        return jsonInfo;
-//    }
-
-    @RequestMapping("/setReadedByMid")
-    @ResponseBody
-    public JsonInfo setReadedByMid(HttpServletRequest request, HttpServletResponse response) {
+    @PostMapping("/setReaded")
+    public JsonInfo setReadedByMid(@RequestParam("mid") String midStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        String midStr = request.getParameter("mid");
         Integer mid = Integer.parseInt(midStr);
         Integer res = messageService.updateMessageStatuByMid(mid, 1);
         if (1 == res) {
@@ -80,11 +49,9 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @RequestMapping("/setAllMessageReadByUser")
-    @ResponseBody
-    public JsonInfo setAllMessageReadByUser(HttpServletRequest request, HttpServletResponse response) {
+    @PostMapping("/setAllMessageRead")
+    public JsonInfo setAllMessageReadByUser(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
-        String username = request.getParameter("username");
         if ("" != username) {
             int res = messageService.updateAllMessageReadByUser(username);
             if (0 != res) {
@@ -100,14 +67,9 @@ public class MessageController {
         return jsonInfo;
     }
 
-
-    @RequestMapping("/getUserMessage")
-    @ResponseBody
-    public JsonInfo getUserMessage(HttpServletRequest request, HttpServletResponse response) {
-
+    @GetMapping("/getUserMessage")
+    public JsonInfo getUserMessage(@RequestParam("username")String username,@RequestParam("pagenum")String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        String username = request.getParameter("username");
-        String pageNumStr = request.getParameter("pagenum");
         Integer pageNum = Integer.parseInt(pageNumStr);
         Integer startIndex = null;
         if (null != pageNum) {
@@ -125,8 +87,7 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @RequestMapping("/getUnReadMessageCountByUser")
-    @ResponseBody
+    @GetMapping("/getUnReadMessageCount")
     public JsonInfo getUnReadMessageCountByUser(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
@@ -142,8 +103,7 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @RequestMapping("/getUnReadMessageByUser")
-    @ResponseBody
+    @GetMapping("/getUnReadMessage")
     public JsonInfo getUnReadMessageByUser(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
@@ -164,8 +124,6 @@ public class MessageController {
         }
         return jsonInfo;
     }
-
-
 
 
 }

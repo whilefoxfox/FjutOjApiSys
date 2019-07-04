@@ -2,7 +2,7 @@ package com.fjut.oj.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Tool {
+public class IPTool {
     public String getClientIpAddress(HttpServletRequest request) {
         String clientIp = request.getHeader("x-forwarded-for");
         if(clientIp == null || clientIp.length() == 0 || "unknown".equalsIgnoreCase(clientIp)) {
