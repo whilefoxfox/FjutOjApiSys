@@ -54,6 +54,19 @@ public class GlobalExceptionHandler {
     }
 
     /**
+     * 401 - Unauthorized
+     * @param e
+     * @return
+     */
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public JsonInfo handleUnauthorizedException(HttpMessageNotReadableException e) {
+        String msg = "请求解析失败";
+        LOGGER.error(msg, e);
+        addExceptionToDatabase(e);
+        return jsonInfoError(msg);
+    }
+
+    /**
      * 403 - FORBIDDEN
      */
     @ResponseStatus(HttpStatus.FORBIDDEN)
@@ -118,7 +131,7 @@ public class GlobalExceptionHandler {
         } else if (e instanceof SQLException) {
             msg = "SQL语句错误！";
         } else {
-            msg = "其他错误！";
+            msg = "系统错误！";
         }
         return jsonInfoError(msg);
     }

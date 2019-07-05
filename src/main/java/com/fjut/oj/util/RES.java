@@ -1,6 +1,6 @@
 package com.fjut.oj.util;
 
-import com.fjut.oj.enums.Result;
+import com.fjut.oj.util.enums.Result;
 
 /**
  * Created by Administrator on 2015/6/7.

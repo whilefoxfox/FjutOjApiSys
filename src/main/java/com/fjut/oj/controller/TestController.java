@@ -1,13 +1,11 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.token.interceptor.CheckUserLogin;
 import com.fjut.oj.util.JsonInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: axiang [20190704] 测试swagger2的测试控制器
@@ -23,5 +21,15 @@ public class TestController {
         JsonInfo jsonInfo = new JsonInfo();
         jsonInfo.setSuccess("hhh");
         return jsonInfo;
+    }
+
+
+    @CheckUserLogin
+    @GetMapping("/getsome")
+    public JsonInfo getsome(@RequestParam("id")Integer id, @RequestParam("token")String token){
+        JsonInfo jsonInfo = new JsonInfo();
+        jsonInfo.setSuccess();
+        return jsonInfo;
+
     }
 }
