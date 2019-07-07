@@ -37,6 +37,6 @@
     </bean>
 
 
-    <bean id="SpringApplicationContext" class="com.fjut.oj.judge.util.ApplicationContextHelper"></bean>
+    <bean id="SpringApplicationContext" class="com.fjut.oj.judge.util.ApplicationContextHelper"/>
 
 </beans>
