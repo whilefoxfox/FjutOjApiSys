@@ -1,46 +1,34 @@
 package com.fjut.oj.controller;
 
-import com.fjut.oj.util.Tool;
 import com.fjut.oj.pojo.t_clock_in;
 import com.fjut.oj.service.ClockInService;
-import com.fjut.oj.util.JsonMsg;
+import com.fjut.oj.util.IPTool;
+import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-
 /**
- * TODO: 把 JsonMsg 替换为 JsonInfo
+ * @author axiang [20190704]
  */
 @Controller
-@ResponseBody
 @CrossOrigin
 @RequestMapping("/clockin")
+@ResponseBody
 public class ClockInController {
 
     @Autowired
     private ClockInService clockInService;
 
-    @RequestMapping(value = "/GAllClockIn")
-    public JsonMsg queryAllClockIn(HttpServletRequest req, HttpServletResponse resp) {
-        List<t_clock_in> clockIns = clockInService.queryAllClockIn();
-        return JsonMsg.success().addInfo(clockIns);
-    }
-
-    @RequestMapping("/GUserClockIn")
-    public JsonMsg queryAllClockInByUsername(HttpServletRequest req, HttpServletResponse resp) {
-
-        String username = req.getParameter("username");
-        String pageNumStr = req.getParameter("pageNum");
+    @GetMapping("/getUserClockIn")
+    public JsonInfo queryAllClockInByUsername(@RequestParam(value = "username") String username, @RequestParam(value = "pagenum", required = false) String pageNumStr) {
+        JsonInfo jsonInfo = new JsonInfo();
         Integer pageNum;
         if (null == pageNumStr) {
             pageNum = null;
@@ -48,44 +36,51 @@ public class ClockInController {
             pageNum = Integer.parseInt(pageNumStr);
         }
         List<t_clock_in> clockIns = clockInService.queryAllClockInByUsername(username, pageNum);
-        if (clockIns != null) {
-            return JsonMsg.success().addInfo(clockIns);
+        if (null != clockIns) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(clockIns);
+        } else {
+            jsonInfo.setFail("未查询到签到记录！");
         }
-        return JsonMsg.fail().addInfo("未查询到该用户的签到记录！");
+        return jsonInfo;
 
     }
 
-    @RequestMapping("/GSomedayClockIn")
-    public JsonMsg queryAllClockInByDate(HttpServletRequest req, HttpServletResponse resp) throws ParseException {
-
-        String dateStr = req.getParameter("date");
+    @GetMapping("/getSomedayClockIn")
+    public JsonInfo queryAllClockInByDate(@RequestParam("date") String dateStr) throws ParseException {
+        JsonInfo jsonInfo = new JsonInfo();
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateStr);
         List<t_clock_in> clockIns = clockInService.queryAllClockInByDate(date);
-        if (clockIns != null) {
-            return JsonMsg.success().addInfo(clockIns);
+        if (null != clockIns) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(clockIns);
+        } else {
+            jsonInfo.setFail("未查询到签到记录！");
         }
-        return JsonMsg.fail().addInfo("未查询到该用户的签到记录！");
+        return jsonInfo;
     }
 
-    @RequestMapping("/GUserTodayClockIn")
-    public JsonMsg queryClockInByUserAndDate(HttpServletRequest req, HttpServletResponse resp) throws ParseException {
-
-        String username = req.getParameter("username");
+    @GetMapping("/getUserTodayClockIn")
+    public JsonInfo queryClockInByUserAndDate(@RequestParam("username") String username) {
+        JsonInfo jsonInfo = new JsonInfo();
         Date date = new Date();
         List<t_clock_in> clockIns = clockInService.queryClockInByUsernameAndDate(username, date);
-        if (clockIns.size() != 0)
-            return JsonMsg.success().addInfo(clockIns);
-        return JsonMsg.fail().addInfo("未查询到该用户的签到记录！");
+        if (0 != clockIns.size()) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(clockIns);
+        } else {
+            jsonInfo.setFail("未查询到签到记录！");
+        }
+        return jsonInfo;
     }
 
-    @RequestMapping("/UserClockIn")
-    public JsonMsg ClockInForNormalUser(HttpServletRequest req, HttpServletResponse resp) {
-
-        Tool tool = new Tool();
-        String username = req.getParameter("username");
+    @PostMapping("/setUserClockIn")
+    public JsonInfo setClockInForNormalUser(HttpServletRequest req, @RequestParam("username") String username) {
+        JsonInfo jsonInfo = new JsonInfo();
+        IPTool ipTool = new IPTool();
         Date time = new Date();
         String sign = "日常";
-        String ip = tool.getClientIpAddress(req);
+        String ip = ipTool.getClientIpAddress(req);
         Integer todytimes = 1;
         t_clock_in clockIn = new t_clock_in();
         clockIn.setUsername(username);
@@ -95,11 +90,11 @@ public class ClockInController {
         clockIn.setTodytimes(todytimes);
         boolean isClockIn = clockInService.insertClockIn(clockIn);
         if (isClockIn) {
-            return JsonMsg.success().addInfo("用户签到成功！");
+            jsonInfo.setSuccess("用户签到成功！");
         } else {
-            return JsonMsg.fail().addInfo("用户签到失败！");
+            jsonInfo.setFail("用户签到失败！");
         }
-
+        return jsonInfo;
     }
 
 

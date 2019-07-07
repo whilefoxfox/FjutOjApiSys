@@ -11,6 +11,7 @@ import com.fjut.oj.service.serviceImpl.ProblemServiceImpl;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * TODO: 把 JsonMsg 替换为 JsonInfo
  */
 @Controller
+@CrossOrigin
 @RequestMapping("/problemview")
 public class ProblemViewController {
 
@@ -37,7 +39,6 @@ public class ProblemViewController {
     @RequestMapping("/Gproblemview")
     @ResponseBody
     public JsonMsg queryProblemView(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
         Integer pid = Integer.parseInt(req.getParameter("pid"));
         ProblemView problemView = problemViewService.queryProblemView(pid);
         Problem problem = problemService.queryProblemById(pid);

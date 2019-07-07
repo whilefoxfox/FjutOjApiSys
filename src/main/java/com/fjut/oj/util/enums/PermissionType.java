@@ -1,4 +1,4 @@
-package com.fjut.oj.enums;
+package com.fjut.oj.util.enums;
 
 import java.util.HashMap;
 import java.util.Map;

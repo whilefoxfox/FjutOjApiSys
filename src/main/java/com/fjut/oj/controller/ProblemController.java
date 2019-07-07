@@ -3,9 +3,12 @@ package com.fjut.oj.controller;
 import com.fjut.oj.pojo.Problem;
 import com.fjut.oj.pojo.Problems1;
 import com.fjut.oj.service.ProblemService;
+import com.fjut.oj.token.interceptor.CheckUserLogin;
+import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +19,8 @@ import java.util.List;
  * TODO: 把 JsonMsg 替换为 JsonInfo
  */
 @Controller
+@CrossOrigin
+@ResponseBody
 @RequestMapping("/problem")
 public class ProblemController {
 
@@ -28,7 +33,7 @@ public class ProblemController {
      * 查询所有的题目信息
      */
     @RequestMapping("/queryAllProblems")
-    @ResponseBody
+    @CheckUserLogin
     public JsonMsg queryAllProblems(HttpServletRequest req, HttpServletResponse resp){
         List<Problem> list = problemService.queryAllProblems();
         resp.setHeader("Access-Control-Allow-Origin","*");
@@ -43,19 +48,20 @@ public class ProblemController {
      * 一页一页的查询题目信息
      */
     @RequestMapping("/GProblemsByPage")
-    @ResponseBody
-    public JsonMsg queryProblemsByPage(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
-
-        Integer pid1, pid2, pagenum, totalpagenum;
-        pagenum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
+    @CheckUserLogin
+    public JsonInfo queryProblemsByPage(HttpServletRequest req, HttpServletResponse resp){
+        JsonInfo jsonInfo = new JsonInfo();
+        Integer pid1, pid2, pageNum, totalPageNum;
+        pageNum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
         Integer total = problemService.queryProblemsNum();
-        totalpagenum = (total % 50 == 0) ? total /50 : total / 50 +1;
-        pid1 = (pagenum - 1) * 50;
+        totalPageNum = (total % 50 == 0) ? total /50 : total / 50 +1;
+        pid1 = (pageNum - 1) * 50;
         pid2 = pid1 + 50;
-
         List<Problem> list = problemService.queryProblemsByPage(pid1, pid2);
-        return JsonMsg.success().addInfo(totalpagenum).addInfo(list);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(totalPageNum);
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 
     /**

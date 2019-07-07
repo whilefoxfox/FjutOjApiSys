@@ -9,15 +9,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99a3b258-936a-4aa8-9032-2670c62117f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeProblemForBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ChallengeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml" afterDir="false" />
+    <list default="true" id="99a3b258-936a-4aa8-9032-2670c62117f1" name="Default Changelist" comment="UPDATE：填加swagger的支持，修改API接口的风格">
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo_ContestLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/lib/commons-io-2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,87 +33,75 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="197">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+            <state relative-caret-position="175">
+              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/StatusMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/StatusMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="148" column="9" lean-forward="true" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
+            <state relative-caret-position="-207">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ChallengeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/AuthExpireException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="154">
+              <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="90" column="50" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="94" column="76" selection-start-line="94" selection-start-column="76" selection-end-line="94" selection-end-column="76" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="22">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -140,66 +134,73 @@
       <find>mysql</find>
       <find>/GPutTagNum</find>
       <find>JsonMsg</find>
+      <find>com.fasterxml.jackson.core</find>
+      <find>jedis</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/AwardInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/BNUOJ/BNUOJ.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/BZOJ/BZOJ.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/CeinfoServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/HDU/HDU.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_ContestLevel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/WeekRankRecordServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ContestProblemServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/ResultString.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/HDU.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/RES.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/PermissionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" />
+        <option value="$PROJECT_DIR$/OJUpdate.sql" />
+        <option value="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml" />
+        <option value="$USER_HOME$/.m2/settings.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/Tool.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/config/SwaggerConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/annotation/islogin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/annotation/Authorization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/interceptor/AuthorizationInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/TokenModel.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/redis-config.properties" />
+        <option value="$PROJECT_DIR$/src/test/TestRedis.java" />
+        <option value="$PROJECT_DIR$/src/test/com/fjut/oj/mapper/TestRedis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/manager/TokenManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/manager/TokenManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/manager/RedisTokenManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resource/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/AuthorizationInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/manager/TokenManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/annotation/Authorization.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/UserLoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/UserIsLogin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/CheckUserLogin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/TokenController.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/spring-redis.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/BusinessException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/NotLoginException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/AuthExpireException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/manager/RedisTokenManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/JsonInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/BusinessException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AddProblemController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/NewDiscussReplyController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/SubmitController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserRankController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/CeinfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/LogMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlock.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockForUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/StatusService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/StatusMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/StatusServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/com/fjut/oj/mapper/ChallengeMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeCondition.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/ChallengeBlockType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/TestSubmit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Vjudge/SubmitterImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeProblemForBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ChallengeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/CheckUserLoginInterceptor.java" />
       </list>
     </option>
   </component>
@@ -211,19 +212,25 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="mavenHome" value="D:/Maven/apache-maven-3.6.0" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
-        <option name="downloadDocsAutomatically" value="true" />
         <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2" />
-    <option name="y" value="70" />
-    <option name="width" value="1595" />
-    <option name="height" value="985" />
+    <option name="x" value="35" />
+    <option name="y" value="11" />
+    <option name="width" value="1619" />
+    <option name="height" value="914" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -233,34 +240,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -268,7 +277,7 @@
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -277,47 +286,17 @@
             </path>
             <path>
               <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="oj" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="oj" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OJ" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="oj" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,20 +309,27 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="copyright.profiles" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.fjut.oj.mapper" />
       <recent name="com.fjut.oj.service.serviceImpl" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj\mapper" />
+      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.fjut.oj" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -366,84 +352,87 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.17">
-    <configuration name="TestSubmit" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.judge.entity.TestSubmit" />
+    <configuration name="TestRedis.boundHashOpsByKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineJudge3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fjut.oj.judge.entity.*" />
+          <option name="PATTERN" value="com.fjut.oj.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChallengeMapperTest.testGetChallengeBlocksForUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="OnlineJudge3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fjut.oj.mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.fjut.oj.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.mapper.ChallengeMapperTest" />
-      <option name="METHOD_NAME" value="testGetChallengeBlocksForUser" />
+      <option name="PACKAGE_NAME" value="com.fjut.oj" />
+      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.TestRedis" />
+      <option name="METHOD_NAME" value="boundHashOpsByKey" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRedis.boundHashOpsKeys" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineJudge3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fjut.oj.mapper.*" />
+          <option name="PATTERN" value="com.fjut.oj.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.fjut.oj.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.mapper.ChallengeMapperTest" />
-      <option name="METHOD_NAME" value="testGetChallengeBlocksScoredByUsername" />
+      <option name="PACKAGE_NAME" value="com.fjut.oj" />
+      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.TestRedis" />
+      <option name="METHOD_NAME" value="boundHashOpsKeys" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRedis.boundHashOpsSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineJudge3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fjut.oj.mapper.*" />
+          <option name="PATTERN" value="com.fjut.oj.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.fjut.oj.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.mapper.ChallengeMapperTest" />
-      <option name="METHOD_NAME" value="testGetChallengeOpenBlocksByUsername" />
+      <option name="PACKAGE_NAME" value="com.fjut.oj" />
+      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.TestRedis" />
+      <option name="METHOD_NAME" value="boundHashOpsSet" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClockInMapperTest.testQueryAllClockInByDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRedis.deleteValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineJudge3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fjut.oj.mapper.*" />
+          <option name="PATTERN" value="com.fjut.oj.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.fjut.oj.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.mapper.ClockInMapperTest" />
-      <option name="METHOD_NAME" value="testQueryAllClockInByDate" />
+      <option name="PACKAGE_NAME" value="com.fjut.oj" />
+      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.TestRedis" />
+      <option name="METHOD_NAME" value="deleteValue" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OnlineJudge3 [mybatis-generator:generate...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+    <configuration name="TestRedis.setValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineJudge3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fjut.oj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.fjut.oj" />
+      <option name="MAIN_CLASS_NAME" value="com.fjut.oj.TestRedis" />
+      <option name="METHOD_NAME" value="setValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OnlineJudge3 [clean,deploy,-DskipTests]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -454,8 +443,9 @@
             </option>
             <option name="goals">
               <list>
-                <option value="mybatis-generator:generate" />
-                <option value="-e" />
+                <option value="clean" />
+                <option value="deploy" />
+                <option value="-DskipTests" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -471,11 +461,11 @@
     </configuration>
     <configuration name="Tomcat 9.0.17" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.17" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
       <deployment>
         <artifact name="OnlineJudge3:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/api" />
           </settings>
         </artifact>
       </deployment>
@@ -615,21 +605,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ChallengeMapperTest.testGetChallengeBlocksForUser" />
-      <item itemvalue="JUnit.ClockInMapperTest.testQueryAllClockInByDate" />
-      <item itemvalue="JUnit.ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" />
-      <item itemvalue="JUnit.ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" />
-      <item itemvalue="Maven.OnlineJudge3 [mybatis-generator:generate...]" />
+      <item itemvalue="JUnit.TestRedis.boundHashOpsByKey" />
+      <item itemvalue="JUnit.TestRedis.deleteValue" />
+      <item itemvalue="JUnit.TestRedis.setValue" />
+      <item itemvalue="JUnit.TestRedis.boundHashOpsSet" />
+      <item itemvalue="JUnit.TestRedis.boundHashOpsKeys" />
+      <item itemvalue="Maven.OnlineJudge3 [clean,deploy,-DskipTests]" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.17" />
-      <item itemvalue="Application.TestSubmit" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestSubmit" />
-        <item itemvalue="JUnit.ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" />
-        <item itemvalue="JUnit.ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" />
-        <item itemvalue="JUnit.ChallengeMapperTest.testGetChallengeBlocksForUser" />
-        <item itemvalue="JUnit.ClockInMapperTest.testQueryAllClockInByDate" />
+        <item itemvalue="JUnit.TestRedis.boundHashOpsKeys" />
+        <item itemvalue="JUnit.TestRedis.boundHashOpsSet" />
+        <item itemvalue="JUnit.TestRedis.boundHashOpsByKey" />
+        <item itemvalue="JUnit.TestRedis.setValue" />
+        <item itemvalue="JUnit.TestRedis.deleteValue" />
       </list>
     </recent_temporary>
   </component>
@@ -691,7 +681,17 @@
       <workItem from="1561593756686" duration="9376000" />
       <workItem from="1561628230185" duration="2117000" />
       <workItem from="1561678224886" duration="13572000" />
-      <workItem from="1561940196549" duration="10121000" />
+      <workItem from="1561940196549" duration="11447000" />
+      <workItem from="1562026332167" duration="9567000" />
+      <workItem from="1562112225437" duration="9099000" />
+      <workItem from="1562126404689" duration="81000" />
+      <workItem from="1562126563581" duration="2143000" />
+      <workItem from="1562157186604" duration="19000" />
+      <workItem from="1562166605900" duration="618000" />
+      <workItem from="1562198354798" duration="13775000" />
+      <workItem from="1562231559768" duration="9176000" />
+      <workItem from="1562285040078" duration="20280000" />
+      <workItem from="1562467970139" duration="11086000" />
     </task>
     <task id="LOCAL-00001" summary="update to fixed my computer">
       <created>1559890243671</created>
@@ -812,43 +812,85 @@
       <option name="project" value="LOCAL" />
       <updated>1561941297081</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="挑战模式 日常更新">
+      <created>1561953588079</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561953588079</updated>
+    </task>
+    <task id="LOCAL-00019" summary="挑战模式 日常更新">
+      <created>1562055010966</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1562055010966</updated>
+    </task>
+    <task id="LOCAL-00020" summary="UPDATE：更新了文件存储功能；规范化文件存放位置">
+      <created>1562167166547</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1562167166547</updated>
+    </task>
+    <task id="LOCAL-00021" summary="UPDATE：填加swagger的支持，为使用redis管理登录状态做准备">
+      <created>1562227312007</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1562227312007</updated>
+    </task>
+    <task id="LOCAL-00022" summary="FIXBUG：修改API接口的风格，更加统一">
+      <created>1562244815288</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1562244815288</updated>
+    </task>
+    <task id="LOCAL-00023" summary="UPDATE：添加自定义注解判断用户登录状态">
+      <created>1562298942178</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1562298942178</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ChallengeMapperTest_testGetChallengeOpenBlocksByUsername - 2019.06.26 at 08h 30m 48s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_deleteValue - 2019.07.05 at 09h 34m 56s.xml">
+      <configuration name="TestRedis.deleteValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeOpenBlocksByUsername - 2019.06.26 at 08h 32m 45s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_deleteValue - 2019.07.05 at 09h 36m 41s.xml">
+      <configuration name="TestRedis.deleteValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeOpenBlocksByUsername - 2019.06.26 at 08h 34m 30s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_setValue - 2019.07.05 at 09h 36m 50s.xml">
+      <configuration name="TestRedis.setValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeOpenBlocksByUsername - 2019.06.26 at 08h 35m 38s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsByKey - 2019.07.05 at 09h 36m 55s.xml">
+      <configuration name="TestRedis.boundHashOpsByKey" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeBlocksScoredByUsername - 2019.06.26 at 11h 22m 37s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsSet - 2019.07.05 at 09h 37m 01s.xml">
+      <configuration name="TestRedis.boundHashOpsSet" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeOpenBlocksByUsername - 2019.06.26 at 11h 23m 17s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeOpenBlocksByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsKeys - 2019.07.05 at 09h 37m 06s.xml">
+      <configuration name="TestRedis.boundHashOpsKeys" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeBlocksScoredByUsername - 2019.06.26 at 11h 23m 25s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsKeys - 2019.07.05 at 09h 37m 15s.xml">
+      <configuration name="TestRedis.boundHashOpsKeys" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeBlocksScoredByUsername - 2019.06.26 at 11h 23m 43s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsKeys - 2019.07.05 at 09h 37m 23s.xml">
+      <configuration name="TestRedis.boundHashOpsKeys" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeBlocksScoredByUsername - 2019.06.26 at 11h 24m 12s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsSet - 2019.07.05 at 09h 37m 27s.xml">
+      <configuration name="TestRedis.boundHashOpsSet" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChallengeMapperTest_testGetChallengeBlocksScoredByUsername - 2019.06.26 at 11h 25m 05s.xml">
-      <configuration name="ChallengeMapperTest.testGetChallengeBlocksScoredByUsername" configurationId="JUnit" />
+    <history-entry file="TestRedis_boundHashOpsKeys - 2019.07.05 at 09h 37m 30s.xml">
+      <configuration name="TestRedis.boundHashOpsKeys" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218628000" />
+    <option name="totallyTimeSpent" value="295861000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -863,7 +905,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20898438" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23828125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -871,18 +913,18 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3291536" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49563146" visible="true" weight="0.1377841" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6412478" weight="0.44886363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.125" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.37926137" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49934897" weight="0.328125" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50436854" side_tool="true" weight="0.29780564" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49934897" weight="0.4977029" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.35875216" side_tool="true" weight="0.3753943" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.5800781" weight="0.33522728" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32954547" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info active="true" anchor="bottom" id="PMD" order="16" visible="true" weight="0.434492" />
@@ -963,162 +1005,300 @@
     <MESSAGE value="挑战模式正在进行中" />
     <MESSAGE value="挑战模式前端配合展示功能完成" />
     <MESSAGE value="挑战模式 日常更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="挑战模式 日常更新" />
+    <MESSAGE value="UPDATE：更新了文件存储功能；规范化文件存放位置" />
+    <MESSAGE value="UPDATE：填加swagger的支持，为使用redis管理登录状态做准备" />
+    <MESSAGE value="FIXBUG：修改API接口的风格，更加统一" />
+    <MESSAGE value="UPDATE：添加自定义注解判断用户登录状态" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE：添加自定义注解判断用户登录状态" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ContestMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/StatusServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1980" />
+        <state relative-caret-position="362">
+          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/fjut/oj/mapper/MessageMapperTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/com/fjut/oj/mapper/ClockInMapperTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/com/fjut/oj/mapper/ChallengeMapperTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockForUser.java">
+    <entry file="file://$USER_HOME$/.m2/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        <state relative-caret-position="98">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/IPTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.en.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/config/SwaggerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding>
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/CodeLanguage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/PermissionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/TokenModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <folding>
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/spring-redis.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/AllUsersRankMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/fjut/oj/TestRedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+            <element signature="e#1535#1536#0" expanded="true" />
+            <element signature="e#1663#1664#0" expanded="true" />
+            <element signature="e#1724#1725#0" expanded="true" />
+            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="e#1956#1957#0" expanded="true" />
+            <element signature="e#2560#2561#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
+            <element signature="e#2707#2708#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#3630#3631#0" expanded="true" />
+            <element signature="e#3700#3701#0" expanded="true" />
+            <element signature="e#3778#3779#0" expanded="true" />
+            <element signature="e#3826#3827#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/fjut/oj/mapper/LogMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/PermissionType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo_AwardLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/SubmitResultType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/MapSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/mybatis/mybatis-spring/1.3.0/mybatis-spring-1.3.0-sources.jar!/org/mybatis/spring/MyBatisExceptionTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="264">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/ChallengeBlockType.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/NewDiscussMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        <state relative-caret-position="88">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="740" selection-start-line="740" selection-end-line="740" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/redis-config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.8.RELEASE/spring-webmvc-5.0.8.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="875" column="36" selection-start-line="875" selection-start-column="36" selection-end-line="875" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding>
-            <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/CodeLanguage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/CheckUserLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="33" column="30" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="30" />
+        <state relative-caret-position="220">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ClockInMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="157">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_challenge_problem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/SubmitController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="-1652">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Problems2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/LogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="308">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Problems1.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="-1562">
+          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Problem_tag.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/TokenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="159">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Problem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-redis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="572">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ContestProblem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="286">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java">
+    <entry file="file://$PROJECT_DIR$/OnlineJudge3.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="179" column="11" lean-forward="true" selection-start-line="179" selection-start-column="11" selection-end-line="179" selection-end-column="11" />
+        <state relative-caret-position="22">
+          <caret line="1" column="24" lean-forward="true" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="59" column="24" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/token/manager/RedisTokenManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2057#2058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/token/manager/TokenManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1127,241 +1307,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/util/JsonInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="220">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_challenge_condition.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/NotLoginException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state>
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockDetail.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/GlobalExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        <state relative-caret-position="-816">
+          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/token/interceptor/CheckUserLoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
           <folding>
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/ApplicationContextHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#677#678#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Tool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/MyClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/TestLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/AccountConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/RES.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/TestSubmit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Vjudge/SubmitterImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/Config/GlobalVariables.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/Config/GroupConfig.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ClockInMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ClockInController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="22">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/SubmissionRecordMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AddProblemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="173">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Status.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/PermissionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="264">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeProblemForBlock.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-625">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding>
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
-            <element signature="e#923#924#0" expanded="true" />
-            <element signature="e#982#983#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1092#1093#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#1168#1169#0" expanded="true" />
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#1306#1307#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="284">
+          <caret line="285" column="25" lean-forward="true" selection-start-line="285" selection-start-column="25" selection-end-line="285" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/StatusMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="25">
+            <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/StatusMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/CeinfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="148" column="9" lean-forward="true" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
+        <state relative-caret-position="197">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ContestAwardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1932">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        <state relative-caret-position="175">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/AllRankController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+        <state relative-caret-position="22">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="94" column="76" selection-start-line="94" selection-start-column="76" selection-end-line="94" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-207">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/AuthExpireException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="90" column="50" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ChallengeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1435,7 +1486,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

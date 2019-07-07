@@ -13,15 +13,31 @@ public class JsonInfo {
     private int code;
     private String msg;
     private List<Object> datas = new ArrayList<>();
+    private static String TYPE_SUCCESS = "success";
+    private static String TYPE_FAIL = "fail";
+    private static String TYPE_ERROR = "error";
 
+    public JsonInfo(){
+
+    }
+
+    public JsonInfo(String type, String msg) {
+        if (TYPE_SUCCESS.equalsIgnoreCase(type)) {
+            setSuccess(msg);
+        } else if (TYPE_FAIL.equalsIgnoreCase(type)) {
+            setFail(msg);
+        } else if (TYPE_ERROR.equalsIgnoreCase(type)) {
+            setError(msg);
+        }
+    }
 
     public int getCode() {
         return code;
     }
 
-//    public void setCode(int code) {
-//        this.code = code;
-//    }
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public String getMsg() {
         return msg;
@@ -38,7 +54,6 @@ public class JsonInfo {
     public void setDatas(List<Object> datas) {
         this.datas = datas;
     }
-
 
     public void setSuccess() {
         this.code = 100;
@@ -68,7 +83,7 @@ public class JsonInfo {
         this.msg = msg;
     }
 
-    public void cleanDatas(){
+    public void cleanDatas() {
         this.datas.clear();
     }
 

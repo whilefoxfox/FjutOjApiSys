@@ -2,6 +2,8 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.Log;
 import com.fjut.oj.service.LogService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

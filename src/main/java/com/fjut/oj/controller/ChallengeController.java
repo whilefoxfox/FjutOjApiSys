@@ -1,24 +1,17 @@
 package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.*;
-import com.fjut.oj.enums.ChallengeBlockType;
+import com.fjut.oj.util.enums.ChallengeBlockType;
 import com.fjut.oj.service.ChallengeService;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 10:43 2019/6/25
- * @Modify By:
+ * @Author: axiang [20190625]
  */
 @Controller
 @CrossOrigin
@@ -28,11 +21,10 @@ public class ChallengeController {
     @Autowired
     ChallengeService challengeService;
 
-    @RequestMapping("/getAllChallengeBlocksByUsername")
-    public JsonInfo getAllChallengeBlocks(HttpServletRequest request, HttpServletResponse response) {
+    @GetMapping("/getAllChallengeBlocks")
+    public JsonInfo getAllChallengeBlocks(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
         List<ChallengeBlockForUser> res = new ArrayList<>();
-        String username = request.getParameter("username");
         List<ChallengeBlockForUser> allBlocks = challengeService.queryAllChallengeBlocks();
         if (null != username && !("").equals(username)) {
             Map<Integer, ChallengeBlockForUser> map = new TreeMap<>();
@@ -69,10 +61,9 @@ public class ChallengeController {
         return jsonInfo;
     }
 
-    @RequestMapping("/getConditionByBlockId")
-    public JsonInfo getConditionByBlockId(HttpServletRequest request, HttpServletResponse response) {
+    @GetMapping("/getCondition")
+    public JsonInfo getConditionByBlockId(@RequestParam("blockId") String blockIdStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        String blockIdStr = request.getParameter("blockId");
         Integer blockId = Integer.parseInt(blockIdStr);
         List<ChallengeConditionForBlock> conditions = challengeService.queryChallengeConditionByBlockId(blockId);
         if (0 < conditions.size()) {
@@ -85,10 +76,10 @@ public class ChallengeController {
     }
 
     @RequestMapping("/getBlockDetail")
-    public JsonInfo getBlockDetail(HttpServletRequest request, HttpServletResponse response) {
+    public JsonInfo getBlockDetail(
+            @RequestParam("blockId") String blockIdStr,
+            @RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
-        String blockIdStr = request.getParameter("blockId");
-        String username = request.getParameter("username");
         Integer blockId = Integer.parseInt(blockIdStr);
         t_challenge_block block = challengeService.queryChallengeBlockByBlockId(blockId);
         // add by axiang [20190628] 获取该模块的全部得到分值
@@ -116,33 +107,27 @@ public class ChallengeController {
         return jsonInfo;
     }
 
-    @RequestMapping("/getBlockProblems")
-    public JsonInfo getBlockProblems(HttpServletRequest request) {
-        long ms = System.currentTimeMillis();
+    @GetMapping("/getBlockProblems")
+    public JsonInfo getBlockProblems(
+            @RequestParam("username") String username,
+            @RequestParam("blockId") String blockIdStr,
+            @RequestParam("pageNum") String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        String username = request.getParameter("username");
-        String blockIdStr = request.getParameter("blockId");
-        String pagenumStr = request.getParameter("pageNum");
         Integer blockId = Integer.parseInt(blockIdStr);
-        Integer pageNum = Integer.parseInt(pagenumStr);
+        Integer pageNum = Integer.parseInt(pageNumStr);
         Integer startIndex = (pageNum - 1) * 15;
-        long ms1= System.currentTimeMillis();
-        List<ChallengeProblemForBlock> challengeProblems = challengeService.queryChallengeBlockProblemByBlockId(blockId, startIndex);
-        long me1 = System.currentTimeMillis();
-        System.out.println("get problem: "+(me1-ms1)+" ms");
+        List<ChallengeProblemForBlock> challengeProblems =
+                challengeService.queryChallengeBlockProblemByBlockId(blockId, startIndex);
         Integer count = challengeService.queryChallengeBlockProblemCountByBlockId(blockId);
         if (null == username) {
             jsonInfo.setFail("参数错误！");
             return jsonInfo;
         }
         if (0 < count) {
-            long ms2= System.currentTimeMillis();
             List<Status> statuses = challengeService.queryAllBlockSolvedProblemByUsername(username);
-            long me2 = System.currentTimeMillis();
-            System.out.println("get solved status: "+(me2-ms2)+" ms");
             Map<Integer, Integer> statusMap = new TreeMap<>();
             for (Status status : statuses) {
-                // add by axiang [20190701] 提交状态有多个并且包含AC时，只保留AC的一个或者其他的最新状态
+                // 提交状态有多个并且包含AC时，只保留AC的一个或者其他的最新状态
                 if (null == statusMap.get(status.getPid())) {
                     statusMap.put(status.getPid(), status.getResult());
                 } else if (1 != statusMap.get(status.getPid())) {
@@ -165,8 +150,6 @@ public class ChallengeController {
         } else {
             jsonInfo.setFail("模块内没有题目");
         }
-        long me = System.currentTimeMillis();
-        System.out.println("method get problem use time: "+(me-ms)+" ms");
         return jsonInfo;
     }
 
