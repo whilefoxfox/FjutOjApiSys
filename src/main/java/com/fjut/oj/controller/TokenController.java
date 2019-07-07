@@ -49,9 +49,10 @@ public class TokenController {
             // 用户名和密码匹配
             jsonInfo.setSuccess("用户名和密码正确");
             TokenModel tokenModel = tokenManager.createToken(username);
-            jsonInfo.addInfo(tokenModel);
+            String auth = tokenModel.getUsername()+"_"+tokenModel.getToken();
+            jsonInfo.addInfo(username);
+            jsonInfo.addInfo(auth);
         }
         return jsonInfo;
-
     }
 }

@@ -1,5 +1,8 @@
 package com.fjut.oj.token.interceptor;
 
+import com.fjut.oj.controller.LogController;
+import com.fjut.oj.exception.AuthExpireException;
+import com.fjut.oj.exception.NotLoginException;
 import com.fjut.oj.pojo.TokenModel;
 import com.fjut.oj.token.manager.TokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +24,10 @@ public class CheckUserLoginInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private TokenManager manager;
 
+    private LogController logController;
+
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 如果不是映射到方法上就直接跳过
         if (!(handler instanceof HandlerMethod)) {
             return true;
@@ -33,13 +38,14 @@ public class CheckUserLoginInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         // TODO:从头部获取Token
-        String auth = request.getParameter("token");
+        String auth = request.getHeader("token");
         TokenModel model = manager.getToken(auth);
         if (manager.checkToken(model)) {
             return true;
         } else {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            return false;
+            throw new NotLoginException();
+//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//            return false;
 
         }
     }

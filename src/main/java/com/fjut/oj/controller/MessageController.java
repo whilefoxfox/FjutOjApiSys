@@ -2,6 +2,7 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.t_message;
 import com.fjut.oj.service.MessageService;
+import com.fjut.oj.token.interceptor.CheckUserLogin;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-
+    @CheckUserLogin
     @PostMapping("/delMessage")
     public JsonInfo delMessageByMid(@RequestParam("mid") String midStr) {
         JsonInfo jsonInfo = new JsonInfo();
