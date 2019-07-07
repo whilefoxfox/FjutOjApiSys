@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProblemSampleMapper {
 
-    public List<Problemsample> queryProblemsampleById(@Param("pid") Integer pid);
+    List<Problemsample> queryProblemsampleById(@Param("pid") Integer pid);
 
     Integer insertProblemSample(@Param("problemsample") Problemsample problemsample);
 }

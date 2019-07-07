@@ -1,21 +1,15 @@
-package com.fjut.oj.token.manager;
+package com.fjut.oj.manager;
 
 import com.fjut.oj.exception.AuthExpireException;
-import com.fjut.oj.exception.NotLoginException;
 import com.fjut.oj.pojo.TokenModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.UUID;
 
 /**
  * @Author: axiang [20190705] Redis操作类，封装了对Redis的一些操作
- * @Despriction:
- * @Date:Created in 9:44 2019/7/5
- * @Modify By:
  */
 @Component
 public class RedisTokenManager implements TokenManager {

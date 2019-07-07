@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ContestUserMapper {
 
-    public List<Contestuser> getContestUserById(@Param("cid") Integer cid);
+    List<Contestuser> getContestUserById(@Param("cid") Integer cid);
 
-    public Integer insertContestUser(@Param("contestuser") Contestuser contestuser);
+    Integer insertContestUser(@Param("contestuser") Contestuser contestuser);
 }

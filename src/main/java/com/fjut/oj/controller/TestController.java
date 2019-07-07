@@ -1,6 +1,6 @@
 package com.fjut.oj.controller;
 
-import com.fjut.oj.token.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserLogin;
 import com.fjut.oj.util.JsonInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

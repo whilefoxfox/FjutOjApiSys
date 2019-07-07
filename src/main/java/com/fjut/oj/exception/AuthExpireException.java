@@ -2,10 +2,7 @@ package com.fjut.oj.exception;
 
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 14:59 2019/7/7
- * @Modify By:
+ * @Author: axiang [20190707] 权限过期异常
  */
 public class AuthExpireException extends RuntimeException {
     public AuthExpireException() {

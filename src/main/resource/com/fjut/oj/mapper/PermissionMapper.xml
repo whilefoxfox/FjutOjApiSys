@@ -11,4 +11,9 @@
             </if>
         </where>
     </select>
+    <select id="getIsAdmin" resultType="java.lang.Boolean">
+        SELECT COUNT (*)
+        FROM userper
+        WHERE username = #{username}
+    </select>
 </mapper>

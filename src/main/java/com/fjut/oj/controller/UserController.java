@@ -1,11 +1,13 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.pojo.TokenModel;
 import com.fjut.oj.pojo.User;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserRadarService;
 import com.fjut.oj.service.UserService;
+import com.fjut.oj.interceptor.CheckUserLogin;
+import com.fjut.oj.manager.TokenManager;
 import com.fjut.oj.util.JsonInfo;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,8 @@ import java.util.Map;
  */
 @Controller
 @CrossOrigin
+@RequestMapping("/user")
+@ResponseBody
 public class UserController {
 
     @Autowired
@@ -33,19 +37,24 @@ public class UserController {
     @Autowired
     private UserRadarService userRadarService;
 
+    @Autowired
+    private TokenManager tokenManager;
+
+
     /**
-     * 判断用户名和密码是否正确
-     *
-     * @param req
-     * @param resp
+     * 登录认证
+     * @param username
+     * @param password
      * @return
      */
-    @PostMapping(value = "/dologin")
-    @ResponseBody
-    public JsonInfo dologin(HttpServletRequest req, HttpServletResponse resp) {
+    @PostMapping("/login")
+    public JsonInfo login(@RequestParam("username") String username,@RequestParam("password") String password){
         JsonInfo jsonInfo = new JsonInfo();
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
+        if(null == username || null == password)
+        {
+            jsonInfo.setFail("用户名或者密码为空！");
+            return jsonInfo;
+        }
         User user = userService.getUserByUsername(username);
         Integer count = userService.getUserByUsernameAndPassword(username, password);
         if (null == user) {
@@ -58,18 +67,21 @@ public class UserController {
         } else {
             // 用户名和密码匹配
             jsonInfo.setSuccess("用户名和密码正确");
-            jsonInfo.addInfo(user);
+            TokenModel tokenModel = tokenManager.createToken(username);
+            String auth = tokenModel.getUsername()+"_"+tokenModel.getToken();
+            jsonInfo.addInfo(username);
+            jsonInfo.addInfo(auth);
         }
         return jsonInfo;
     }
 
     /**
      * 注册一个用户
+     * @param req
+     * @return
      */
-    @RequestMapping("/insertUser")
-    @ResponseBody
-
-    public JsonInfo insertUser(HttpServletRequest req, HttpServletResponse resp) {
+    @PostMapping("/insertUser")
+    public JsonInfo insertUser(HttpServletRequest req) {
         JsonInfo jsonInfo = new JsonInfo();
         User tmp = userService.getUserByUsername(req.getParameter("username"));
         if (tmp != null) {
@@ -119,6 +131,9 @@ public class UserController {
 
     /**
      * 修改用户信息
+     * @param req
+     * @param resp
+     * @return
      */
     @RequestMapping("/updateUser")
     @ResponseBody
@@ -167,8 +182,8 @@ public class UserController {
      * 获取所有的用户信息
      * FIXME: 部署时需要去除
      */
+    @CheckUserLogin
     @RequestMapping("/GAllUsers")
-    @ResponseBody
     public JsonInfo queryAllUsers(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         List<User> list = userService.queryAll();

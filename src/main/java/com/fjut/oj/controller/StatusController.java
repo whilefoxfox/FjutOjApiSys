@@ -4,14 +4,15 @@ import com.fjut.oj.pojo.Status;
 import com.fjut.oj.pojo.UserSolve;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserSolveService;
+import com.fjut.oj.interceptor.CheckUserAdmin;
 import com.fjut.oj.util.JsonInfo;
-import com.fjut.oj.util.JsonMsg;
 import com.fjut.oj.util.MapSort;
 import com.fjut.oj.util.ResultString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,9 +39,8 @@ public class StatusController {
     static private List<Status> list;
 
     @RequestMapping("/GAllStatus")
-    public JsonInfo getAllStatus(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo getAllStatus(@RequestParam("pagenum")String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        String pageNumStr = req.getParameter("pagenum");
         int pageNum = Integer.parseInt(pageNumStr);
         Integer num = statusService.allStatusNum();
         if (num == 0) {

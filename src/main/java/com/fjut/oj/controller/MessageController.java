@@ -2,7 +2,7 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.t_message;
 import com.fjut.oj.service.MessageService;
-import com.fjut.oj.token.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserLogin;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +37,7 @@ public class MessageController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @PostMapping("/setReaded")
     public JsonInfo setReadedByMid(@RequestParam("mid") String midStr) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -50,6 +51,7 @@ public class MessageController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @PostMapping("/setAllMessageRead")
     public JsonInfo setAllMessageReadByUser(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -68,6 +70,7 @@ public class MessageController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @GetMapping("/getUserMessage")
     public JsonInfo getUserMessage(@RequestParam("username")String username,@RequestParam("pagenum")String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -88,6 +91,7 @@ public class MessageController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @GetMapping("/getUnReadMessageCount")
     public JsonInfo getUnReadMessageCountByUser(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -104,6 +108,7 @@ public class MessageController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @GetMapping("/getUnReadMessage")
     public JsonInfo getUnReadMessageByUser(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();

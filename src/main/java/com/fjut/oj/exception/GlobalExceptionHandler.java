@@ -85,9 +85,9 @@ public class GlobalExceptionHandler {
     public JsonInfo handleException(Exception e) {
         String msg;
         LOGGER.error("服务运行异常", e);
-        addExceptionToDatabase(e);
         if (e instanceof NullPointerException) {
             msg = "空指针错误！";
+            addExceptionToDatabase(e);
         } else if (e instanceof MissingServletRequestParameterException) {
             msg = "参数不完整！";
         } else if (e instanceof AuthExpireException) {
@@ -98,8 +98,11 @@ public class GlobalExceptionHandler {
             msg = "SQL语句错误！";
         } else if (e instanceof NotLoginException) {
             msg = "需要登录权限！";
-        } else {
+        } else if(e instanceof NotAdminException){
+            msg = "需要管理员权限！";
+        }else {
             msg = "服务器内部错误！";
+            addExceptionToDatabase(e);
         }
         return new JsonInfo("ERROR", msg);
     }

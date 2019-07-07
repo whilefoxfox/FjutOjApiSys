@@ -25,4 +25,10 @@ public class PermissionServiceImpl implements PermissionService {
         }
         return list;
     }
+
+    @Override
+    public boolean getIsAdmin(String username) {
+        return permissionMapper.getIsAdmin(username);
+    }
+
 }

@@ -6,20 +6,33 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ContestMapper {
-    public List<Contest> getAllContest(@Param("pagenum") Integer pagenum);
-    public Contest getContestById(@Param("cid")Integer cid);
-    public List<Contestuser> getContestUsers(@Param("cid") int cid, @Param("pagenum") int pagenum);
-    public Integer getContestUsersNum(@Param("cid") int cid);
-    public Integer getAllContestNum();
-    public List<ContestProblemInfo> getContestProblem(@Param("cid") int cid);
-    public List<Status> getContestStatus(@Param("cid") int cid,@Param("pagenum") int pagenum);
-    public List<ContestRank> getContestRank(@Param("cid") int cid);
-    public String getContestPassword(@Param("cid") Integer cid);
-    public Integer getContestUser(@Param("cid")Integer cid, @Param("username")String username);
+    List<Contest> getAllContest(@Param("pagenum") Integer pagenum);
 
-    public Integer insertContest(@Param("contest") Contest contest);
-    public Integer getMaxContestId();
-    public Integer insertContestProblem(@Param("contestProblem")ContestProblem contestProblem);
-    public Integer insertContestuser(@Param("contestuser")Contestuser contestuser);
-    public Integer getContestStatusNum(@Param("cid")Integer cid);
+    Contest getContestById(@Param("cid") Integer cid);
+
+    List<Contestuser> getContestUsers(@Param("cid") int cid, @Param("pagenum") int pagenum);
+
+    Integer getContestUsersNum(@Param("cid") int cid);
+
+    Integer getAllContestNum();
+
+    List<ContestProblemInfo> getContestProblem(@Param("cid") int cid);
+
+    List<Status> getContestStatus(@Param("cid") int cid, @Param("pagenum") int pagenum);
+
+    List<ContestRank> getContestRank(@Param("cid") int cid);
+
+    String getContestPassword(@Param("cid") Integer cid);
+
+    Integer getContestUser(@Param("cid") Integer cid, @Param("username") String username);
+
+    Integer insertContest(@Param("contest") Contest contest);
+
+    Integer getMaxContestId();
+
+    Integer insertContestProblem(@Param("contestProblem") ContestProblem contestProblem);
+
+    Integer insertContestuser(@Param("contestuser") Contestuser contestuser);
+
+    Integer getContestStatusNum(@Param("cid") Integer cid);
 }

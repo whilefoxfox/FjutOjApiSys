@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface CeinfoMapper {
 
-    public List<Ceinfo> queryAllCeinfo();
+    List<Ceinfo> queryAllCeinfo();
 
-    public Ceinfo queryCeinfo(@Param("rid") Integer rid);
+    Ceinfo queryCeinfo(@Param("rid") Integer rid);
 
-    public Integer insertCeinfo(@Param("ce") Ceinfo ce);
+    Integer insertCeinfo(@Param("ce") Ceinfo ce);
 }

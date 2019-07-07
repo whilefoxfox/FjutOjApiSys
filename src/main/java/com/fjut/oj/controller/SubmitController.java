@@ -13,6 +13,7 @@ import com.fjut.oj.util.JsonMsg;
 import com.fjut.oj.util.ResultString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,6 +27,7 @@ import java.util.Date;
  */
 @RequestMapping("/submit")
 @Controller
+@CrossOrigin
 public class SubmitController {
 
     @Autowired
@@ -42,8 +44,6 @@ public class SubmitController {
     @RequestMapping("/submitProblem")
     @ResponseBody
     public JsonMsg submitProblem(HttpServletRequest req, HttpServletResponse resp){
-
-        resp.setHeader("Access-Control-Allow-Origin","*");
         String strpid = req.getParameter("pid");
         if (strpid == null || strpid == "") {
             return JsonMsg.fail().addInfo("pid未传入");

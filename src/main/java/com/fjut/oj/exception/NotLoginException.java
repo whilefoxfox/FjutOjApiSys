@@ -1,11 +1,8 @@
 package com.fjut.oj.exception;
 
 /**
- * TODO: 自定义业务异常类，暂时未使用
- * @Author: axiang
- * @Despriction:
- * @Date:Created in 8:52 2019/6/21
- * @Modify By:
+ * @Author: axiang [20190621] 未登录异常
+ *
  */
 public class NotLoginException extends RuntimeException {
 

@@ -2,6 +2,7 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.t_clock_in;
 import com.fjut.oj.service.ClockInService;
+import com.fjut.oj.interceptor.CheckUserLogin;
 import com.fjut.oj.util.IPTool;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class ClockInController {
     @Autowired
     private ClockInService clockInService;
 
+    @CheckUserLogin
     @GetMapping("/getUserClockIn")
     public JsonInfo queryAllClockInByUsername(@RequestParam(value = "username") String username, @RequestParam(value = "pagenum", required = false) String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -46,6 +48,7 @@ public class ClockInController {
 
     }
 
+    @CheckUserLogin
     @GetMapping("/getSomedayClockIn")
     public JsonInfo queryAllClockInByDate(@RequestParam("date") String dateStr) throws ParseException {
         JsonInfo jsonInfo = new JsonInfo();
@@ -60,6 +63,7 @@ public class ClockInController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @GetMapping("/getUserTodayClockIn")
     public JsonInfo queryClockInByUserAndDate(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -74,6 +78,7 @@ public class ClockInController {
         return jsonInfo;
     }
 
+    @CheckUserLogin
     @PostMapping("/setUserClockIn")
     public JsonInfo setClockInForNormalUser(HttpServletRequest req, @RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();

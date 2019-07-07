@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
+<!--mybatis 代码自动生成器配置文件-->
 <generatorConfiguration>
     <!--mysql 连接数据库jar 必须手动设置-->
     <classPathEntry location="D:\apache-maven-3.5.0\repository\mysql\mysql-connector-java\8.0.9-rc\mysql-connector-java-8.0.9-rc.jar" />

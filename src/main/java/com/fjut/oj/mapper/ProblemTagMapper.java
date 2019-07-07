@@ -10,13 +10,21 @@ import java.util.List;
 
 public interface ProblemTagMapper {
 
-    public List<Problem_tag> queryAllProblemTag();
-    public List<t_problem_tag_record> problemTagRecord(@Param("pid") Integer pid, @Param("username") String username);
-    public List<t_problem_tag_record> problemTagRecordLimitNum(@Param("pid") Integer pid, @Param("from") Integer from, @Param("num") Integer num);
-    public int addTag(@Param("pid") Integer pid, @Param("username") String username, @Param("tagid") Integer tagid, @Param("rating") Integer rating);
-    public int delTag(@Param("pid") Integer pid, @Param("username") String username, @Param("pid") Integer tagid);
-    public int addProblemTag(@Param("username") String tagName);
-    public int renameProblemTag(@Param("id") Integer id, @Param("name") Integer name);
-    public List<UserTag1> queryUserTag1(@Param("username") String username);
-    public List<UserTag2> queryUserTag2();
+    List<Problem_tag> queryAllProblemTag();
+
+    List<t_problem_tag_record> problemTagRecord(@Param("pid") Integer pid, @Param("username") String username);
+
+    List<t_problem_tag_record> problemTagRecordLimitNum(@Param("pid") Integer pid, @Param("from") Integer from, @Param("num") Integer num);
+
+    int addTag(@Param("pid") Integer pid, @Param("username") String username, @Param("tagid") Integer tagid, @Param("rating") Integer rating);
+
+    int delTag(@Param("pid") Integer pid, @Param("username") String username, @Param("pid") Integer tagid);
+
+    int addProblemTag(@Param("username") String tagName);
+
+    int renameProblemTag(@Param("id") Integer id, @Param("name") Integer name);
+
+    List<UserTag1> queryUserTag1(@Param("username") String username);
+
+    List<UserTag2> queryUserTag2();
 }

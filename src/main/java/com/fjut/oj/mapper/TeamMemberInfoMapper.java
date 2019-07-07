@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface TeamMemberInfoMapper {
 
-    public List<TeamMemberInfo> queryAllTeamMemberInfo(@Param("start") Integer start);
+    List<TeamMemberInfo> queryAllTeamMemberInfo(@Param("start") Integer start);
 
-    public Integer queryAllCountTeamMemberInfo();
+    Integer queryAllCountTeamMemberInfo();
 
-    public TeamMemberInfo queryTeamMemberInfoById(@Param("id") Integer id);
+    TeamMemberInfo queryTeamMemberInfoById(@Param("id") Integer id);
 
-    public Integer insertTeamMemberInfo(@Param("teamMemberInfo") TeamMemberInfo teamMemberInfo);
+    Integer insertTeamMemberInfo(@Param("teamMemberInfo") TeamMemberInfo teamMemberInfo);
 
-    public Integer replaceTeamMemberInfo(@Param("teamMemberInfo") TeamMemberInfo teamMemberInfo);
+    Integer replaceTeamMemberInfo(@Param("teamMemberInfo") TeamMemberInfo teamMemberInfo);
 }

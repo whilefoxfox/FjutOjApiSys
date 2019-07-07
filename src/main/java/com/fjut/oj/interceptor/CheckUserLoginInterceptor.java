@@ -1,10 +1,8 @@
-package com.fjut.oj.token.interceptor;
+package com.fjut.oj.interceptor;
 
-import com.fjut.oj.controller.LogController;
-import com.fjut.oj.exception.AuthExpireException;
 import com.fjut.oj.exception.NotLoginException;
 import com.fjut.oj.pojo.TokenModel;
-import com.fjut.oj.token.manager.TokenManager;
+import com.fjut.oj.manager.TokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -14,17 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 9:08 2019/7/5
- * @Modify By:
+ * @Author: axiang [20190705] 判断用户登录状态拦截器
  */
 @Component
 public class CheckUserLoginInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private TokenManager manager;
 
-    private LogController logController;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -44,9 +38,6 @@ public class CheckUserLoginInterceptor extends HandlerInterceptorAdapter {
             return true;
         } else {
             throw new NotLoginException();
-//            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//            return false;
-
         }
     }
 

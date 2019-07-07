@@ -1,13 +1,9 @@
-package com.fjut.oj.token.manager;
+package com.fjut.oj.manager;
 
 import com.fjut.oj.pojo.TokenModel;
-import jdk.nashorn.internal.parser.Token;
 
 /**
  * @Author: axiang [20190705] 对token进行操作
- * @Despriction:
- * @Date:Created in 9:39 2019/7/5
- * @Modify By:
  */
 public interface TokenManager {
     /**

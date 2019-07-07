@@ -4,6 +4,7 @@ import com.fjut.oj.util.JsonInfo;
 import org.codehaus.plexus.util.IOUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +42,7 @@ public class FileController {
     private static String VERIFYPICPATH = "VerifyPic\\";
 
 
-    @RequestMapping("/uploadPic")
+    @PostMapping("/uploadPic")
     public JsonInfo uploadPicture2(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
         MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());

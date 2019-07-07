@@ -18,10 +18,15 @@
 
     <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
+    <!-- 配置拦截器CheckUserLoginInterceptor，拦截所有url请求 -->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.fjut.oj.token.interceptor.CheckUserLoginInterceptor"/>
+            <bean class="com.fjut.oj.interceptor.CheckUserLoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.fjut.oj.interceptor.CheckUserAdminInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

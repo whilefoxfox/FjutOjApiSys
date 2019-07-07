@@ -8,14 +8,40 @@ import java.util.List;
 
 public interface ClockInMapper {
 
+    /**
+     * 通过日期查询所有签到记录
+     * @param time
+     * @return
+     */
     List<t_clock_in> queryAllClockInByDate(@Param("time") Date time);
 
+    /**
+     * 查询全部签到记录
+     * @return
+     */
     List<t_clock_in> queryAllClockIn();
 
+    /**
+     * 通过用户名查询全部签到记录
+     * @param username
+     * @param pageNum
+     * @return
+     */
     List<t_clock_in> queryAllClockInByUsername(@Param("username") String username, @Param("pageNum") Integer pageNum);
 
+    /**
+     * 通过用户名和日期查询签到记录
+     * @param username
+     * @param date
+     * @return
+     */
     List<t_clock_in> queryClockInByUsernameAndDate(@Param("username") String username,@Param("date") Date date);
 
-    int insertClockIn(@Param("clockin")t_clock_in clockin);
+    /**
+     * 插入签到记录
+     * @param clockIn
+     * @return
+     */
+    Integer insertClockIn(@Param("clockin")t_clock_in clockIn);
 
 }
