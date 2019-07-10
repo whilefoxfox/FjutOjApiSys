@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * TODO: 设置登录成功后返回token，保存token信息来做登录认证
+ * @author axiang [20190710]
+ * TODO: 界定权限控制，改不合理的传参
  */
 @Controller
 @CrossOrigin
@@ -40,15 +41,14 @@ public class UserController {
     @Autowired
     private TokenManager tokenManager;
 
-
     /**
-     * 登录认证
-     * @param username
+     * 登录认证，redis做鉴权
+     @param username
      * @param password
      * @return
      */
     @PostMapping("/login")
-    public JsonInfo login(@RequestParam("username") String username,@RequestParam("password") String password){
+    public JsonInfo doLogin(@RequestParam("username") String username,@RequestParam("password") String password){
         JsonInfo jsonInfo = new JsonInfo();
         if(null == username || null == password)
         {
@@ -132,12 +132,11 @@ public class UserController {
     /**
      * 修改用户信息
      * @param req
-     * @param resp
      * @return
      */
-    @RequestMapping("/updateUser")
-    @ResponseBody
-    public JsonInfo updateUser(HttpServletRequest req, HttpServletResponse resp) {
+    @CheckUserLogin
+    @PostMapping("/updateUser")
+    public JsonInfo updateUser(HttpServletRequest req) {
         JsonInfo jsonInfo = new JsonInfo();
         User tmp = userService.getUserByUsername(req.getParameter("username"));
         if (tmp == null) {
@@ -179,27 +178,12 @@ public class UserController {
     }
 
     /**
-     * 获取所有的用户信息
-     * FIXME: 部署时需要去除
-     */
-    @CheckUserLogin
-    @RequestMapping("/GAllUsers")
-    public JsonInfo queryAllUsers(HttpServletRequest req, HttpServletResponse resp) {
-        JsonInfo jsonInfo = new JsonInfo();
-        List<User> list = userService.queryAll();
-        jsonInfo.addInfo(list);
-        return jsonInfo;
-    }
-
-    /**
      * 获取用户的雷达图
      */
-    @RequestMapping("/GUserRadar")
-    @ResponseBody
-    public JsonInfo getUserRadar(HttpServletRequest req, HttpServletResponse resp) {
+    @GetMapping("/getUserRadar")
+    public JsonInfo getUserRadar(@RequestParam("username")String username) {
         JsonInfo jsonInfo = new JsonInfo();
-        String username = req.getParameter("username");
-        String userRadar = "";
+        String userRadar;
         userRadar = userRadarService.getUserRadar(username);
         jsonInfo.addInfo(userRadar);
         return jsonInfo;
@@ -209,7 +193,6 @@ public class UserController {
      * 获取一个用户提交所有题目的次数
      */
     @RequestMapping("/GSubmitCount")
-    @ResponseBody
     public JsonInfo querySubmitCountByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
@@ -226,8 +209,8 @@ public class UserController {
     /**
      * 获取一个用户个人信息界面的信息
      */
+    @CheckUserLogin
     @RequestMapping("/GUserInfo")
-    @ResponseBody
     public JsonInfo queryUserInfoByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
@@ -246,7 +229,6 @@ public class UserController {
      * 获取一个用户贴过题目标签的数量
      */
     @RequestMapping("/GPutTagNum")
-    @ResponseBody
     public JsonInfo queryPutTagNumByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
@@ -265,7 +247,6 @@ public class UserController {
      * 获取一个用户已经 AC 和未解决 题目的数量
      */
     @RequestMapping("/GStatusProblems")
-    @ResponseBody
     public JsonInfo queryStatusProblemsByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer status = Integer.parseInt(req.getParameter("status") == null ? "0" : req.getParameter("status"));
@@ -284,7 +265,6 @@ public class UserController {
      * 查询一个用户待贴标签的题目
      */
     @RequestMapping("/GNotPutTagProblems")
-    @ResponseBody
     public JsonInfo queryCanViewCodeProblemsByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = req.getParameter("username");
@@ -297,7 +277,6 @@ public class UserController {
 
 
     @RequestMapping(value = "/awardinfo", method = RequestMethod.POST)
-    @ResponseBody
     public JsonInfo getAwardinfo(HttpServletResponse response, HttpServletRequest request) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
@@ -308,7 +287,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/GRatingGraph")
-    @ResponseBody
     public JsonInfo getRatingGraph(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
         String username = request.getParameter("username");
@@ -324,7 +302,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/GAcGraph")
-    @ResponseBody
     public JsonInfo getAcGraph(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo =new JsonInfo();
         String username = request.getParameter("username");

@@ -10,6 +10,17 @@ import java.util.List;
  */
 
 public interface UserPermissionService {
+    /**
+     * 获取用户权限列表
+     * @param username
+     * @return
+     */
     List<UserPer> queryUserPermission(String username);
+
+    /**
+     * 判断是非为管理员
+     * @param username
+     * @return
+     */
     boolean queryIsAdmin(String username);
 }

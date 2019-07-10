@@ -5,13 +5,9 @@ import com.fjut.oj.service.UserPermissionService;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +17,7 @@ import java.util.List;
 @CrossOrigin
 @ResponseBody
 @RequestMapping("/permission")
-public class PermissionController {
+public class UserPermissionController {
 
     @Autowired
     private UserPermissionService permissionService;
@@ -31,12 +27,19 @@ public class PermissionController {
      * 查询一个用户所有的权限
      */
     @GetMapping("/getUserPermission")
-    public JsonInfo queryUserPermission(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo queryUserPermission(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
-        String username = req.getParameter("username");
         List<UserPer> list = permissionService.queryUserPermission(username);
-        jsonInfo.setSuccess();
-        jsonInfo.addInfo(list);
+        List<Integer> perList = new ArrayList<>();
+        for (UserPer per : list) {
+            perList.add(per.getPerid());
+        }
+        if (0 < perList.size()) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(perList);
+        } else {
+            jsonInfo.setFail("未找到权限！");
+        }
         return jsonInfo;
     }
 }

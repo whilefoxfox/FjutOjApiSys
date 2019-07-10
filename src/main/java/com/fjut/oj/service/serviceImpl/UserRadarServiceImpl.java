@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.sql.ResultSet;
 import java.util.List;
 
+/**
+ * @author cjt
+ */
 @Service("UserRadarService")
 public class UserRadarServiceImpl implements UserRadarService {
 
@@ -26,7 +29,7 @@ public class UserRadarServiceImpl implements UserRadarService {
         List<UserRadar1> listUserRadar1 = userMapper.queryUserRadar1(user);
         List<UserRadar2> listUserRadar2 = userMapper.queryUserRadar2(user);
 
-        System.out.println(user + "12312312");
+        System.out.println(user + "******");
 
         int[] a = new int[7];
         int[] b = new int[7];

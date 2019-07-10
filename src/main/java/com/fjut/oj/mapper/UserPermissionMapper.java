@@ -18,5 +18,5 @@ public interface UserPermissionMapper {
      * @param username
      * @return
      */
-    boolean queryIsAdmin(@Param("username") String username);
+    Integer queryIsAdmin(@Param("username") String username);
 }

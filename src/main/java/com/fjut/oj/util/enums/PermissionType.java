@@ -3,6 +3,9 @@ package com.fjut.oj.util.enums;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author cjt 用户权限表对应类
+ */
 public enum PermissionType {
     addProblem(1, "题目总管"),
     viewCode(2, "查看代码", false),
@@ -30,9 +33,10 @@ public enum PermissionType {
     verify_retired(24, "认证管理（退役队员）"),
     verify_team(25, "认证管理（集训队员）"),
     teamAutoRegister(26, "集训队员自动报名"),
-    partAddProblem(27,"添加题目"),
-    titleAdmin(28,"称号管理",false),
-    groupAdmin(29,"组队管理");
+    partAddProblem(27, "添加题目"),
+    titleAdmin(28, "称号管理", false),
+    groupAdmin(29, "组队管理");
+
     private static Map<Integer, PermissionType> allPermission = null;
     private int code;
     private String name;

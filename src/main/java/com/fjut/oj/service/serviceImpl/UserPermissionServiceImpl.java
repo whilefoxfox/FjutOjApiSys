@@ -23,7 +23,8 @@ public class UserPermissionServiceImpl implements UserPermissionService {
 
     @Override
     public boolean queryIsAdmin(String username) {
-        return permissionMapper.queryIsAdmin(username);
+        Integer permissionListCount = permissionMapper.queryIsAdmin(username);
+        return (permissionListCount == 0) ? false : true;
     }
 
 }
