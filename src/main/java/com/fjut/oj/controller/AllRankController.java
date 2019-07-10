@@ -28,7 +28,7 @@ public class AllRankController {
     private AllTopTenService allTopTenService;
 
     @GetMapping("/getAllTopBorder")
-    public JsonInfo getAllTop(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo queryAllTopBorder() {
         JsonInfo jsonInfo = new JsonInfo();
         List<User> list = allTopTenService.getAcbTOP();
         List<User> list_1 = allTopTenService.getRatingTOP();

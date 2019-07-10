@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fjut.oj.mapper.PermissionMapper">
-    <select id="getUserPermission" resultType="com.fjut.oj.pojo.Permission">
+<mapper namespace="com.fjut.oj.mapper.UserPermissionMapper">
+    <select id="queryUserPermission" resultType="com.fjut.oj.pojo.UserPer">
         select *
         from userper
         <where>
@@ -11,7 +11,7 @@
             </if>
         </where>
     </select>
-    <select id="getIsAdmin" resultType="java.lang.Boolean">
+    <select id="queryIsAdmin" resultType="java.lang.Boolean">
         SELECT COUNT (*)
         FROM userper
         WHERE username = #{username}

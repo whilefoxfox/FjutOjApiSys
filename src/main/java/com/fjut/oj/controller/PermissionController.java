@@ -1,33 +1,42 @@
 package com.fjut.oj.controller;
 
-import com.fjut.oj.service.PermissionService;
-import com.fjut.oj.util.JsonMsg;
+import com.fjut.oj.pojo.UserPer;
+import com.fjut.oj.service.UserPermissionService;
+import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+
 /**
- * TODO: 把 JsonMsg 替换为 JsonInfo
+ * @author axiang [20190708]
  */
 @Controller
+@CrossOrigin
+@ResponseBody
+@RequestMapping("/permission")
 public class PermissionController {
 
     @Autowired
-    private PermissionService permissionService;
+    private UserPermissionService permissionService;
 
-    @RequestMapping(value = "/GUserPermission", produces="application/json")
-    @ResponseBody
-    public JsonMsg dologin(HttpServletRequest req, HttpServletResponse resp) {
-        String username = req.getParameter("username") == null ? "" : req.getParameter("username");
-        resp.setHeader("Access-Control-Allow-Origin","*");
 
-        //List<String> list = permissionService.getUserPermission("admin");
-        if ("cjt152".equals(username) || "admin".equals(username)) {
-            return JsonMsg.success().addInfo(true);
-        }
-        return JsonMsg.fail().addInfo(false);
+    /**
+     * 查询一个用户所有的权限
+     */
+    @GetMapping("/getUserPermission")
+    public JsonInfo queryUserPermission(HttpServletRequest req, HttpServletResponse resp) {
+        JsonInfo jsonInfo = new JsonInfo();
+        String username = req.getParameter("username");
+        List<UserPer> list = permissionService.queryUserPermission(username);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 }

@@ -294,19 +294,7 @@ public class UserController {
         return jsonInfo;
     }
 
-    /**
-     * 查询一个用户所有的权限
-     */
-    @RequestMapping("/GUserPermission")
-    @ResponseBody
-    public JsonInfo queryUserPermission(HttpServletRequest req, HttpServletResponse resp) {
-        JsonInfo jsonInfo = new JsonInfo();
-        String username = req.getParameter("username");
-        List<Integer> list = userService.queryUserPermission(username);
-        jsonInfo.setSuccess();
-        jsonInfo.addInfo(list);
-        return jsonInfo;
-    }
+
 
     @RequestMapping(value = "/awardinfo", method = RequestMethod.POST)
     @ResponseBody

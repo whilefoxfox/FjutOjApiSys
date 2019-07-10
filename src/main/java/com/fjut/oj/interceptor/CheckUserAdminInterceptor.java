@@ -1,9 +1,9 @@
 package com.fjut.oj.interceptor;
 
 import com.fjut.oj.exception.NotAdminException;
-import com.fjut.oj.pojo.TokenModel;
-import com.fjut.oj.service.PermissionService;
 import com.fjut.oj.manager.TokenManager;
+import com.fjut.oj.pojo.TokenModel;
+import com.fjut.oj.service.UserPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -22,7 +22,7 @@ public class CheckUserAdminInterceptor extends HandlerInterceptorAdapter {
     private TokenManager manager;
 
     @Autowired
-    private PermissionService permissionService;
+    private UserPermissionService permissionService;
 
 
     @Override
@@ -39,7 +39,7 @@ public class CheckUserAdminInterceptor extends HandlerInterceptorAdapter {
         // TODO:从头部获取Token
         String auth = request.getHeader("token");
         TokenModel model = manager.getToken(auth);
-        if (manager.checkToken(model) && permissionService.getIsAdmin(model.getUsername())) {
+        if (manager.checkToken(model) && permissionService.queryIsAdmin(model.getUsername())) {
             return true;
         } else {
             throw new NotAdminException();

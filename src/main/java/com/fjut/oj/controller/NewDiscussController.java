@@ -1,56 +1,63 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.interceptor.CheckUserAdmin;
+import com.fjut.oj.interceptor.CheckUserLogin;
 import com.fjut.oj.pojo.NewDiscuss;
 import com.fjut.oj.service.NewDiscussService;
+import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 /**
- * TODO: 把 JsonMsg 替换为 JsonInfo
+ *
+ * @author axiang
  */
 @Controller
 @CrossOrigin
+@ResponseBody
 @RequestMapping("/discuss")
 public class NewDiscussController {
 
     @Autowired
     private NewDiscussService newDiscussService;
 
-    @RequestMapping("/GDiscuss")
-    @ResponseBody
-    public JsonMsg queryDiscussByPage(HttpServletRequest req, HttpServletResponse resp) {
-        String pagenumStr = req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum");
-        Integer pagenum = Integer.parseInt(pagenumStr);
-        Integer start = (pagenum - 1) * 50;
-
+    @CheckUserLogin
+    @GetMapping("/getDiscuss")
+    public JsonInfo queryDiscussByPage(@RequestParam(value = "pagenum", required = false) String pageNumStr) {
+        JsonInfo jsonInfo = new JsonInfo();
+        if (null == pageNumStr) {
+            pageNumStr = "1";
+        }
+        Integer pageNum = Integer.parseInt(pageNumStr);
+        Integer start = (pageNum - 1) * 50;
         Integer totalNum = newDiscussService.queryDiscussCount();
         Integer totalPage = (totalNum % 50 == 0) ? totalNum / 50 : totalNum / 50 + 1;
-
         List<NewDiscuss> list = newDiscussService.queryDiscussByPage(start);
-        return JsonMsg.success().addInfo(totalPage).addInfo(list);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(totalPage);
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 
-    @RequestMapping("/insertDiscuss")
-    @ResponseBody
-    public JsonMsg insertDiscuss(HttpServletRequest req, HttpServletResponse resp) {
+    @CheckUserLogin
+    @PostMapping("/putDiscuss")
+    public JsonInfo insertDiscuss(HttpServletRequest req) {
+        JsonInfo jsonInfo = new JsonInfo();
         NewDiscuss newDiscuss = new NewDiscuss();
         String title = req.getParameter("title");
 
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(currentTime);
-
         String author = req.getParameter("author");
-        System.out.println(req.getParameter("priority"));
         Double priority = Double.parseDouble(req.getParameter("priority") == null ? "-1" : req.getParameter("priority"));
 
         newDiscuss.setTitle(title);
@@ -60,26 +67,27 @@ public class NewDiscussController {
 
         Integer num = newDiscussService.insertDiscuss(newDiscuss);
         if (num == 0) {
-            return JsonMsg.fail().addInfo("新建讨论失败");
+            jsonInfo.setFail("新建讨论失败！");
+
+        } else {
+            jsonInfo.setSuccess("新建讨论成功！");
         }
-        return JsonMsg.success().addInfo("新建讨论成功");
+        return jsonInfo;
     }
 
-    @RequestMapping("/UPriority")
-    @ResponseBody
-    public JsonMsg updatePriority(HttpServletRequest req, HttpServletResponse resp) {
-        String idStr = req.getParameter("id");
-        String priorityStr = req.getParameter("priority");
-        if (idStr == null || priorityStr == null){
-            return JsonMsg.fail().addInfo("未传入id 或者 priority");
-        }
+    @CheckUserAdmin
+    @PostMapping("/updatePriority")
+    public JsonInfo updatePriority(@RequestParam("idStr") String idStr, @RequestParam("priorityStr") String priorityStr) {
+        JsonInfo jsonInfo = new JsonInfo();
         Integer id = Integer.parseInt(idStr);
         Double priority = Double.parseDouble(priorityStr);
 
-        Integer num = newDiscussService.updateDisscussPirority(id,priority);
-        if (num == 0){
-            return JsonMsg.fail().addInfo("修改失败");
+        Integer num = newDiscussService.updateDisscussPirority(id, priority);
+        if (num == 0) {
+            jsonInfo.setFail("修改失败！");
+        } else {
+            jsonInfo.setSuccess("修改成功！");
         }
-        return JsonMsg.success().addInfo("修改成功");
+        return jsonInfo;
     }
 }

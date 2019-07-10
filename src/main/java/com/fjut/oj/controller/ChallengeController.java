@@ -22,7 +22,7 @@ public class ChallengeController {
     ChallengeService challengeService;
 
     @GetMapping("/getAllChallengeBlocks")
-    public JsonInfo getAllChallengeBlocks(@RequestParam("username") String username) {
+    public JsonInfo queryAllChallengeBlocks(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
         List<ChallengeBlockForUser> res = new ArrayList<>();
         List<ChallengeBlockForUser> allBlocks = challengeService.queryAllChallengeBlocks();

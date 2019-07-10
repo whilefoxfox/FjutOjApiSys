@@ -7,6 +7,7 @@ import com.fjut.oj.util.ResultString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,15 +20,15 @@ import java.util.List;
  */
 @Controller
 @CrossOrigin
+@ResponseBody
 @RequestMapping("/addContestAward")
 public class ContestAwardController {
 
     @Autowired
     private TeamMemberInfoService teamMemberInfoService;
 
-    @ResponseBody
-    @RequestMapping("/IContestAward")
-    public JsonMsg IContestAward(HttpServletRequest req, HttpServletResponse resp) {
+    @PostMapping("/IContestAward")
+    public JsonMsg IContestAward(HttpServletRequest req) {
         String time = req.getParameter("time") == null ? "2000-01-01" : req.getParameter("time");
         String username1 = req.getParameter("username1") == null ? "" : req.getParameter("username1");
         String username2 = req.getParameter("username2") == null ? "" : req.getParameter("username2");
@@ -60,7 +61,6 @@ public class ContestAwardController {
         return JsonMsg.fail().addInfo("添加失败");
     }
 
-    @ResponseBody
     @RequestMapping("/UContestAward")
     public JsonMsg UContestAward(HttpServletRequest req, HttpServletResponse resp) {
         String strId = req.getParameter("id");

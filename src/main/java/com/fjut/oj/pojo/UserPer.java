@@ -1,9 +1,12 @@
 package com.fjut.oj.pojo;
 
-// 用户权限表
+
+/**
+ * @author
+ */
 public class UserPer {
 
-    private String  username;
+    private String username;
     private Integer perid;
 
     public String getUsername() {

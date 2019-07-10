@@ -28,7 +28,6 @@ public class CeinfoController {
         JsonInfo jsonInfo = new JsonInfo();
         if (null == ridStr || ("").equals(ridStr)){
             jsonInfo.setError("参数错误！");
-
         }else{
             Integer rid = Integer.parseInt(ridStr);
             Ceinfo ceinfo = ceinfoService.queryCeinfo(rid);
