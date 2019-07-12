@@ -75,7 +75,7 @@ public class ChallengeController {
         return jsonInfo;
     }
 
-    @RequestMapping("/getBlockDetail")
+    @GetMapping("/getBlockDetail")
     public JsonInfo getBlockDetail(
             @RequestParam("blockId") String blockIdStr,
             @RequestParam("username") String username) {

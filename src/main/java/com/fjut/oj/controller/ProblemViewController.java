@@ -31,8 +31,6 @@ public class ProblemViewController {
     @Autowired
     private ProblemService problemService;
 
-    private ProblemServiceImpl problemServiceImpl;
-
     @Autowired
     private UserSolveService userSolveService;
 
@@ -48,8 +46,9 @@ public class ProblemViewController {
         Boolean solve = false;
         if (user!=null){
             UserSolve userSolve = userSolveService.queryACProblem(user,pid);
-            if(userSolve!=null)
+            if(userSolve!=null) {
                 solve = true;
+            }
         }
         return JsonMsg.success().addInfo(problemView).addInfo(problem).addInfo(problemsamples).addInfo(solve);
     }

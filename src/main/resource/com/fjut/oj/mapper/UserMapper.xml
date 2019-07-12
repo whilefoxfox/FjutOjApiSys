@@ -43,8 +43,8 @@
     </select>
 
     <select id="queryByUsernameAndPassword" resultType="com.fjut.oj.pojo.User">
-          select *
-          from Users
+        select *
+        from Users
         <where>
             <if test="username != null and username != ''">
                 and
@@ -159,15 +159,15 @@
     </select>
 
     <select id="getRatingTop" resultType="com.fjut.oj.pojo.User">
-        SELECT * FROM users ORDER BY rating DESC LIMIT 0,10
+        SELECT username,nick,rating FROM users ORDER BY rating DESC LIMIT 0,10
     </select>
 
     <select id="getRichTop" resultType="com.fjut.oj.pojo.User">
-        SELECT * FROM users ORDER BY acb DESC,rating DESC LIMIT 0,10
+        SELECT username,nick,acb FROM users ORDER BY acb DESC,rating DESC LIMIT 0,10
     </select>
 
     <select id="getAcTop" resultType="com.fjut.oj.pojo.User">
-        SELECT * FROM users ORDER BY acnum DESC,rating DESC LIMIT 0,10
+        SELECT username,nick,acnum FROM users ORDER BY acnum DESC,rating DESC LIMIT 0,10
     </select>
 
     <select id="getRatingGraph" resultType="com.fjut.oj.pojo.RatingGraph">

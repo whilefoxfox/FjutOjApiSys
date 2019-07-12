@@ -7,9 +7,7 @@ import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +15,7 @@ import java.util.List;
 
 /**
  * TODO: 把 JsonMsg 替换为 JsonInfo
+ *
  * @author axiang [20190707]
  */
 @Controller
@@ -28,30 +27,15 @@ public class ProblemController {
     @Autowired
     private ProblemService problemService;
 
-    public static List<Problem> listProblems = null;
-
-    /**
-     * 查询所有的题目信息
-     */
-    @RequestMapping("/queryAllProblems")
-    public JsonMsg queryAllProblems(HttpServletRequest req, HttpServletResponse resp) {
-        List<Problem> list = problemService.queryAllProblems();
-        resp.setHeader("Access-Control-Allow-Origin", "*");
-        if (list != null) {
-            return JsonMsg.success().addInfo(list);
-        } else {
-            return JsonMsg.fail().addInfo("未查询到题目信息");
-        }
-    }
 
     /**
      * 一页一页的查询题目信息
      */
-    @RequestMapping("/GProblemsByPage")
-    public JsonInfo queryProblemsByPage(HttpServletRequest req, HttpServletResponse resp) {
+    @GetMapping("/getProblems")
+    public JsonInfo queryProblemsByPage(@RequestParam("pagenum") String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer pid1, pid2, pageNum, totalPageNum;
-        pageNum = Integer.parseInt(req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum"));
+        pageNum = Integer.parseInt(null == pageNumStr ? "1" : pageNumStr);
         Integer total = problemService.queryProblemsNum();
         totalPageNum = (total % 50 == 0) ? total / 50 : total / 50 + 1;
         pid1 = (pageNum - 1) * 50;
@@ -66,8 +50,8 @@ public class ProblemController {
     /**
      * 查询一个范围内的杭电的题目
      */
-    @RequestMapping("/GProblemsFromHDU")
-    public JsonMsg queryProblemsFromHDU(HttpServletRequest req, HttpServletResponse resp) {
+    @GetMapping("/getProblemsFromHDU")
+    public JsonMsg queryProblemsFromHDU() {
         Integer from = 50;
         Integer to = 100;
         List<Problem> list = problemService.queryProblemsFromHDU(from, to);
@@ -81,11 +65,9 @@ public class ProblemController {
     /**
      * 通过题目 ID 查找题目信息
      */
-    @RequestMapping(value = "/queryProblemById")
-    public JsonMsg queryProblemById(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
-        Integer pid = Integer.parseInt(req.getParameter("pid"));
-
+    @GetMapping("/getProblemById")
+    public JsonMsg queryProblemById(@RequestParam("pid") String pidStr) {
+        Integer pid = Integer.parseInt(pidStr);
         Problem problem = problemService.queryProblemById(pid);
         if (problem != null) {
             return JsonMsg.success().addInfo(problem);
@@ -96,51 +78,47 @@ public class ProblemController {
     /**
      * 通过题目 title 查找题目
      */
-    @RequestMapping(value = "/GProblemByTitle")
-    public JsonMsg queryProblemByTitle(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setHeader("Access-Control-Allow-Origin", "*");
-        String title = req.getParameter("title");
-        Integer pagenum = Integer.parseInt(req.getParameter("pagenum") == null ? "0" : req.getParameter("pagenum"));
-        Integer totalpagenum, totalproblem;
+    @GetMapping("/getProblemByTitle")
+    public JsonInfo queryProblemByTitle(@RequestParam("title") String title,
+                                        @RequestParam("pagenum") String pageNumStr) {
+        JsonInfo jsonInfo = new JsonInfo();
+        Integer pageNum = Integer.parseInt(pageNumStr == null ? "0" : pageNumStr);
+        Integer totalPageNum, totalProblem;
 
-        if (title == null || title == "" || pagenum == 0) {
-            return JsonMsg.fail().addInfo("题目查找信息为空！");
-        }
-
-        totalproblem = problemService.queryProblemsNumByTitle(title);
-        if (totalproblem == 0) {
-            totalpagenum = 1;
+        totalProblem = problemService.queryProblemsNumByTitle(title);
+        if (totalProblem == 0) {
+            totalPageNum = 1;
         } else {
-            if (totalproblem % 50 == 0) {
-                totalpagenum = totalproblem / 50;
+            if (totalProblem % 50 == 0) {
+                totalPageNum = totalProblem / 50;
             } else {
-                totalpagenum = totalproblem / 50 + 1;
+                totalPageNum = totalProblem / 50 + 1;
             }
         }
-
-        Integer pid1 = (pagenum - 1) * 50;
+        Integer pid1 = (pageNum - 1) * 50;
         List<Problem> list = problemService.queryProblemByTitle(title, pid1);
-
-        return JsonMsg.success().addInfo(totalpagenum).addInfo(list);
+        jsonInfo.setSuccess();
+        jsonInfo.addInfo(totalPageNum);
+        jsonInfo.addInfo(list);
+        return jsonInfo;
     }
 
     /**
      * 查询题目数量
      */
-    @RequestMapping("/GProblemsNum")
-    @ResponseBody
-    public JsonMsg queryProblemsNum(HttpServletRequest req, HttpServletResponse resp) {
-        String search = "";
+    @GetMapping("/getProblemsNum")
+    public JsonInfo queryProblemsNum() {
+        JsonInfo jsonInfo = new JsonInfo();
         Integer num = problemService.queryProblemsNum();
-        return JsonMsg.success().addInfo(num);
+        jsonInfo.addInfo(num);
+        return jsonInfo;
     }
 
 
     /**
      * 查询一个范围题目号范围内的题目 并可以选择是否查询隐藏题目和拥有者
      */
-    @RequestMapping("/GProblems1")
-    @ResponseBody
+    @GetMapping("/GProblems1")
     public JsonMsg getProblems1(HttpServletRequest req, HttpServletResponse resp) {
         Integer pid1 = 1500;
         Integer pid2 = 2000;
@@ -154,8 +132,7 @@ public class ProblemController {
     /**
      * 根据题目名称查询一个范围内的题目
      */
-    @RequestMapping("/GProblems2")
-    @ResponseBody
+    @GetMapping("/GProblems2")
     public JsonMsg getProblems2(HttpServletRequest req, HttpServletResponse resp) {
         Integer from = 1300;
         Integer num = 1500;

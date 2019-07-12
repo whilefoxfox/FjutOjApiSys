@@ -7,8 +7,8 @@
 /* 对 contest 的修改 end */
 
 /* 对 statu 的修改 begin */
-ALTER table statu ADD INDEX indexResult(result);
-ALTER table statu ADD INDEX indexLanguage(lang);
+ALTER TABLE statu ADD INDEX indexResult(result);
+ALTER TABLE statu ADD INDEX indexLanguage(lang);
 /* 对 statu 的修改 end */
 
 /* 对 t_challenge_block 的修改 begin */
@@ -18,13 +18,16 @@ ALTER table statu ADD INDEX indexLanguage(lang);
 /* 对 t_challenge_condition 的修改 begin */
 /* 对 t_challenge_condition 的修改 end */
  
+/* 对 t_log 的修改 begin */
+ALTER TABLE t_log CHANGE ipAddress ipAddress VARCHAR(30);
+/* 对 t_log 的修改 end */
 
 /* 对 t_verify 的修改 begin */
 /* 对 t_verify 的修改 end */
 
 /* 对 userper 的修改 begin */
-ALTER table userper
-    MODIFY COLUMN perid int(11)
+ALTER TABLE userper
+    MODIFY COLUMN perid INT(11)
     COMMENT '1：题目总管；2：查看代码；3：重判；4：新增比赛；5：计算rating；6：新增讨论；7：新增标签；
     8：签到管理；9：权限管理；10：奖励ACB；11：审核比赛报名；12：增加本地题目；13：挑战模式管理；
     14：密码重置；15：用户管理；16：查看log；17：考试管理；18：集训队员管理；19：商城管理；

@@ -1,8 +1,9 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.interceptor.CheckUserPrivate;
 import com.fjut.oj.pojo.t_clock_in;
 import com.fjut.oj.service.ClockInService;
-import com.fjut.oj.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserIsLogin;
 import com.fjut.oj.util.IPTool;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,10 @@ public class ClockInController {
     @Autowired
     private ClockInService clockInService;
 
-    @CheckUserLogin
+    @CheckUserIsLogin
     @GetMapping("/getUserClockIn")
-    public JsonInfo queryAllClockInByUsername(@RequestParam(value = "username") String username, @RequestParam(value = "pagenum", required = false) String pageNumStr) {
+    public JsonInfo queryAllClockInByUsername(@RequestParam(value = "username") String username,
+                                              @RequestParam(value = "pagenum", required = false) String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer pageNum;
         if (null == pageNumStr) {
@@ -48,7 +50,7 @@ public class ClockInController {
 
     }
 
-    @CheckUserLogin
+    @CheckUserIsLogin
     @GetMapping("/getSomedayClockIn")
     public JsonInfo queryAllClockInByDate(@RequestParam("date") String dateStr) throws ParseException {
         JsonInfo jsonInfo = new JsonInfo();
@@ -63,7 +65,7 @@ public class ClockInController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @GetMapping("/getUserTodayClockIn")
     public JsonInfo queryClockInByUserAndDate(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -78,14 +80,13 @@ public class ClockInController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @PostMapping("/setUserClockIn")
     public JsonInfo setClockInForNormalUser(HttpServletRequest req, @RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
-        IPTool ipTool = new IPTool();
         Date time = new Date();
         String sign = "日常";
-        String ip = ipTool.getClientIpAddress(req);
+        String ip = IPTool.getClientIpAddress(req);
         Integer todytimes = 1;
         t_clock_in clockIn = new t_clock_in();
         clockIn.setUsername(username);

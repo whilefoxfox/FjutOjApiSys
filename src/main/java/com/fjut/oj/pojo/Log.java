@@ -2,12 +2,15 @@ package com.fjut.oj.pojo;
 
 import java.util.Date;
 
+/**
+ * @author cjt
+ */
 public class Log {
     private Integer id;
 
     private Date time;
 
-    private String sessionUser;
+    private String ipAddress;
 
     private String text;
 
@@ -27,12 +30,12 @@ public class Log {
         this.time = time;
     }
 
-    public String getSessionUser() {
-        return sessionUser;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setSessionUser(String sessionUser) {
-        this.sessionUser = sessionUser == null ? null : sessionUser.trim();
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress == null ? null : ipAddress.trim();
     }
 
     public String getText() {

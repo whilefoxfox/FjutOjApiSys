@@ -5,6 +5,7 @@ import com.fjut.oj.service.NewdiscussreplyService;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,9 +15,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 /**
+ * @author cjt
  * TODO: 把 JsonMsg 替换为 JsonInfo
  */
 @Controller
+@ResponseBody
+@CrossOrigin
 @RequestMapping("/newdiscussreply")
 public class NewDiscussReplyController {
 
@@ -24,9 +28,7 @@ public class NewDiscussReplyController {
     private NewdiscussreplyService newdiscussreplyService;
 
     @RequestMapping("/GDiscussReplyById")
-    @ResponseBody
     public JsonMsg queryDiscussReplyById(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
         String pagenumStr = req.getParameter("pagenum") == null ? "1" : req.getParameter("pagenum");
         Integer pagenum = Integer.parseInt(pagenumStr);
         Integer start = (pagenum - 1) * 50;
@@ -41,9 +43,7 @@ public class NewDiscussReplyController {
     }
 
     @RequestMapping("/insertDiscussReply")
-    @ResponseBody
     public JsonMsg insertDiscussReply(HttpServletRequest req, HttpServletResponse resp){
-        resp.setHeader("Access-Control-Allow-Origin","*");
         Integer discussid = Integer.parseInt(req.getParameter("discussid"));
         if (discussid == null){
             return JsonMsg.fail().addInfo("未传入讨论id");

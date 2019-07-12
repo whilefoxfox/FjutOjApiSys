@@ -24,10 +24,7 @@ import java.util.Date;
 
 
 /**
- * @Author: axiang
- * @Despriction: 文件上传控制器
- * @Date:Created 2019/7/2
- * @Modify By:
+ * @Author: axiang [20190702] 文件上传控制器
  */
 @Controller
 @CrossOrigin

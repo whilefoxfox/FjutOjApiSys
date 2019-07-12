@@ -7,18 +7,18 @@
 		(
 		time,
 		text,
-		sessionUser
+		ipAddress
 		)
 		VALUES
 		(
 		#{log.time},
 		#{log.text},
-		#{log.sessionUser}
+		#{log.ipAddress}
 		)
     </insert>
 
     <select id="queryLogsByTime" resultType="com.fjut.oj.pojo.Log">
-	SELECT 	id, time, text, sessionUser
+	SELECT 	id, time, text, ipAddress
 		FROM t_log
 		WHERE time BETWEEN #{timeStart} AND #{timeEnd}
 		LIMIT #{startIndex}, 50;

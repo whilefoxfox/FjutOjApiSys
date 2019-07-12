@@ -1,6 +1,6 @@
 package com.fjut.oj.controller;
 
-import com.fjut.oj.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserIsLogin;
 import com.fjut.oj.util.JsonInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +24,7 @@ public class TestController {
     }
 
 
-    @CheckUserLogin
+    @CheckUserIsLogin
     @GetMapping("/getsome")
     public JsonInfo getsome(@RequestParam("id")Integer id, @RequestParam("token")String token){
         JsonInfo jsonInfo = new JsonInfo();

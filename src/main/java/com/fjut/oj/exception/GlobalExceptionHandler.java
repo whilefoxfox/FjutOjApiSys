@@ -9,6 +9,7 @@ import com.fjut.oj.util.JsonInfo;
 import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.SQLException;
@@ -88,19 +88,24 @@ public class GlobalExceptionHandler {
         if (e instanceof NullPointerException) {
             msg = "空指针错误！";
             addExceptionToDatabase(e);
-        } else if (e instanceof MissingServletRequestParameterException) {
-            msg = "参数不完整！";
-        } else if (e instanceof AuthExpireException) {
-            msg = "认证已过期！";
         } else if (e instanceof NumberFormatException) {
             msg = "数字解析错误！";
         } else if (e instanceof SQLException) {
             msg = "SQL语句错误！";
+        } else if (e instanceof MissingServletRequestParameterException) {
+            msg = "参数不完整！";
+        } else if (e instanceof RedisConnectionFailureException) {
+            msg = "服务器异常！";
+        } else if (e instanceof AuthExpireException) {
+            msg = "认证已过期！";
         } else if (e instanceof NotLoginException) {
             msg = "需要登录权限！";
-        } else if(e instanceof NotAdminException){
+        } else if (e instanceof NotOwnerException) {
+            msg = "请求的内容无法访问！";
+            addExceptionToDatabase(e);
+        } else if (e instanceof NotAdminException) {
             msg = "需要管理员权限！";
-        }else {
+        } else {
             msg = "服务器内部错误！";
             addExceptionToDatabase(e);
         }
@@ -117,8 +122,10 @@ public class GlobalExceptionHandler {
         Log log = new Log();
         log.setText(getErrorInfoFromException(e));
         log.setTime(new Date());
+        if (e instanceof NotOwnerException) {
+            log.setIpAddress(((NotOwnerException) e).getIp());
+        }
         logService.insertLog(log);
-
     }
 
     /**

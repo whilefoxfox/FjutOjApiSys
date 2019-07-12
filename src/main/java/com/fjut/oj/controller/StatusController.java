@@ -4,7 +4,6 @@ import com.fjut.oj.pojo.Status;
 import com.fjut.oj.pojo.UserSolve;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserSolveService;
-import com.fjut.oj.interceptor.CheckUserAdmin;
 import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.MapSort;
 import com.fjut.oj.util.ResultString;
@@ -21,9 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /**
- * TODO: 把 JsonMsg 替换为 JsonInfo
+ * @author axiang
  */
-
 @Controller
 @CrossOrigin
 @ResponseBody
@@ -138,7 +136,6 @@ public class StatusController {
         String idStr = request.getParameter("id");
         Integer id = Integer.parseInt(idStr);
         String user = request.getParameter("user");
-//        boolean isAdmin =
         Status status = statusService.queryStatusById(id);
         if( null == status)
         {

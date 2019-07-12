@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Author: axiang [20190705] 判断用户登录状态拦截器
  */
 @Component
-public class CheckUserLoginInterceptor extends HandlerInterceptorAdapter {
+public class CheckUserIsLoginInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private TokenManager manager;
 
@@ -27,12 +27,12 @@ public class CheckUserLoginInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         HandlerMethod handlerMethod = (HandlerMethod) handler;
-        CheckUserLogin checkUserLogin = handlerMethod.getMethodAnnotation(CheckUserLogin.class);
-        if (null == checkUserLogin) {
+        CheckUserIsLogin checkUserIsLogin = handlerMethod.getMethodAnnotation(CheckUserIsLogin.class);
+        if (null == checkUserIsLogin) {
             return true;
         }
         // TODO:从头部获取Token
-        String auth = request.getHeader("token");
+        String auth = request.getHeader("auth");
         TokenModel model = manager.getToken(auth);
         if (manager.checkToken(model)) {
             return true;

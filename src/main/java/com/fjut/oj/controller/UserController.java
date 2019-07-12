@@ -1,11 +1,12 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.interceptor.CheckUserPrivate;
 import com.fjut.oj.pojo.TokenModel;
 import com.fjut.oj.pojo.User;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserRadarService;
 import com.fjut.oj.service.UserService;
-import com.fjut.oj.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserIsLogin;
 import com.fjut.oj.manager.TokenManager;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public JsonInfo doLogin(@RequestParam("username") String username,@RequestParam("password") String password){
+    public JsonInfo doLogin(@RequestParam(value = "username" ,required = false) String username,@RequestParam(value = "password" ,required = false) String password){
         JsonInfo jsonInfo = new JsonInfo();
         if(null == username || null == password)
         {
@@ -68,6 +69,7 @@ public class UserController {
             // 用户名和密码匹配
             jsonInfo.setSuccess("用户名和密码正确");
             TokenModel tokenModel = tokenManager.createToken(username);
+            // TODO:做的简单字符串拼接，后期需要做一定的加密
             String auth = tokenModel.getUsername()+"_"+tokenModel.getToken();
             jsonInfo.addInfo(username);
             jsonInfo.addInfo(auth);
@@ -134,7 +136,7 @@ public class UserController {
      * @param req
      * @return
      */
-    @CheckUserLogin
+    @CheckUserPrivate
     @PostMapping("/updateUser")
     public JsonInfo updateUser(HttpServletRequest req) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -180,6 +182,7 @@ public class UserController {
     /**
      * 获取用户的雷达图
      */
+    @CheckUserIsLogin
     @GetMapping("/getUserRadar")
     public JsonInfo getUserRadar(@RequestParam("username")String username) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -192,10 +195,10 @@ public class UserController {
     /**
      * 获取一个用户提交所有题目的次数
      */
-    @RequestMapping("/GSubmitCount")
-    public JsonInfo querySubmitCountByUsername(HttpServletRequest req, HttpServletResponse resp) {
+    @CheckUserIsLogin
+    @GetMapping("/GSubmitCount")
+    public JsonInfo querySubmitCountByUsername(@RequestParam("username")String username) {
         JsonInfo jsonInfo = new JsonInfo();
-        String username = req.getParameter("username");
         Integer num = statusService.querySubmitCountByUsername(username);
         if (null != num) {
             jsonInfo.setSuccess();
@@ -209,7 +212,7 @@ public class UserController {
     /**
      * 获取一个用户个人信息界面的信息
      */
-    @CheckUserLogin
+    @CheckUserIsLogin
     @RequestMapping("/GUserInfo")
     public JsonInfo queryUserInfoByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();

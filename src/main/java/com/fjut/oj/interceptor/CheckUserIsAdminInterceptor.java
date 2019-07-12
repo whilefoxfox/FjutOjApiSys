@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Date:Created in 16:49 2019/7/7
  * @Modify By:
  */
-public class CheckUserAdminInterceptor extends HandlerInterceptorAdapter {
+public class CheckUserIsAdminInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private TokenManager manager;
 
@@ -32,8 +32,8 @@ public class CheckUserAdminInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         HandlerMethod handlerMethod = (HandlerMethod) handler;
-        CheckUserAdmin checkUserAdmin = handlerMethod.getMethodAnnotation(CheckUserAdmin.class);
-        if (null == checkUserAdmin) {
+        CheckUserIsAdmin checkUserIsAdmin = handlerMethod.getMethodAnnotation(CheckUserIsAdmin.class);
+        if (null == checkUserIsAdmin) {
             return true;
         }
         // TODO:从头部获取Token

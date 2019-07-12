@@ -1,8 +1,9 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.interceptor.CheckUserPrivate;
 import com.fjut.oj.pojo.t_message;
 import com.fjut.oj.service.MessageService;
-import com.fjut.oj.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserIsLogin;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,9 +24,9 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @PostMapping("/delMessage")
-    public JsonInfo delMessageByMid(@RequestParam("mid") String midStr) {
+    public JsonInfo delMessageByMid(@RequestParam("username") String username, @RequestParam("mid") String midStr) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer mid = Integer.parseInt(midStr);
         int res = messageService.deleteMessageByMid(mid);
@@ -37,9 +38,9 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @PostMapping("/setReaded")
-    public JsonInfo setReadedByMid(@RequestParam("mid") String midStr) {
+    public JsonInfo setReadedByMid(@RequestParam("username") String username, @RequestParam("mid") String midStr) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer mid = Integer.parseInt(midStr);
         Integer res = messageService.updateMessageStatuByMid(mid, 1);
@@ -51,7 +52,7 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @PostMapping("/setAllMessageRead")
     public JsonInfo setAllMessageReadByUser(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -70,9 +71,9 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @GetMapping("/getUserMessage")
-    public JsonInfo getUserMessage(@RequestParam("username")String username,@RequestParam("pagenum")String pageNumStr) {
+    public JsonInfo getUserMessage(@RequestParam("username") String username, @RequestParam("pagenum") String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer pageNum = Integer.parseInt(pageNumStr);
         Integer startIndex = null;
@@ -91,7 +92,7 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @GetMapping("/getUnReadMessageCount")
     public JsonInfo getUnReadMessageCountByUser(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -108,7 +109,7 @@ public class MessageController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserPrivate
     @GetMapping("/getUnReadMessage")
     public JsonInfo getUnReadMessageByUser(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo = new JsonInfo();

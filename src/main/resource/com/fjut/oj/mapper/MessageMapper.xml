@@ -41,7 +41,7 @@
 
     <select id="queryAllMessageByUser" resultType="com.fjut.oj.pojo.t_message">
         SELECT * FROM t_message WHERE user = #{username}
-            ORDER BY time DESC, mid DESC
+            ORDER BY time DESC
         <if test="startIndex !=null">
             LIMIT #{startIndex},10
         </if>
@@ -58,7 +58,7 @@
 
     <select id="queryUnReadMessageByUser" resultType="com.fjut.oj.pojo.t_message">
         SELECT * FROM t_message WHERE user = #{username} and statu = 0
-            ORDER BY time DESC, mid DESC
+            ORDER BY time DESC
         <if test="startIndex != null">
             LIMIT #{startIndex},10
         </if>

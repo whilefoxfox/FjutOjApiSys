@@ -10,12 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 8:15 2019/6/21
- * @Modify By:
+ * @Author: axiang [20190621]
  */
-
 @Service("LogService")
 public class LogServiceImpl implements LogService {
     @Autowired
@@ -29,6 +25,6 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public List<Log> queryLogsByTime(Date DateStart, Date DateEnd, int startIndex) {
-        return logMapper.queryLogsByTime(DateStart,DateEnd,startIndex);
+        return logMapper.queryLogsByTime(DateStart, DateEnd, startIndex);
     }
 }

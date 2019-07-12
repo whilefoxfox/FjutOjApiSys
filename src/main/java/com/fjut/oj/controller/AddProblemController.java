@@ -19,19 +19,18 @@ import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author axiang
+ * @author cjt
  * TODO: 把 JsonMsg 替换为 JsonInfo
  */
 @Controller
 @CrossOrigin
+@ResponseBody
 @RequestMapping("/addProblem")
 public class AddProblemController {
 
@@ -44,7 +43,7 @@ public class AddProblemController {
     @Autowired
     private ProblemSampleService problemSampleService;
 
-    OTHOJ[] ojs ={
+    OTHOJ[] ojs = {
             new HDU(),
             new BNUOJ(),
             new NBUT(),
@@ -52,46 +51,35 @@ public class AddProblemController {
             new HUST(),
             new CF(),
             new CodeVS(),
-
     };
-    private String ojStr;
 
-    @RequestMapping("/GAddProblemTitle")
-    @ResponseBody
-    public JsonMsg GAddProblemTitle(HttpServletRequest req, HttpServletResponse resp){
-        String pidStr = req.getParameter("pid");
-        String ojStr = req.getParameter("ojStr");
-        if (pidStr == null || ojStr == null){
+    @PostMapping("/GAddProblemTitle")
+    public JsonMsg GAddProblemTitle(@RequestParam(value = "pid", required = false) String pidStr,
+                                    @RequestParam(value = "ojStr", required = false) String ojStr) {
+        if (pidStr == null || ojStr == null) {
             return JsonMsg.fail().addInfo("信息不足");
         }
         Integer ojid = null;
-        if ("HDU".equals(ojStr)){
-            ojid=0;
-        }
-        else if("BNUOJ".equals(ojStr)){
-            ojid=1;
-        }
-        else if("NBUT".equals(ojStr)){
-            ojid=2;
-        }
-        else if("PKU".equals(ojStr)){
-            ojid=3;
-        }
-        else if("HUST".equals(ojStr)){
-            ojid=4;
-        }
-        else if("CF".equals(ojStr)){
-            ojid=5;
-        }
-        else if("CodeVS".equals(ojStr)){
-            ojid=6;
-        }
-        else{
+        if ("HDU".equals(ojStr)) {
+            ojid = 0;
+        } else if ("BNUOJ".equals(ojStr)) {
+            ojid = 1;
+        } else if ("NBUT".equals(ojStr)) {
+            ojid = 2;
+        } else if ("PKU".equals(ojStr)) {
+            ojid = 3;
+        } else if ("HUST".equals(ojStr)) {
+            ojid = 4;
+        } else if ("CF".equals(ojStr)) {
+            ojid = 5;
+        } else if ("CodeVS".equals(ojStr)) {
+            ojid = 6;
+        } else {
             return JsonMsg.fail().addInfo("oj名称输入有误");
         }
 
-        Problem problem = problemService.queryProblemByOjidAndOjspid(ojid,pidStr);
-        if (problem!=null){
+        Problem problem = problemService.queryProblemByOjidAndOjspid(ojid, pidStr);
+        if (problem != null) {
             return JsonMsg.fail().addInfo("该题目已经存在!");
         }
         String title = ojs[ojid].getTitle(pidStr);
@@ -101,40 +89,33 @@ public class AddProblemController {
     @Transactional   // 事务
     @RequestMapping("/IAddProblem")
     @ResponseBody
-    public JsonMsg IAddProblem(HttpServletRequest req, HttpServletResponse resp){
+    public JsonMsg IAddProblem(HttpServletRequest req, HttpServletResponse resp) {
         String pidStr = req.getParameter("pid");
         String ojStr = req.getParameter("ojStr");
-        if (pidStr == null || ojStr == null){
+        if (pidStr == null || ojStr == null) {
             return JsonMsg.fail().addInfo("信息不足");
         }
         Integer ojid = null;
-        if ("HDU".equals(ojStr)){
-            ojid=0;
-        }
-        else if("BNUOJ".equals(ojStr)){
-            ojid=1;
-        }
-        else if("NBUT".equals(ojStr)){
-            ojid=2;
-        }
-        else if("PKU".equals(ojStr)){
-            ojid=3;
-        }
-        else if("HUST".equals(ojStr)){
-            ojid=4;
-        }
-        else if("CF".equals(ojStr)){
-            ojid=5;
-        }
-        else if("CodeVS".equals(ojStr)){
-            ojid=6;
-        }
-        else{
+        if ("HDU".equals(ojStr)) {
+            ojid = 0;
+        } else if ("BNUOJ".equals(ojStr)) {
+            ojid = 1;
+        } else if ("NBUT".equals(ojStr)) {
+            ojid = 2;
+        } else if ("PKU".equals(ojStr)) {
+            ojid = 3;
+        } else if ("HUST".equals(ojStr)) {
+            ojid = 4;
+        } else if ("CF".equals(ojStr)) {
+            ojid = 5;
+        } else if ("CodeVS".equals(ojStr)) {
+            ojid = 6;
+        } else {
             return JsonMsg.fail().addInfo("oj名称输入有误");
         }
 
-        Problem problem1 = problemService.queryProblemByOjidAndOjspid(ojid,pidStr);
-        if (problem1!=null){
+        Problem problem1 = problemService.queryProblemByOjidAndOjspid(ojid, pidStr);
+        if (problem1 != null) {
             return JsonMsg.fail().addInfo("该题目已经存在!");
         }
 
@@ -173,9 +154,9 @@ public class AddProblemController {
         problemsample.setInput(p.getSampleInput().get(0));
         problemsample.setOutput(p.getSampleOutput().get(0));
         System.out.println(problemsample.toString());
-        Integer addnum3 =problemSampleService.insertProblemSample(problemsample);
+        Integer addnum3 = problemSampleService.insertProblemSample(problemsample);
 
-        if (addnum1!=0&&addnum2!=0&&addnum3!=0){
+        if (addnum1 != 0 && addnum2 != 0 && addnum3 != 0) {
             return JsonMsg.success().addInfo("插入成功！");
         }
         return JsonMsg.fail().addInfo("插入失败");

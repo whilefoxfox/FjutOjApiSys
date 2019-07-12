@@ -22,8 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 /**
  * TODO: 把 JsonMsg 替换为 JsonInfo
+ *
+ * @author cjt
  */
 @RequestMapping("/submit")
 @Controller
@@ -43,27 +46,23 @@ public class SubmitController {
 
     @RequestMapping("/submitProblem")
     @ResponseBody
-    public JsonMsg submitProblem(HttpServletRequest req, HttpServletResponse resp){
+    public JsonMsg submitProblem(HttpServletRequest req, HttpServletResponse resp) {
         String strpid = req.getParameter("pid");
         if (strpid == null || strpid == "") {
             return JsonMsg.fail().addInfo("pid未传入");
         }
 
         String user = req.getParameter("user");
-        if (user == null || user == ""){
+        if (user == null || user == "") {
             return JsonMsg.fail().addInfo("user未传入");
         }
 
         String code = req.getParameter("code");
-        if (code == null || code == ""){
+        if (code == null || code == "") {
             return JsonMsg.fail().addInfo("code未传入");
         }
 
-        /**
-         * test
-         */
         // code = "#include<stdio.h>\nint main(){int a,b;while(~scanf(\"%d%d\",&a,&b))printf(\"%d\\n\",a+b);}";
-
         Integer pid = Integer.parseInt(strpid);
         Integer cid = Integer.parseInt(req.getParameter("cid") == null ? "-1" : req.getParameter("cid"));
 
@@ -105,8 +104,8 @@ public class SubmitController {
 
         sm.doSubmit(user, pid, cid, langid, code, submittime);
         problemService.updateProblemtotalSubmit(pid);
-        UserSolve userSolve = userSolveService.queryByUsernameAndPid(user,pid);
-        if (userSolve == null){
+        UserSolve userSolve = userSolveService.queryByUsernameAndPid(user, pid);
+        if (userSolve == null) {
             // 该用户没有交过这道题目
             problemService.updateProblemtotalSubmitUser(pid);
         }

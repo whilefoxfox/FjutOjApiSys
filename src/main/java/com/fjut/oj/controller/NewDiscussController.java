@@ -1,17 +1,15 @@
 package com.fjut.oj.controller;
 
-import com.fjut.oj.interceptor.CheckUserAdmin;
-import com.fjut.oj.interceptor.CheckUserLogin;
+import com.fjut.oj.interceptor.CheckUserIsAdmin;
+import com.fjut.oj.interceptor.CheckUserIsLogin;
 import com.fjut.oj.pojo.NewDiscuss;
 import com.fjut.oj.service.NewDiscussService;
 import com.fjut.oj.util.JsonInfo;
-import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +27,7 @@ public class NewDiscussController {
     @Autowired
     private NewDiscussService newDiscussService;
 
-    @CheckUserLogin
+    @CheckUserIsLogin
     @GetMapping("/getDiscuss")
     public JsonInfo queryDiscussByPage(@RequestParam(value = "pagenum", required = false) String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -47,7 +45,7 @@ public class NewDiscussController {
         return jsonInfo;
     }
 
-    @CheckUserLogin
+    @CheckUserIsLogin
     @PostMapping("/putDiscuss")
     public JsonInfo insertDiscuss(HttpServletRequest req) {
         JsonInfo jsonInfo = new JsonInfo();
@@ -75,7 +73,7 @@ public class NewDiscussController {
         return jsonInfo;
     }
 
-    @CheckUserAdmin
+    @CheckUserIsAdmin
     @PostMapping("/updatePriority")
     public JsonInfo updatePriority(@RequestParam("idStr") String idStr, @RequestParam("priorityStr") String priorityStr) {
         JsonInfo jsonInfo = new JsonInfo();

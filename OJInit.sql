@@ -2,7 +2,8 @@
 SQLyog Enterprise Trial - MySQL GUI v7.11 
 MySQL - 8.0.15 : Database - oj
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -349,7 +350,7 @@ CREATE TABLE `t_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `time` datetime NOT NULL,
   `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sessionUser` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ipAddress` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

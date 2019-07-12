@@ -1,5 +1,6 @@
 package com.fjut.oj.controller;
 
+import com.fjut.oj.interceptor.CheckUserPrivate;
 import com.fjut.oj.pojo.UserPer;
 import com.fjut.oj.service.UserPermissionService;
 import com.fjut.oj.util.JsonInfo;
@@ -26,6 +27,7 @@ public class UserPermissionController {
     /**
      * 查询一个用户所有的权限
      */
+    @CheckUserPrivate
     @GetMapping("/getUserPermission")
     public JsonInfo queryUserPermission(@RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
