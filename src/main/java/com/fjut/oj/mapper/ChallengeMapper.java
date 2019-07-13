@@ -5,7 +5,9 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-
+/**
+ * @author axiang [20190628]
+ */
 public interface ChallengeMapper {
 
     /**
@@ -84,6 +86,7 @@ public interface ChallengeMapper {
 
 
     /**
+     * TODO: 移出到ProblemMapper里面去，Service层也要
      * 根据用户名 获取用户解决的题目和状态
      * @param username
      * @return

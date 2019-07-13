@@ -8,19 +8,53 @@ import java.util.List;
 
 public interface ProblemMapper {
 
-    List<Problem> queryAllProblems();  // getPageNum查询所有的题目
-
+    /**
+     * 插入题目
+     * @param problem
+     * @return
+     */
     Integer insertProblem(@Param("problem") Problem problem);
 
-    List<Problem> queryProblemsByPage(@Param("pid1") Integer pid1, @Param("pid2") Integer pid2); // 一页一页的查询题目信息
+    /**
+     * 查询全部题目
+     * @return
+     */
+    List<Problem> queryAllProblems();
+
+    /**
+     * 一页一页的查询题目信息，一次50条记录
+     * @param startIndex
+     * @return
+     */
+    List<Problem> queryProblemsByPage(@Param("startIndex") Integer startIndex);
+
+    /**
+     * 通过标签、标题查找题目，一次50行，参数为空为按页查找
+     * @param startIndex
+     * @param tagId
+     * @param title
+     * @return
+     */
+    List<Problem> queryProblemsByConditions(@Param("startIndex") Integer startIndex,
+                                            @Param("tagId")Integer tagId,
+                                            @Param("title")String title
+                                            );
+
+    Integer queryProblemCountByCondition(@Param("tagId")Integer tagId,
+                                               @Param("title")String title);
 
     List<Problem> queryProblemsFromHDU(@Param("from") Integer from, @Param("to") Integer to); // 查询一个范围内杭电的题目
 
-    Problem  queryProblemById(@Param("pid") Integer pid);   // 通过题目 ID 查找题目
+    /**
+     * 通过题目 ID 查找题目
+     * @param pid
+     * @return
+     */
+    Problem  queryProblemById(@Param("pid") Integer pid);
 
     List<Problem> queryProblemByTitle(@Param("title") String title, @Param("pid1") Integer pid1); // 通过题目标题查找题目
 
-    Integer queryProblemsNum(); // 查找题目的数量
+    Integer queryProblemCount(); // 查找题目的数量
 
     Integer queryProblemsNumByTitle(@Param("title") String title);
 

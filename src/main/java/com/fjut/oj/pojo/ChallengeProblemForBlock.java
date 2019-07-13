@@ -1,10 +1,7 @@
 package com.fjut.oj.pojo;
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 14:15 2019/6/28
- * @Modify By:
+ * @Author: axiang [20190628]
  */
 public class ChallengeProblemForBlock {
 

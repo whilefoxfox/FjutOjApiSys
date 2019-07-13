@@ -29,23 +29,32 @@ public class ProblemController {
 
 
     /**
-     * 一页一页的查询题目信息
+     * TODO: 还有条件未用到
+     * 根据多重条件 一次查询50个题目
+     *
+     * @param pageNumStr
+     * @return
      */
     @GetMapping("/getProblems")
-    public JsonInfo queryProblemsByPage(@RequestParam("pagenum") String pageNumStr) {
+    public JsonInfo queryProblemsByConditions(@RequestParam(value = "pageNum") String pageNumStr,
+                                              @RequestParam(value = "tagId", required = false) String tagIdStr,
+                                              @RequestParam(value = "title", required = false) String title,
+                                              @RequestParam(value = "username", required = false) String username,
+                                              @RequestParam(value = "isStar", required = false) String isStarStr) {
         JsonInfo jsonInfo = new JsonInfo();
-        Integer pid1, pid2, pageNum, totalPageNum;
-        pageNum = Integer.parseInt(null == pageNumStr ? "1" : pageNumStr);
-        Integer total = problemService.queryProblemsNum();
-        totalPageNum = (total % 50 == 0) ? total / 50 : total / 50 + 1;
-        pid1 = (pageNum - 1) * 50;
-        pid2 = pid1 + 50;
-        List<Problem> list = problemService.queryProblemsByPage(pid1, pid2);
-        jsonInfo.setSuccess();
-        jsonInfo.addInfo(totalPageNum);
-        jsonInfo.addInfo(list);
+        Integer pageNum = Integer.parseInt(pageNumStr);
+        Integer tagId = null;
+        if (tagIdStr != null && !"".equals(tagIdStr)) {
+            tagId = Integer.parseInt(tagIdStr);
+        }
+        Integer startIndex = (pageNum - 1) * 50;
+        List<Problem> problems = problemService.queryProblemsByConditions(startIndex, tagId, title);
+        Integer problemCount = problemService.queryProblemCountByCondition(tagId, title);
+        jsonInfo.addInfo(problems);
+        jsonInfo.addInfo(problemCount);
         return jsonInfo;
     }
+
 
     /**
      * 查询一个范围内的杭电的题目
@@ -109,7 +118,7 @@ public class ProblemController {
     @GetMapping("/getProblemsNum")
     public JsonInfo queryProblemsNum() {
         JsonInfo jsonInfo = new JsonInfo();
-        Integer num = problemService.queryProblemsNum();
+        Integer num = problemService.queryProblemCount();
         jsonInfo.addInfo(num);
         return jsonInfo;
     }
