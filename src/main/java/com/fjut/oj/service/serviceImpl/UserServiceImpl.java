@@ -167,38 +167,46 @@ public class UserServiceImpl implements UserService {
         return userMapper.addAcnum(username);
     }
 
+    /**
+     * FIXME:更换函数后失效
+     * @param username
+     * @return
+     */
     @Override
     public Object getAcGraph(String username) {
-        List<String> timeList = new ArrayList<>();
-        List<Integer> numList = new ArrayList<>();
-        List<Status> list_1 = statusMapper.queryACStatusByUsername(username);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            Calendar end = Calendar.getInstance();
-            end.setTime(dateFormat.parse(dateFormat.format(new Date())));
-            String time = "2015-09-01";
-            Calendar start = Calendar.getInstance();
-            start.setTime(dateFormat.parse(time));
-            int i =0;int num=0;
-            timeList.add(dateFormat.format(start.getTime()));
-            numList.add(num);
-            while (start.before(end)) {
-                while (i<=list_1.size()-1&&list_1.get(i).getSubmitTime().substring(0,10).equals(dateFormat.format(start.getTime()))){
-                    num +=1;
-                    timeList.add(dateFormat.format(start.getTime()));
-                    numList.add(num);
-                    i++;
-                }
-                timeList.add(dateFormat.format(start.getTime()));
-                numList.add(num);
-                start.add(Calendar.DAY_OF_YEAR, 1);
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        List<Object> list = new ArrayList<>();
-        list.add(timeList);
-        list.add(numList);
-        return list;
+        return null;
     }
+
+//        List<String> timeList = new ArrayList<>();
+//        List<Integer> numList = new ArrayList<>();
+//        List<Status> list_1 = statusMapper.queryUserSolveProblemByUsername(username);
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        try {
+//            Calendar end = Calendar.getInstance();
+//            end.setTime(dateFormat.parse(dateFormat.format(new Date())));
+//            String time = "2015-09-01";
+//            Calendar start = Calendar.getInstance();
+//            start.setTime(dateFormat.parse(time));
+//            int i =0;int num=0;
+//            timeList.add(dateFormat.format(start.getTime()));
+//            numList.add(num);
+//            while (start.before(end)) {
+//                while (i<=list_1.size()-1&&list_1.get(i).getSubmitTime().substring(0,10).equals(dateFormat.format(start.getTime()))){
+//                    num +=1;
+//                    timeList.add(dateFormat.format(start.getTime()));
+//                    numList.add(num);
+//                    i++;
+//                }
+//                timeList.add(dateFormat.format(start.getTime()));
+//                numList.add(num);
+//                start.add(Calendar.DAY_OF_YEAR, 1);
+//            }
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        List<Object> list = new ArrayList<>();
+//        list.add(timeList);
+//        list.add(numList);
+//        return list;
+//    }
 }

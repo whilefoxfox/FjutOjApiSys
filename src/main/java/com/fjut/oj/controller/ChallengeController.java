@@ -1,7 +1,7 @@
 package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.*;
-import com.fjut.oj.util.enums.ChallengeBlockType;
+import com.fjut.oj.pojo.enums.ChallengeBlockType;
 import com.fjut.oj.service.ChallengeService;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;

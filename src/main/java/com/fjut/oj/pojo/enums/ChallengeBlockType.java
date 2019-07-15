@@ -1,4 +1,4 @@
-package com.fjut.oj.util.enums;
+package com.fjut.oj.pojo.enums;
 
 public enum ChallengeBlockType {
     BASIS(0, "基础"),

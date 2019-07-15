@@ -1,7 +1,7 @@
-package com.fjut.oj.pojo;
+package com.fjut.oj.pojo.enums;
 
 /**
- * Created by QAQ on 2017/11/5.
+ * @author QAQ [20171105]
  */
 public enum CodeLanguage {
     GPP(0,"G++"),

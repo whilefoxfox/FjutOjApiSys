@@ -1,39 +1,26 @@
 package com.fjut.oj.pojo;
 
+import java.util.Date;
+
 /**
- * @author cjt
+ * 评测视图
+ *
+ * @Author: axiang [20190715]
  */
-public class Status {
+public class ViewUserStatus {
     private Integer id;
+    private String nick;
     private String ruser;
     private Integer pid;
-    private Integer cid;
     private Integer lang;
-    private String submitTime;
+    private Date submitTime;
     private Integer result;
     private Integer score;
     private String timeUsed;
     private String memoryUsed;
-    private String code;
     private Integer codelen;
-    private Object otherinfo;
+    private String otherinfo;
     private String submitlanguage;
-
-    public Object getOtherinfo() {
-        return otherinfo;
-    }
-
-    public void setOtherinfo(Object otherinfo) {
-        this.otherinfo = otherinfo;
-    }
-
-    public String getSubmitlanguage() {
-        return submitlanguage;
-    }
-
-    public void setSubmitlanguage(String submitlanguage) {
-        this.submitlanguage = submitlanguage;
-    }
 
     public Integer getId() {
         return id;
@@ -41,6 +28,14 @@ public class Status {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getRuser() {
@@ -59,14 +54,6 @@ public class Status {
         this.pid = pid;
     }
 
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
-
     public Integer getLang() {
         return lang;
     }
@@ -75,11 +62,11 @@ public class Status {
         this.lang = lang;
     }
 
-    public String getSubmitTime() {
+    public Date getSubmitTime() {
         return submitTime;
     }
 
-    public void setSubmitTime(String submitTime) {
+    public void setSubmitTime(Date submitTime) {
         this.submitTime = submitTime;
     }
 
@@ -115,14 +102,6 @@ public class Status {
         this.memoryUsed = memoryUsed;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public Integer getCodelen() {
         return codelen;
     }
@@ -131,23 +110,20 @@ public class Status {
         this.codelen = codelen;
     }
 
-    @Override
-    public String toString() {
-        return "Status{" +
-                "id=" + id +
-                ", ruser='" + ruser + '\'' +
-                ", pid=" + pid +
-                ", cid=" + cid +
-                ", lang=" + lang +
-                ", submitTime='" + submitTime + '\'' +
-                ", result=" + result +
-                ", score=" + score +
-                ", timeUsed='" + timeUsed + '\'' +
-                ", memoryUsed='" + memoryUsed + '\'' +
-                ", code='" + code + '\'' +
-                ", codelen=" + codelen +
-                ", otherinfo=" + otherinfo +
-                ", submitlanguage='" + submitlanguage + '\'' +
-                '}';
+    public String getOtherinfo() {
+        return otherinfo;
     }
+
+    public void setOtherinfo(String otherinfo) {
+        this.otherinfo = otherinfo;
+    }
+
+    public String getSubmitlanguage() {
+        return submitlanguage;
+    }
+
+    public void setSubmitlanguage(String submitlanguage) {
+        this.submitlanguage = submitlanguage;
+    }
+
 }

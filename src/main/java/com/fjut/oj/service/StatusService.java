@@ -1,6 +1,8 @@
 package com.fjut.oj.service;
 
 import com.fjut.oj.pojo.Status;
+import com.fjut.oj.pojo.ViewUserSolve;
+import com.fjut.oj.pojo.ViewUserStatus;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -13,7 +15,7 @@ public interface StatusService {
 
     Integer allStatusNum();
 
-    List<Status> queryStatus(Integer start);
+    List<ViewUserStatus> queryStatus(Integer start);
 
     Status queryStatusById(Integer id); // 按照id查询评测记录
 
@@ -46,5 +48,5 @@ public interface StatusService {
      * @param username
      * @return
      */
-    List<Status> queryACStatusByUsername(String username);
+    List<ViewUserSolve> queryUserSolveProblemByUsername(String username);
 }

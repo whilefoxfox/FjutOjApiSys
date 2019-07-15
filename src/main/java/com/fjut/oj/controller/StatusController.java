@@ -2,6 +2,7 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.Status;
 import com.fjut.oj.pojo.UserSolve;
+import com.fjut.oj.pojo.ViewUserStatus;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.service.UserSolveService;
 import com.fjut.oj.util.JsonInfo;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
 /**
  * @author axiang
  */
@@ -37,7 +39,7 @@ public class StatusController {
     static private List<Status> list;
 
     @RequestMapping("/GAllStatus")
-    public JsonInfo getAllStatus(@RequestParam("pagenum")String pageNumStr) {
+    public JsonInfo queryAllStatus(@RequestParam("pagenum") String pageNumStr) {
         JsonInfo jsonInfo = new JsonInfo();
         int pageNum = Integer.parseInt(pageNumStr);
         Integer num = statusService.allStatusNum();
@@ -45,7 +47,7 @@ public class StatusController {
             jsonInfo.setSuccess("数据为空");
         }
         int from = (pageNum - 1) * 50;
-        List<Status> statuses = statusService.queryStatus(from);
+        List<ViewUserStatus> statuses = statusService.queryStatus(from);
         jsonInfo.setSuccess();
         jsonInfo.addInfo(num % 50 == 0 ? num / 50 : num / 50 + 1);
         jsonInfo.addInfo(statuses);
@@ -53,7 +55,7 @@ public class StatusController {
     }
 
     @RequestMapping("/GAllStatusByUsername")
-    public JsonInfo getAllStatusByUsername(HttpServletRequest req, HttpServletResponse resp) {
+    public JsonInfo queryAllStatusByUsername(HttpServletRequest req, HttpServletResponse resp) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer pid;
         String ruser, submitTime;
@@ -118,11 +120,9 @@ public class StatusController {
         Integer totalStatus = statusService.queryCountAllStatusByConditions(ruser, pid, result, lang, start);
         Integer totalPage = totalStatus % 50 == 0 ? totalStatus / 50 : totalStatus / 50 + 1;
         List<Status> list = statusService.queryAllStatusByConditions(ruser, pid, result, lang, start);
-        if(0 == list.size())
-        {
+        if (0 == list.size()) {
             jsonInfo.setFail("未找到内容");
-        }
-        else {
+        } else {
             jsonInfo.setSuccess();
             jsonInfo.addInfo(totalPage);
             jsonInfo.addInfo(list);
@@ -131,21 +131,18 @@ public class StatusController {
     }
 
     @RequestMapping("/getStatusById")
-    public JsonInfo getStatusById(HttpServletRequest request){
+    public JsonInfo getStatusById(HttpServletRequest request) {
         JsonInfo jsonInfo = new JsonInfo();
         String idStr = request.getParameter("id");
         Integer id = Integer.parseInt(idStr);
         String user = request.getParameter("user");
         Status status = statusService.queryStatusById(id);
-        if( null == status)
-        {
+        if (null == status) {
             jsonInfo.setFail("评测信息不存在！");
-        }
-        else if(status.getRuser().equals(user)){
+        } else if (status.getRuser().equals(user)) {
             jsonInfo.setSuccess();
             jsonInfo.addInfo(status);
-        }
-        else{
+        } else {
             jsonInfo.setFail("不允许查看其他用户代码");
         }
         return jsonInfo;

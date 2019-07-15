@@ -1,15 +1,12 @@
 package com.fjut.oj.pojo;
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 11:05 2019/6/27
- * @Modify By:
+ * @Author: axiang [20190627]
  */
 public class ChallengeConditionForBlock {
-    Integer blockId;
-    String name;
-    Integer num;
+    private Integer blockId;
+    private String name;
+    private Integer num;
 
 
     public Integer getBlockId() {

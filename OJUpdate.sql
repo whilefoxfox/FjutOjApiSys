@@ -33,5 +33,18 @@ ALTER TABLE userper
     14：密码重置；15：用户管理；16：查看log；17：考试管理；18：集训队员管理；19：商城管理；
     20：APP更新；21：认证管理（全部）；22：认证管理（校内人员）；23：认证管理（协会成员）；
     24：认证管理（退役人员）；25：认证管理（集训队员）；26：集训队员自动报名；27：添加题目；
-    28：称号管理；29：组队管理'
+    28：称号管理；29：组队管理';
 /* 对 userper 的修改 end */
+
+/* 对视图的修改 begin*/
+DROP VIEW contestusersolve_view;
+
+DROP VIEW v_user;
+
+CREATE VIEW v_user_status AS
+    SELECT id,nick,ruser,pid,lang,submitTime,result,score,timeUsed,memoryUsed,codelen
+    FROM statu, users
+    WHERE statu.ruser = users.username
+    ORDER BY id DESC;
+/* 对视图的修改 end */
+

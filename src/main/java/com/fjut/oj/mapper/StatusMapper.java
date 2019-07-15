@@ -1,10 +1,15 @@
 package com.fjut.oj.mapper;
 
 import com.fjut.oj.pojo.Status;
+import com.fjut.oj.pojo.ViewUserSolve;
+import com.fjut.oj.pojo.ViewUserStatus;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+/**
+ * @author cjt
+ */
 public interface StatusMapper {
 
     List<Status> ShowAllStatus();
@@ -13,7 +18,7 @@ public interface StatusMapper {
 
     Integer allStatusNum();
 
-    List<Status> queryStatus(@Param("start") Integer start);
+    List<ViewUserStatus> queryStatus(@Param("start") Integer start);
 
     Status queryStatusById(@Param("id") Integer id);
 
@@ -34,10 +39,10 @@ public interface StatusMapper {
     Integer updateStatus(@Param("status") Status status);
 
     /**
-     * 获取用户的AC题列表
+     * 获取用户的解决题目列表
      * @param username
      * @return
      */
-    List<Status> queryACStatusByUsername(@Param("username") String username);
+    List<ViewUserSolve> queryUserSolveProblemByUsername(@Param("username") String username);
 
 }

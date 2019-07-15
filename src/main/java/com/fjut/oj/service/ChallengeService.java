@@ -4,7 +4,9 @@ import com.fjut.oj.pojo.*;
 
 import java.util.List;
 
-
+/***
+ * @author axiang
+ */
 public interface ChallengeService {
     List<ChallengeBlockForUser> queryAllChallengeBlocks();
 

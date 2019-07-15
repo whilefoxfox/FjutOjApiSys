@@ -1,10 +1,7 @@
 package com.fjut.oj.pojo;
 
 /**
- * @Author: axiang 新的挑战模式模块POJO类，集成了用户的模块信息
- * @Despriction:
- * @Date:Created in 23:24 2019/6/25
- * @Modify By:
+ * @Author: axiang [20190625] 新的挑战模式模块POJO类，集成了用户的模块信息
  */
 public class ChallengeBlockForUser {
     private Integer id;
