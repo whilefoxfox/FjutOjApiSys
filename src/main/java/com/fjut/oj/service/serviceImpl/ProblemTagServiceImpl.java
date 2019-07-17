@@ -19,8 +19,8 @@ public class ProblemTagServiceImpl implements ProblemTagService {
     private UserMapper userMapper;
 
     @Override
-    public List<Problem_tag> queryAllProblemTag() {
-        List<Problem_tag> list = problemTagMapper.queryAllProblemTag();
+    public List<t_problem_tag> queryAllProblemTag() {
+        List<t_problem_tag> list = problemTagMapper.queryAllProblemTag();
         return list;
     }
 

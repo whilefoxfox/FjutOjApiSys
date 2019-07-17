@@ -2,6 +2,8 @@ package com.fjut.oj.service.serviceImpl;
 
 import com.fjut.oj.mapper.StatusMapper;
 import com.fjut.oj.pojo.Status;
+import com.fjut.oj.pojo.ViewUserSolve;
+import com.fjut.oj.pojo.ViewUserStatus;
 import com.fjut.oj.service.StatusService;
 import com.fjut.oj.util.ResultString;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +38,9 @@ public class StatusServiceImpl implements StatusService {
     }
 
     @Override
-    public List<Status> queryStatus(Integer start){
-        List<Status> list = statusMapper.queryStatus(start);
-        for (Status element : list){
+    public List<ViewUserStatus> queryStatus(Integer start){
+        List<ViewUserStatus> list = statusMapper.queryStatus(start);
+        for (ViewUserStatus element : list){
             element.setOtherinfo(ResultString.getResultString(element.getResult()));
             element.setSubmitlanguage(ResultString.getSubmitLanguage(element.getLang()));
         }
@@ -98,7 +100,7 @@ public class StatusServiceImpl implements StatusService {
     }
 
     @Override
-    public List<Status> queryACStatusByUsername(String username) {
-        return statusMapper.queryACStatusByUsername(username);
+    public List<ViewUserSolve> queryUserSolveProblemByUsername(String username) {
+        return statusMapper.queryUserSolveProblemByUsername(username);
     }
 }

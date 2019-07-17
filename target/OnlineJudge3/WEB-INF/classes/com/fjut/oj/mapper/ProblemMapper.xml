@@ -30,12 +30,39 @@
     </insert>
 
     <select id="queryProblemsByPage" resultType="com.fjut.oj.pojo.Problem">
-        select *
-        from problem
-        WHERE `ojid` = 0 OR `ojid` = 3
-        order by pid
-        LIMIT #{pid1}, 50
+        SELECT *
+        FROM problem
+        WHERE ojid = 0 OR ojid = 3
+        ORDER BY pid
+        LIMIT #{startIndex}, 50
     </select>
+
+    <select id="queryProblemsByConditions" resultType="com.fjut.oj.pojo.Problem">
+        SELECT * FROM problem
+            WHERE (ojid = 0 OR ojid = 3)
+            <if test="title != null">
+                AND title LIKE "%"#{title}"%"
+            </if>
+            <if test="tagId != null">
+                AND problem.pid IN
+                (SELECT distinct pid FROM t_problem_tag_record WHERE tagid=#{tagId})
+            </if>
+            ORDER BY pid
+            LIMIT #{startIndex}, 50
+    </select>
+
+    <select id="queryProblemCountByCondition" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM problem
+            WHERE (ojid = 0 OR ojid = 3)
+            <if test="title != null">
+                AND title LIKE "%"#{title}"%"
+            </if>
+            <if test="tagId != null">
+                AND problem.pid IN
+                (SELECT DISTINCT pid FROM t_problem_tag_record WHERE tagid=#{tagId})
+            </if>
+    </select>
+
 
     <select id="queryProblemsFromHDU" resultType="com.fjut.oj.pojo.Problem">
           select *
@@ -64,24 +91,19 @@
     </select>
 
 
-
-
-    <select id="queryProblemsNum" resultType="java.lang.Integer">
+    <select id="queryProblemCount" resultType="java.lang.Integer">
           SELECT COUNT(*)
           FROM  problem
           WHERE `ojid` = 0 OR `ojid` = 3
     </select>
 
 
-
-
-
     <select id="queryProblemsNumByTitle" resultType="java.lang.Integer">
-          select count(*)
-          from problem
-          <where>
-              title like '%${title}%' AND `ojid` = 0 OR title like '%${title}%' AND `ojid` = 3
-          </where>
+        select count(*)
+        from problem
+        <where>
+            title like '%${title}%' AND `ojid` = 0 OR title like '%${title}%' AND `ojid` = 3
+        </where>
     </select>
 
     <update id="updateProblemtotalSubmit" parameterType="java.lang.Integer">
@@ -245,5 +267,6 @@
         select max(pid)
         from problem
     </select>
+
 
 </mapper>

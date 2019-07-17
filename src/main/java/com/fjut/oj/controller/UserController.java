@@ -308,6 +308,7 @@ public class UserController {
     public JsonInfo getAcGraph(HttpServletRequest request, HttpServletResponse response) {
         JsonInfo jsonInfo =new JsonInfo();
         String username = request.getParameter("username");
+        //FIXME: 函数错误
         List<Object> list = (List<Object>) userService.getAcGraph(username);
         if (null != list) {
             jsonInfo.setSuccess();

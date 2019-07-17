@@ -2,7 +2,10 @@ package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.Problem;
 import com.fjut.oj.pojo.Problems1;
+import com.fjut.oj.pojo.ViewUserSolve;
 import com.fjut.oj.service.ProblemService;
+import com.fjut.oj.service.StatusService;
+import com.fjut.oj.service.UserService;
 import com.fjut.oj.util.JsonInfo;
 import com.fjut.oj.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * TODO: 把 JsonMsg 替换为 JsonInfo
@@ -26,6 +30,9 @@ public class ProblemController {
 
     @Autowired
     private ProblemService problemService;
+
+    @Autowired
+    private StatusService statusService;
 
 
     /**
@@ -52,6 +59,19 @@ public class ProblemController {
         Integer problemCount = problemService.queryProblemCountByCondition(tagId, title);
         jsonInfo.addInfo(problems);
         jsonInfo.addInfo(problemCount);
+        return jsonInfo;
+    }
+
+    /**
+     * 获取用户答题状态
+     * @param username
+     * @return
+     */
+    @GetMapping("/getProblemSolve")
+    public JsonInfo queryProblemsByConditions(@RequestParam("username") String username) {
+        JsonInfo jsonInfo = new JsonInfo();
+        List<ViewUserSolve> solves = statusService.queryUserSolveProblemByUsername(username);
+        jsonInfo.addInfo(solves);
         return jsonInfo;
     }
 

@@ -3,39 +3,38 @@
 <mapper namespace="com.fjut.oj.mapper.StatusMapper">
 
     <select id="ShowAllStatus" resultType="com.fjut.oj.pojo.Status">
-        select id,ruser,pid,lang,submitTime,result,score,timeUsed,memoryUsed,codelen
-        from statu order by id desc
+        SELECT id,ruser,pid,lang,submitTime,result,score,timeUsed,memoryUsed,codelen
+        FROM statu ORDER BY id DESC
     </select>
 
     <select id="getAllStatusByUsername" resultType="com.fjut.oj.pojo.Status">
-        select ruser, pid, submitTime, result
-        from statu
-        where ruser = #{username}
+        SELECT ruser, pid, submitTime, result
+        FROM statu
+        WHERE ruser = #{username}
     </select>
 
     <select id="allStatusNum" resultType="java.lang.Integer">
-        select count(*)
-        from statu
+        SELECT COUNT(*)
+        FROM statu
     </select>
 
-    <select id="queryStatus" resultType="com.fjut.oj.pojo.Status">
-        select id,ruser,pid,lang,submitTime,result,timeUsed,memoryUsed,codelen
-        from statu
-        order by id desc
+    <select id="queryStatus" resultType="com.fjut.oj.pojo.ViewUserStatus">
+        SELECT *
+        FROM v_user_status
         LIMIT #{start}, 50
     </select>
 
     <select id="queryStatusById" resultType="com.fjut.oj.pojo.Status">
-        select *
-        from statu
-        where id = #{id}
+        SELECT *
+        FROM statu
+        WHERE id = #{id}
     </select>
 
     <select id="queryAllStatusByUser" resultType="com.fjut.oj.pojo.Status">
-        select id,ruser,pid,lang,submitTime,result,score,timeUsed,memoryUsed,codelen
-        from statu
-        where ruser = #{ruser}
-        order by id desc
+        SELECT id,ruser,pid,lang,submitTime,result,score,timeUsed,memoryUsed,codelen
+        FROM statu
+        WHERE ruser = #{ruser}
+        ORDER BY id DESC
     </select>
 
     <select id="queryAllStatusByPid" resultType="com.fjut.oj.pojo.Status">
@@ -46,8 +45,8 @@
     </select>
 
     <select id="queryAllStatusByConditions" resultType="com.fjut.oj.pojo.Status">
-        select id,ruser,pid,lang,submitTime,result,timeUsed,memoryUsed,codelen
-        from statu
+        select *
+        from v_user_status
         <where>
             <if test="ruser != null and ruser != ''">
                 and
@@ -66,11 +65,12 @@
                 lang = #{language}
             </if>
         </where>
-        order by id desc
         <if test="start != null">
             LIMIT #{start}, 50
         </if>
     </select>
+
+
 
     <select id="queryCountAllStatusByConditions" resultType="java.lang.Integer">
         select COUNT(*)
@@ -142,8 +142,8 @@
         where id = #{status.id}
     </update>
 
-    <select id="queryACStatusByUsername" resultType="com.fjut.oj.pojo.Status">
-        SELECT * FROM statu WHERE ruser = #{username} AND result = 1
+    <select id="queryUserSolveProblemByUsername" resultType="com.fjut.oj.pojo.ViewUserSolve">
+        SELECT * FROM usersolve_view WHERE username = #{username}
     </select>
 
 </mapper>

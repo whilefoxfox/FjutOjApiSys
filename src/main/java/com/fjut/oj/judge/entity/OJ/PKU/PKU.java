@@ -14,7 +14,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import sun.misc.BASE64Encoder;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -139,9 +139,9 @@ public class PKU extends OTHOJ {
         formparams1.add(new BasicNameValuePair("language",getTrueLanguage(s.getSubmitInfo().language,s.getSubmitInfo().pid)+""));
         formparams1.add(new BasicNameValuePair("problem_id",s.getSubmitInfo().pid));
 
-        String code= new BASE64Encoder().encode(s.getSubmitInfo().code.getBytes());
+//        String code= new BASE64Encoder().encode(s.getSubmitInfo().code.getBytes());
 
-        formparams1.add(new BasicNameValuePair("source",code));
+//        formparams1.add(new BasicNameValuePair("source",code));
         formparams1.add(new BasicNameValuePair("encoded","1"));
         if(hc.Post(url+"/submit",formparams1)==null) return "error";
         else return "success";

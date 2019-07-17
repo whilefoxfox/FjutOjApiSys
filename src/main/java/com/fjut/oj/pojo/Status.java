@@ -1,5 +1,8 @@
 package com.fjut.oj.pojo;
 
+/**
+ * @author cjt
+ */
 public class Status {
     private Integer id;
     private String ruser;
