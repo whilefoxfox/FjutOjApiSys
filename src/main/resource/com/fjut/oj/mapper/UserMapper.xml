@@ -3,13 +3,13 @@
 <mapper namespace="com.fjut.oj.mapper.UserMapper">
 
     <select id="queryUserCount" resultType="java.lang.Integer">
-        select count(*)
-        from users
+        SELECT count(*)
+        FROM users
     </select>
 
     <insert id="insertUser" parameterType="com.fjut.oj.pojo.User">
-          insert into users
-          values(
+          INSERT INTO users
+          VALUES(
           #{user.username},
           MD5(#{user.password}),
           #{user.nick},
@@ -39,44 +39,45 @@
 
     <select id="queryAwardInfo" resultType="com.fjut.oj.pojo.AwardInfo">
         SELECT time,contest_level,awards_level,text FROM t_team_member_info
-        WHERE username1 = #{username} OR username2 = #{username} OR username3 = #{username} ORDER BY time
+        WHERE username1 = #{username} OR username2 = #{username} OR username3 = #{username}
+        ORDER BY time
     </select>
 
     <select id="queryByUsernameAndPassword" resultType="com.fjut.oj.pojo.User">
-        select *
-        from Users
+        SELECT *
+        FROM Users
         <where>
             <if test="username != null and username != ''">
-                and
+                AND
                 username = #{username}
             </if>
         </where>
     </select>
 
     <select id="queryAll" resultType="com.fjut.oj.pojo.User">
-        select *
-        from Users
+        SELECT *
+        FROM Users
     </select>
 
     <select id="queryUserByName" resultType="com.fjut.oj.pojo.User">
-        select *
-        from users
+        SELECT *
+        FROM users
         <where>
             <if test="username != null and username != ''">
-                and
+                AND
                 username = #{username}
             </if>
         </where>
     </select>
 
     <select id="getUserByUsernameAndPassword" resultType="java.lang.Integer">
-        select count(*)
-        from users
+        SELECT COUNT(*)
+        FROM users
         <where>
             <if test="username != null and username != ''">
-                and
+                AND
                 username = #{username}
-                and
+                AND
                 password = MD5(#{password})
             </if>
         </where>

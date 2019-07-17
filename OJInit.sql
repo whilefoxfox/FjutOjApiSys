@@ -187,7 +187,7 @@ CREATE TABLE `t_ai_info` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
-/*Table structure for table `t_challenge_block` */
+/*Table structure for table `ChallengeBlock` */
 
 DROP TABLE IF EXISTS `t_challenge_block`;
 

@@ -143,7 +143,11 @@
     </update>
 
     <select id="queryUserSolveProblemByUsername" resultType="com.fjut.oj.pojo.ViewUserSolve">
-        SELECT * FROM usersolve_view WHERE username = #{username}
+        SELECT ruser AS username,
+            pid,
+            MAX(result = 1) AS solved
+            FROM statu WHERE ruser = #{username}
+            GROUP BY ruser,pid
     </select>
 
 </mapper>

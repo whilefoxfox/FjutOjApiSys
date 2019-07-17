@@ -32,7 +32,7 @@
     <select id="queryProblemsByPage" resultType="com.fjut.oj.pojo.Problem">
         SELECT *
         FROM problem
---         WHERE ojid = 0 OR ojid = 3
+        WHERE ojid = 0 OR ojid = 3
         ORDER BY pid
         LIMIT #{startIndex}, 50
     </select>

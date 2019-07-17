@@ -11,8 +11,8 @@ ALTER TABLE statu ADD INDEX indexResult(result);
 ALTER TABLE statu ADD INDEX indexLanguage(lang);
 /* 对 statu 的修改 end */
 
-/* 对 t_challenge_block 的修改 begin */
-/* 对 t_challenge_block 的修改 end */
+/* 对 ChallengeBlock 的修改 begin */
+/* 对 ChallengeBlock 的修改 end */
 
 
 /* 对 t_challenge_condition 的修改 begin */

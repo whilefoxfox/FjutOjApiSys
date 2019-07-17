@@ -25,7 +25,7 @@ public class ChallengeServiceImpl implements ChallengeService {
     }
 
     @Override
-    public t_challenge_block queryChallengeBlockByBlockId(Integer blockId) {
+    public ChallengeBlock queryChallengeBlockByBlockId(Integer blockId) {
         return challengeMapper.queryChallengeBlockByBlockId(blockId);
     }
 
