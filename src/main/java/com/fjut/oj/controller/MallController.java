@@ -23,7 +23,7 @@ public class MallController {
     @Autowired
     MallService mallService;
 
-    @GetMapping("/getMall")
+    @GetMapping("/getMallGoods")
     public JsonInfo queryMallGoods(){
         JsonInfo jsonInfo = new JsonInfo();
         List<Mall> malls = mallService.queryAllMallGoods();
