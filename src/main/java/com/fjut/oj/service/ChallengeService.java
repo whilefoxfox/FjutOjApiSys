@@ -12,7 +12,7 @@ public interface ChallengeService {
 
     Integer queryChallengeBlockTotalScoreByBlockId(Integer blockId);
 
-    t_challenge_block queryChallengeBlockByBlockId(Integer blockId);
+    ChallengeBlock queryChallengeBlockByBlockId(Integer blockId);
 
     List<Integer> queryShowedChallengeBlocksByUsername(String username);
 

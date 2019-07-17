@@ -67,7 +67,7 @@
         WHERE c.belongBlockId = #{blockId} and b.id = c.par
     </select>
 
-    <select id="queryChallengeBlockByBlockId" resultType="com.fjut.oj.pojo.t_challenge_block">
+    <select id="queryChallengeBlockByBlockId" resultType="com.fjut.oj.pojo.ChallengeBlock">
         SELECT * FROM t_challenge_block
             WHERE id = #{blockId}
     </select>

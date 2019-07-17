@@ -1,10 +1,7 @@
 package com.fjut.oj.pojo;
 
 /**
- * @Author: wyx
- * @Despriction:
- * @Date:Created in 11:42 2019/6/28
- * @Modify By:
+ * @Author: axiang [20190628]
  */
 public class ChallengeBlockDetail {
     private Integer id;

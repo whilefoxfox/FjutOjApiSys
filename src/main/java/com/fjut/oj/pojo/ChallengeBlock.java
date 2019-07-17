@@ -1,7 +1,7 @@
 package com.fjut.oj.pojo;
 
 // 挑战模式块
-public class t_challenge_block {
+public class ChallengeBlock {
 
     private Integer id;
     private String  name;

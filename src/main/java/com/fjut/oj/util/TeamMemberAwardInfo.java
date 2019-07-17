@@ -1,7 +1,7 @@
 package com.fjut.oj.util;
 
-import com.fjut.oj.util.enums.TeamMemberAwardInfo_AwardLevel;
-import com.fjut.oj.util.enums.TeamMemberAwardInfo_ContestLevel;
+import com.fjut.oj.pojo.enums.TeamMemberAwardInfo_AwardLevel;
+import com.fjut.oj.pojo.enums.TeamMemberAwardInfo_ContestLevel;
 
 import java.sql.Date;
 import java.sql.ResultSet;

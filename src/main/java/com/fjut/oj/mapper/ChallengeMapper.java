@@ -26,9 +26,9 @@ public interface ChallengeMapper {
     /**
      * 根据ID 获取挑战模块的表详情
      * @param blockId
-     * @return t_challenge_block
+     * @return ChallengeBlock
      */
-    t_challenge_block queryChallengeBlockByBlockId(@Param("blockId")Integer blockId);
+    ChallengeBlock queryChallengeBlockByBlockId(@Param("blockId")Integer blockId);
 
 
     /**

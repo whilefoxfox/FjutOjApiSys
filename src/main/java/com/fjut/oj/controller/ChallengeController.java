@@ -1,7 +1,7 @@
 package com.fjut.oj.controller;
 
 import com.fjut.oj.pojo.*;
-import com.fjut.oj.util.enums.ChallengeBlockType;
+import com.fjut.oj.pojo.enums.ChallengeBlockType;
 import com.fjut.oj.service.ChallengeService;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +81,7 @@ public class ChallengeController {
             @RequestParam("username") String username) {
         JsonInfo jsonInfo = new JsonInfo();
         Integer blockId = Integer.parseInt(blockIdStr);
-        t_challenge_block block = challengeService.queryChallengeBlockByBlockId(blockId);
+        ChallengeBlock block = challengeService.queryChallengeBlockByBlockId(blockId);
         // add by axiang [20190628] 获取该模块的全部得到分值
         List<ChallengeBlockForUser> getScores = challengeService.queryChallengeBlocksScoredByUsername(username);
         Integer getScore = 0;
