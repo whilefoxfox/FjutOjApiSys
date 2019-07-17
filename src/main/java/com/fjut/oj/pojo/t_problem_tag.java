@@ -1,7 +1,7 @@
 package com.fjut.oj.pojo;
 
 // 题目标签表
-public class Problem_tag {
+public class t_problem_tag {
 
     private Integer id;
     private String  name;

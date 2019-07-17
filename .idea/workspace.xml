@@ -10,52 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99a3b258-936a-4aa8-9032-2670c62117f1" name="Default Changelist" comment="UPDATE：全新筛选逻辑，参数都放在后端处理，已应用到题目列表的筛选上">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/exception/NotOwnerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/interceptor/CheckUserPrivate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/interceptor/CheckUserPrivateInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ViewUserSolve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ViewUserStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OJUpdate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/OJUpdate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ProblemTagController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/StatusController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/PKU/PKU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/PKU/PKU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ProblemTagMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ProblemTagMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/StatusMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/StatusMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Problem_tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_problem_tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ProblemTagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ProblemTagService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/StatusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/StatusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ProblemTagServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ProblemTagServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/StatusServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/StatusServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ProblemTagMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ProblemTagMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/StatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/StatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/spring-mybatis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/ProblemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/ProblemMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/ProblemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/ProblemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/Permission.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/Problem_tag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/UserPer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/UserPer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/ProblemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/ProblemService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/StatusService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/StatusService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/ProblemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/ProblemServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/StatusServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/StatusServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserRadarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserRadarServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/ProblemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/ProblemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/StatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/StatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -87,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="20" column="48" lean-forward="true" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state relative-caret-position="361">
+              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -270,7 +231,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="oj" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -697,7 +658,7 @@
       <workItem from="1563257883384" duration="1189000" />
       <workItem from="1563282403250" duration="946000" />
       <workItem from="1563303250487" duration="727000" />
-      <workItem from="1563325038023" duration="1544000" />
+      <workItem from="1563325038023" duration="2079000" />
     </task>
     <task id="LOCAL-00001" summary="update to fixed my computer">
       <created>1559890243671</created>
@@ -902,7 +863,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563038060060</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="UPDATE：全新筛选逻辑，参数都放在后端处理，已应用到题目列表的筛选上">
+      <created>1563334740627</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1563334740627</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -938,7 +906,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367633000" />
+    <option name="totallyTimeSpent" value="368168000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -962,7 +930,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32551318" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9095174" visible="true" weight="0.3240469" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9095174" weight="0.3240469" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -971,8 +939,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.5813802" weight="0.37774524" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Spring" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49934897" weight="0.32697946" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="12" sideWeight="0.09048257" side_tool="true" visible="true" weight="0.3240469" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49865952" visible="true" weight="0.32551318" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="12" sideWeight="0.5013405" side_tool="true" visible="true" weight="0.32551318" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.57707775" weight="0.33431086" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32844576" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.32991204" />
@@ -1334,16 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding>
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1440,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="20" column="48" lean-forward="true" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        <state relative-caret-position="361">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
         </state>
       </provider>
     </entry>
