@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fjut.oj.mapper.MallMapper">
+
+    <select id="queryAllMallGoods" resultType="com.fjut.oj.pojo.Mall">
+        SELECT 	id,
+            title,
+            acb,
+            stock,
+            des,
+            isHidden,
+            user,
+            time,
+            buyLimit,
+            buyVerifyLimit
+
+            FROM
+            t_mall
+    </select>
+</mapper>
