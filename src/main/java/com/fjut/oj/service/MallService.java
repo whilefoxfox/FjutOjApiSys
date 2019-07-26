@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface MallService {
     List<Mall> queryAllMallGoods();
+    Mall queryMallGoodsById(Integer id);
 }

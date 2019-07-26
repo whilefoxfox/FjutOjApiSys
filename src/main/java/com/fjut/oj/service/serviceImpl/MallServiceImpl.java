@@ -20,4 +20,9 @@ public class MallServiceImpl implements MallService {
     public List<Mall> queryAllMallGoods() {
         return mallMapper.queryAllMallGoods();
     }
+
+    @Override
+    public Mall queryMallGoodsById(Integer id) {
+        return mallMapper.queryMallGoodsById(id);
+    }
 }
