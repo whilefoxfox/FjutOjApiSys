@@ -16,49 +16,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/MallService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MallServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OJInit.sql" beforeDir="false" afterPath="$PROJECT_DIR$/OJInit.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OJUpdate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/OJUpdate.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/ChallengeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/BZOJ/BZOJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/entity/OJ/BZOJ/BZOJ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/servise/StatusService/StatusChgEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Vjudge/SubmitterImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/judge/util/Vjudge/SubmitterImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockForUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlockForUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeConditionForBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeConditionForBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/CodeLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/CodeLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/t_challenge_block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/ChallengeBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/ChallengeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ChallengeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/ChallengeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/HDU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/HDU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/RES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/RES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/SubmitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/SubmitInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/TeamMemberAwardInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/WebPathlnitServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/editproblem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/ChallengeBlockType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/ChallengeBlockType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/CodeLanguage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/PermissionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/PermissionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/SubmitResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/SubmitResultType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/TeamMemberAwardInfo_AwardLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/TeamMemberAwardInfo_AwardLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/util/enums/TeamMemberAwardInfo_ContestLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/enums/TeamMemberAwardInfo_ContestLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/ChallengeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/StatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/StatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/pojo/t_challenge_block.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/ProblemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/ProblemServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/StatusServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/StatusServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserRadarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserRadarServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/TeamMemberAwardInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/util/WebPathlnitServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/StatusMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/StatusMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fjut/oj/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -108,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
+            <state relative-caret-position="247">
               <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -120,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MallServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="133">
               <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -132,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="209">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="72" column="6" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
+            <state relative-caret-position="-912">
+              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -153,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="228">
               <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
             </state>
           </provider>
@@ -282,9 +239,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="70" />
-    <option name="y" value="10" />
     <option name="width" value="1730" />
-    <option name="height" value="1035" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -294,8 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,6 +302,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,6 +317,12 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../oldoj-master/newoj-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -375,19 +337,19 @@
       <recent name="com.fjut.oj.mapper" />
       <recent name="com.fjut.oj.service.serviceImpl" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj\mapper" />
+      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.fjut.oj" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workspaceforWeb\OJ\src\main\webapp" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
       <recent name="com.fjut.oj.mapper.UserMapper" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj\mapper" />
-      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspaceforWeb\OJ\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -757,6 +719,12 @@
       <workItem from="1563235813476" duration="4479000" />
       <workItem from="1563322455397" duration="42000" />
       <workItem from="1563322504003" duration="2482000" />
+      <workItem from="1563383757955" duration="608000" />
+      <workItem from="1563412473698" duration="1604000" />
+      <workItem from="1563421447337" duration="118000" />
+      <workItem from="1564219034724" duration="1204000" />
+      <workItem from="1565012318461" duration="1408000" />
+      <workItem from="1565054127997" duration="1711000" />
     </task>
     <task id="LOCAL-00001" summary="update to fixed my computer">
       <created>1559890243671</created>
@@ -968,7 +936,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563202673690</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <created>1563350071426</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1563350071426</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1004,7 +979,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370783000" />
+    <option name="totallyTimeSpent" value="379410000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1017,28 +992,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2841823" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2841823" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.31671554" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64075065" visible="true" weight="0.14662756" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6032172" visible="true" weight="0.5498534" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.5813802" weight="0.37774524" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.58042896" weight="0.37481698" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49934897" weight="0.32697946" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.35924932" side_tool="true" weight="0.14662756" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.5800781" weight="0.33431086" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.39678285" side_tool="true" visible="true" weight="0.5498534" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.57908845" weight="0.33431086" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32844576" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.32991204" />
       <window_info active="true" anchor="bottom" id="PMD" order="16" visible="true" weight="0.434492" />
@@ -1051,6 +1027,8 @@
       <window_info anchor="right" id="Maven" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="CDI" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1128,7 +1106,8 @@
     <MESSAGE value="FIX" />
     <MESSAGE value="UPDATE：全新筛选逻辑，参数都放在后端处理，已应用到题目列表的筛选上" />
     <MESSAGE value="UPDATE" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1457,6 +1436,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1471,23 +1457,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="247">
           <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1497,7 +1469,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MallServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="133">
           <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1507,18 +1479,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="209">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="72" column="6" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
+        <state relative-caret-position="-912">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
         </state>
       </provider>
     </entry>
