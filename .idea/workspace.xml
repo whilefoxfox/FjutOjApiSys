@@ -9,13 +9,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99a3b258-936a-4aa8-9032-2670c62117f1" name="Default Changelist" comment="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resource/com/fjut/oj/mapper/StatusMapper.xml&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/ProblemController.class&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/controller/UserController.class&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/StatusMapper.xml&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/mapper/UserMapper.xml&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/ProblemServiceImpl.class&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/StatusServiceImpl.class&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserRadarServiceImpl.class&#10;#&#9;target/OnlineJudge3/WEB-INF/classes/com/fjut/oj/service/serviceImpl/UserServiceImpl.class&#10;#&#9;target/classes/com/fjut/oj/mapper/StatusMapper.xml&#10;#&#9;target/classes/com/fjut/oj/mapper/UserMapper.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/pojo/Mall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/MallService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MallServiceImpl.java" afterDir="false" />
+    <list default="true" id="99a3b258-936a-4aa8-9032-2670c62117f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/MallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/MallService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fjut/oj/service/serviceImpl/MallServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/MallMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/MallMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,14 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="133">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -89,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="247">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-912">
+            <state relative-caret-position="627">
               <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
             </state>
           </provider>
@@ -250,6 +247,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,6 +286,15 @@
               <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oj" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OnlineJudge3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OJSystemAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resource" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -302,7 +309,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -337,19 +343,19 @@
       <recent name="com.fjut.oj.mapper" />
       <recent name="com.fjut.oj.service.serviceImpl" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj\mapper" />
-      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.fjut.oj" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspaceforWeb\OJ\src\main\webapp" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
       <recent name="com.fjut.oj.mapper.UserMapper" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workspaceforWeb\OJ\src\main\webapp" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj\mapper" />
+      <recent name="D:\个人专用\OJ项目\OJSystemAPI\src\test\com\fjut\oj" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -718,13 +724,9 @@
       <workItem from="1563202363796" duration="1076000" />
       <workItem from="1563235813476" duration="4479000" />
       <workItem from="1563322455397" duration="42000" />
-      <workItem from="1563322504003" duration="2482000" />
-      <workItem from="1563383757955" duration="608000" />
-      <workItem from="1563412473698" duration="1604000" />
-      <workItem from="1563421447337" duration="118000" />
-      <workItem from="1564219034724" duration="1204000" />
-      <workItem from="1565012318461" duration="1408000" />
-      <workItem from="1565054127997" duration="1711000" />
+      <workItem from="1563322504003" duration="3250000" />
+      <workItem from="1565072322617" duration="603000" />
+      <workItem from="1565141537013" duration="724000" />
     </task>
     <task id="LOCAL-00001" summary="update to fixed my computer">
       <created>1559890243671</created>
@@ -936,14 +938,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563202673690</updated>
     </task>
-    <task id="LOCAL-00031" summary="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1563350071426</created>
+    <task id="LOCAL-00031" summary="UPDATE：商城部分API">
+      <created>1563333389055</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1563350071426</updated>
+      <updated>1563333389055</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="UPDATE：商城部分API">
+      <created>1563333498286</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1563333498286</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -979,7 +988,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379410000" />
+    <option name="totallyTimeSpent" value="373050000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1003,18 +1012,18 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.31671554" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6032172" visible="true" weight="0.5498534" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.60455763" visible="true" weight="0.28445747" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39795917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.58042896" weight="0.37481698" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.5813802" weight="0.37774524" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49934897" weight="0.32697946" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.39678285" side_tool="true" visible="true" weight="0.5498534" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.57908845" weight="0.33431086" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="12" sideWeight="0.39544237" side_tool="true" visible="true" weight="0.28445747" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.5800781" weight="0.33431086" />
       <window_info anchor="bottom" id="Application Servers" order="14" weight="0.32844576" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.32991204" />
       <window_info active="true" anchor="bottom" id="PMD" order="16" visible="true" weight="0.434492" />
@@ -1106,8 +1115,8 @@
     <MESSAGE value="FIX" />
     <MESSAGE value="UPDATE：全新筛选逻辑，参数都放在后端处理，已应用到题目列表的筛选上" />
     <MESSAGE value="UPDATE" />
-    <MESSAGE value="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/axiangcoding/FjutOjApiSys&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="UPDATE：商城部分API" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE：商城部分API" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1418,7 +1427,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/MallMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/MallMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/ChallengeMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1436,13 +1458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resource/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1454,16 +1469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1479,11 +1484,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/mapper/MallMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="247">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1494,10 +1506,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/com/fjut/oj/mapper/UserMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fjut/oj/controller/MallController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-912">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state relative-caret-position="133">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
         </state>
       </provider>
     </entry>

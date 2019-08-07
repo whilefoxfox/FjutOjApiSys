@@ -5,15 +5,12 @@ import com.fjut.oj.service.MallService;
 import com.fjut.oj.util.JsonInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
- * @Author: axiang [2019/7/17]
+ * @Author: axiang [20190717]
  */
 @Controller
 @CrossOrigin
@@ -24,19 +21,29 @@ public class MallController {
     MallService mallService;
 
     @GetMapping("/getMallGoods")
-    public JsonInfo queryMallGoods(){
+    public JsonInfo queryMallGoods() {
         JsonInfo jsonInfo = new JsonInfo();
         List<Mall> malls = mallService.queryAllMallGoods();
-        if(0 < malls.size())
-        {
+        if (0 < malls.size()) {
             jsonInfo.setSuccess();
             jsonInfo.addInfo(malls);
-        }
-        else
-        {
+        } else {
             jsonInfo.setFail("未找到商品");
         }
         return jsonInfo;
-
     }
+
+    @GetMapping("/getMallGoodsById")
+    public JsonInfo queryMallGoodsById(@RequestParam("id") Integer id) {
+        JsonInfo jsonInfo = new JsonInfo();
+        Mall mall = mallService.queryMallGoodsById(id);
+        if (null != mall) {
+            jsonInfo.setSuccess();
+            jsonInfo.addInfo(mall);
+        } else {
+            jsonInfo.setFail("未找到该商品！");
+        }
+        return jsonInfo;
+    }
+
 }

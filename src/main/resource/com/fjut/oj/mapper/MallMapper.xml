@@ -17,4 +17,20 @@
             FROM
             t_mall
     </select>
+
+    <select id="queryMallGoodsById" resultType="com.fjut.oj.pojo.Mall">
+        SELECT id,
+            title,
+            acb,
+            stock,
+            des,
+            isHidden,
+            user,
+            time,
+            buyLimit,
+            buyVerifyLimit
+            FROM
+            t_mall
+            WHERE id =  #{id}
+    </select>
 </mapper>
